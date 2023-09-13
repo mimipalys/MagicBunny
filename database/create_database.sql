@@ -14,7 +14,7 @@ CREATE TABLE Vaccine (
     VaccineName VARCHAR(100) NOT NULL,
     RelatedDisease VARCHAR(100),
     Description TEXT,
-    Duration INT
+    DescriptionSource TEXT
 );
 
 CREATE TABLE VaccineSchedule (
