@@ -23,7 +23,7 @@ include("header.php"); // You can create a separate header.php file for the head
     <title>Dashboard</title>
 </head>
 <body>
-    <h1>Welcome to Your Dashboard, <?php echo $_SESSION['username']; ?>!</h1>
+    <h1>Welcome to Your Dashboard, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
     <p>This is a simple example of a dashboard page.</p>
     
     <!-- You can include various dashboard content here based on your application's requirements. -->
