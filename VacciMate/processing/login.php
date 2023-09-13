@@ -38,7 +38,6 @@ if ($user && password_verify($password, $user['Password'])) {
 
 $stmt->close();
 
-
 if (isset($_GET['logout'])) {
     session_destroy();
     header("Location: index.php");
