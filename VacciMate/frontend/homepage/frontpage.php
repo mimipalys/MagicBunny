@@ -4,40 +4,95 @@
 
 <head>
 <style>
-body {background-color: powderblue;}
-h1   {color: red;}
-p    {color: red;}
+body {background-color: white;}
 
-header div {
+.div1 {
   align-items: center;
-  background-color: blue;
-  margin: 1rem;
+  background-color: powderblue;
+  margin: auto;
   padding: 1rem 1rem;
   text-align: center;
-  float: left;
-  margin-left: auto;
-  margin-right: auto;
+  
+  margin-left: 10px;
+  margin-right: 10px;
   width: 100%;
   Height: 10px;
 }
 
-header a {
-font-size: 10px;
-text-align: center;
-float: left;
+.div2{
+  align-items: center;
+  background-color: #89B3C4;
+  margin: auto;
+  padding: 1rem 1rem;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 100%;
+  Height: 40px;
 }
 
-.custombutton {
-background-color: #4caf14;
+.divInf {
+  align-items: center;
+  background-color: #7697B6;
+  margin: auto;
+  padding: 1rem 1rem;
+  text-align: center;
+  margin: 18px ; 
+  width: 400px;
+  Height: 500px;
+  float: left;
+}
+
+.costumbutton1 {
+text-align: center;
+float: left;
+background-color: powderblue;
 border: none;
-padding: 5px 10px;
-font-size: 10px;
+padding: auto;
+font-size: 20px;
 cursor: pointer;
-border-radius: 5px;/* Add some spacing between buttons */
+border-radius: 10px;
+margin-right: 80px; 
+margin-left: 80px; /* Add some spacing between buttons */
+}
+.costumbutton2 {
+text-align: center;
+float: left;
+background-color: #89B3C4;
+border: none;
+padding: auto;
+font-size: 40px;
+cursor: pointer;
+border-radius: 10px;
+margin-right: 80px; 
+margin-left: 80px; /* Add some spacing between buttons */
+}
+
+.container > div {
+    display: inline-block;
+    display: -moz-inline-box;
+    *display: inline; /* For IE7 */
+    zoom: 1; /* Trigger hasLayout */
+    width: 33%;
+    text-align: center;
+}
+
+.costumbutton1 {
+background-color: powderblue;
+border: none;
+padding: auto;
+font-size: 20px;
+cursor: pointer;
+border-radius: 5px;
+margin-right: 80px; 
+margin-left: 80px;  
 }
    /* Change button style on hover */
-.custombutton:hover {
-  background-color: #4caf50;
+.costumbutton1:hover {
+  background-color: blue;
+}
+.costumbutton2:hover {
+  background-color: blue;
 }
 
 </style>
@@ -46,7 +101,6 @@ border-radius: 5px;/* Add some spacing between buttons */
           Using display: flex and 
           justify-content: space-between
  </title>
-
 </head>
 
 
@@ -54,30 +108,46 @@ border-radius: 5px;/* Add some spacing between buttons */
 
 
 <body>
- <h1>  VacciMate </h1>
  <header>
-  <div>
-    <a class="custombutton"> Syringesymbol </a>
-    <a class="custombutton"> VacciMate </a> 
-    <a href = "http://localhost:8888/processing/index.php" class="custombutton"> Login </a> 
-    <a href = "http://localhost:8888/processing/index.php" class="custombutton"> Register </a> 
-    <a href = "http://localhost:8888/processing/index.php" class="custombutton"> Settingsymbol </a> 
+  <div class= "div1">
+    <a class="costumbutton1"> Syringesymbol </a>
+    <a class="costumbutton1"> VacciMate </a> 
+    <a href = "http://localhost:8888/processing/index.php" class="costumbutton1"> Login </a> 
+    <a href = "http://localhost:8888/processing/index.php" class="costumbutton1"> Register </a> 
+    <a href = "http://localhost:8888/processing/index.php" class="costumbutton1"> Settingsymbol </a> 
   </div>
 
-  <div>
-    <a href = "http://localhost:8888/processing/index.php" class="custombutton"> Travel information </a> 
-    <a href = "http://localhost:8888/processing/index.php" class="custombutton"> Search Vaccine </a> 
-    <a href = "http://localhost:8888/processing/index.php" class="custombutton"> About Us </a> 
+  <div class= "div2">
+    <a href = "http://localhost:8888/processing/index.php" class="costumbutton2"> Travel information </a> 
+    <a href = "http://localhost:8888/processing/index.php" class="costumbutton2"> Search Vaccine </a> 
+    <a href = "http://localhost:8888/processing/index.php" class="costumbutton2"> About Us </a> 
   </div>
+
   <nav>
 
 
    </nav>
 
+
  </header>
 
-
-
+ <body>
+   <div class = divInf>
+     <h2> Did you remember to take your refill dose of the TBE vaccine? </h2>
+     <p> Read everything about the TBE vaccine here and stay safe during the hot summer months </p>
+     <h1> Insert picture here</h1>
+   </div>
+   <div class = divInf>
+     <h2> Some exiting news on the progress of the new influensa vaccine</h2>
+     <p> Some cool text introduction to the subject here </p>
+     <h1> Insert picture here </h1>
+   </div>
+   <div class = divInf>
+     <h2> Traveling to Kenya this winter?</h2>
+     <p> Get all the information you need about vacciens needed in the area!</p>
+     <h1> Insert picture here</h1>
+   </div>
+ </body>
 
 </body>
 </html>
