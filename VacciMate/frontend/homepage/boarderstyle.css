@@ -1,75 +1,14 @@
-
-  /* styles that we need */
-
-
-.ib {
-  display: inline-block;
-  border: 1px solid #ccc;
-}
-
 header div {
+  border: 1px solid black;
+  margin: 1rem;
+  padding: 2rem 2rem;
+  text-align: center;
   float: left;
 }
+.child {
+  display: inline-block;
+  border: 1px solid red;
+  padding: 1rem 1rem;
+  margin-right: 30px;
+}
 
-.btn {
-    border: 2px solid black;
-    background-color: white;
-    color: black;
-    padding: 14px 28px;
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
-  /* Green */
-  .success {
-    border-color: #04AA6D;
-    color: green;
-  }
-  
-  .success:hover {
-    background-color: #04AA6D;
-    color: white;
-  }
-  
-  /* Blue */
-  .info {
-    border-color: #2196F3;
-    color: dodgerblue
-  }
-  
-  .info:hover {
-    background: #2196F3;
-    color: white;
-  }
-  
-  /* Orange */
-  .warning {
-    border-color: #ff9800;
-    color: orange;
-  }
-  
-  .warning:hover {
-    background: #ff9800;
-    color: white;
-  }
-  
-  /* Red */
-  .danger {
-    border-color: #f44336;
-    color: red
-  }
-  
-  .danger:hover {
-    background: #f44336;
-    color: white;
-  }
-  
-  /* Gray */
-  .default {
-    border-color: #e7e7e7;
-    color: black;
-  }
-  
-  .default:hover {
-    background: #e7e7e7;
-  }
