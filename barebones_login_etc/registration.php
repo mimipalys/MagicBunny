@@ -26,6 +26,19 @@ $mailAddress = $_POST['mail'];
 $phoneNumber = $_POST['phone'];
 $address = $_POST['address'];
 
+// Input validation
+echo $mailAddress;
+
+if (!filter_var($mailAddress, FILTER_VALIDATE_EMAIL, FILTER_FLAG_EMAIL_UNICODE)) {
+    echo "Invalid e-mail adress. Please try again";
+    exit;
+}
+
+if (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $dateOfBirth)) {
+    echo "Invalid date of birth. Please try again";
+    exit;
+}
+
 $hashed_password = password_hash($password, PASSWORD_BCRYPT, ["cost"=>12]);
 
 // protect against sql injection
