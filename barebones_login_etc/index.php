@@ -10,7 +10,7 @@
 
     <!-- User Registration Form -->
     <h2>Create new account</h2>
-    <form action="login.php" method="POST">
+    <form action="registration.php" method="POST">
         <label for="ID">ID:</label>
         <input type="int" id="ID" name="ID" required>
         <br>
