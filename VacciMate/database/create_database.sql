@@ -49,7 +49,6 @@ CREATE TABLE VaccineDose (
     VaccineID INT,
     DoseNumber INT,
     AdministrationDate DATE,
-    ExpirationDate DATE,
     FOREIGN KEY (PatientID) REFERENCES Patient(PatientID) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (VaccineID) REFERENCES Vaccine(VaccineID) ON UPDATE CASCADE,
     FOREIGN KEY (DoseNumber, VaccineID) REFERENCES 
@@ -88,3 +87,5 @@ CREATE TABLE Feedback (
     FOREIGN KEY (PatientID) REFERENCES Patient(PatientID) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (VaccineID) REFERENCES Vaccine(VaccineID) ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+
