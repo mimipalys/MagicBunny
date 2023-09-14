@@ -10,7 +10,7 @@
 
     <!-- User Registration Form -->
     <h2>Create new account</h2>
-    <form action="registration.php" method="POST">
+    <form action="patient_registration.php" method="POST">
         <label for="ID">ID:</label>
         <input type="int" id="ID" name="ID" required>
         <br>
@@ -34,6 +34,27 @@
         <br>
         <label for="address">Address:</label>
         <input type="text" id="address" name="address">
+        <br>
+        <input type="submit" name="register" value="Register">
+    </form>
+
+    <!-- User Registration Form -->
+    <h2>Create new caregiver account</h2>
+    <form action="healthcareprovider_registration.php" method="POST">
+        <label for="ID">ID:</label>
+        <input type="int" id="ID" name="ID" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <label for="fname">First Name:</label>
+        <input type="text" id="fname" name="fname" required>
+        <br>
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="lname" required>
+        <br>
+        <label for="clinicID">Clinic ID:</label>
+        <input type="int" id="clinicID" name="clinicID" required>
         <br>
         <input type="submit" name="register" value="Register">
     </form>
