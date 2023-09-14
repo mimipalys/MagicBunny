@@ -1,5 +1,5 @@
 CREATE TABLE Patient (
-    PatientID INT PRIMARY KEY,
+    PatientID VARCHAR(20) PRIMARY KEY,
     Fname VARCHAR(50) NOT NULL,
     Lname VARCHAR(50) NOT NULL,
     DateOfBirth DATE,
@@ -18,7 +18,7 @@ CREATE TABLE Vaccine (
 );
 
 CREATE TABLE VaccineSchedule (
-    DoseNumber INT,
+    DoseNumber VARCHAR(100),
     VaccineID INT,
     MinimumGap INT, -- Minimum gap in days
     MaximumGap INT, -- Maximum gap in days
@@ -44,10 +44,10 @@ CREATE TABLE HealthcareProvider (
 
 CREATE TABLE VaccineDose (
     DoseID INT PRIMARY KEY,
-    PatientID INT,
+    PatientID VARCHAR(20),
     HealthcareProviderID INT,
     VaccineID INT,
-    DoseNumber INT,
+    DoseNumber VARCHAR(100),
     AdministrationDate DATE,
     FOREIGN KEY (PatientID) REFERENCES Patient(PatientID) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (VaccineID) REFERENCES Vaccine(VaccineID) ON UPDATE CASCADE,
@@ -59,21 +59,21 @@ FOREIGN KEY (HealthcareProviderID) REFERENCES HealthcareProvider(HealthcareProvi
 CREATE TABLE Country (
     CountryID INT PRIMARY KEY AUTO_INCREMENT,
     Name VARCHAR(100) NOT NULL,
-    Continent VARCHAR(50)
+    Continent VARCHAR(50),
+    Description TEXT
 );
 
 CREATE TABLE CountryVaccineRequirements (
     CountryVaccineRequirementsID INT PRIMARY KEY AUTO_INCREMENT,
     CountryID INT,
     VaccineID INT,
-    Description TEXT,
     FOREIGN KEY (CountryID) REFERENCES Country(CountryID) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (VaccineID) REFERENCES Vaccine(VaccineID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE SavedVaccine (
     SavedVaccineID INT PRIMARY KEY AUTO_INCREMENT,
-    PatientID INT,
+    PatientID VARCHAR(20),
     VaccineID INT,
     FOREIGN KEY (PatientID) REFERENCES Patient(PatientID) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (VaccineID) REFERENCES Vaccine(VaccineID) ON DELETE CASCADE ON UPDATE CASCADE
@@ -81,7 +81,7 @@ CREATE TABLE SavedVaccine (
 
 CREATE TABLE Feedback (
     FeedbackID INT PRIMARY KEY AUTO_INCREMENT,
-    PatientID INT,
+    PatientID VARCHAR(20),
     VaccineID INT,
     Comment TEXT,
     FOREIGN KEY (PatientID) REFERENCES Patient(PatientID) ON DELETE CASCADE ON UPDATE CASCADE,
