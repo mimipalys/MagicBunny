@@ -4,7 +4,21 @@
 
 <head>
 <style>
-body {background-color: white;}
+body {
+  background-color: white;
+}
+
+#container {
+  width: 100%;
+  Height: 10px;
+  border: none
+            /*Making the container a flexbox*/
+  display: flex;
+            /*Making equal spaced divs*/
+  justify-content: space-between;
+  background-color: powderblue;
+}
+
 
 .div1 {
   align-items: center;
@@ -12,11 +26,10 @@ body {background-color: white;}
   margin: auto;
   padding: 1rem 1rem;
   text-align: center;
-  
-  margin-left: 10px;
-  margin-right: 10px;
   width: 100%;
   Height: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .div2{
@@ -25,11 +38,12 @@ body {background-color: white;}
   margin: auto;
   padding: 1rem 1rem;
   text-align: center;
-  margin-left: 10px;
-  margin-right: 10px;
   width: 100%;
   Height: 40px;
+  display: flex;
+  justify-content: space-between;
 }
+
 
 .divInf {
   align-items: center;
@@ -41,6 +55,11 @@ body {background-color: white;}
   width: 400px;
   Height: 500px;
   float: left;
+}
+
+.divBody {
+  display: flex;
+  justify-content: space-between;
 }
 
 .costumbutton1 {
@@ -68,6 +87,22 @@ margin-right: 80px;
 margin-left: 80px; /* Add some spacing between buttons */
 }
 
+
+
+.vaccimateLogo {
+  text-align: center;
+  float: left;
+  background-color: #powderblue;
+  border: none;
+  padding: auto;
+  font-size: 30px;
+  margin-right: 80px; 
+  margin-left: 80px; /* Add some spacing between buttons */
+  font-size: 40px; 
+  color: black; 
+  font-family: Copperplate;
+}
+
 .container > div {
     display: inline-block;
     display: -moz-inline-box;
@@ -77,21 +112,15 @@ margin-left: 80px; /* Add some spacing between buttons */
     text-align: center;
 }
 
-.costumbutton1 {
-background-color: powderblue;
-border: none;
-padding: auto;
-font-size: 20px;
-cursor: pointer;
-border-radius: 5px;
-margin-right: 80px; 
-margin-left: 80px;  
-}
    /* Change button style on hover */
 .costumbutton1:hover {
   background-color: blue;
 }
 .costumbutton2:hover {
+  background-color: blue;
+}
+
+.divInf:hover {
   background-color: blue;
 }
 
@@ -110,11 +139,10 @@ margin-left: 80px;
 <body>
  <header>
   <div class= "div1">
-    <a class="costumbutton1"> Syringesymbol </a>
-    <a class="costumbutton1"> VacciMate </a> 
+    <a class="vaccimateLogo"> &#128137 VacciMate </a> 
     <a href = "http://localhost:8888/processing/index.php" class="costumbutton1"> Login </a> 
     <a href = "http://localhost:8888/processing/index.php" class="costumbutton1"> Register </a> 
-    <a href = "http://localhost:8888/processing/index.php" class="costumbutton1"> Settingsymbol </a> 
+    <a href = "http://localhost:8888/processing/index.php" class="costumbutton1"> &#9881 </a> 
   </div>
 
   <div class= "div2">
@@ -132,21 +160,24 @@ margin-left: 80px;
  </header>
 
  <body>
-   <div class = divInf>
+  <div class = "divBody">
+   <a href = "http://localhost:8888/processing/index.php" class = "divInf">
      <h2> Did you remember to take your refill dose of the TBE vaccine? </h2>
      <p> Read everything about the TBE vaccine here and stay safe during the hot summer months </p>
      <h1> Insert picture here</h1>
-   </div>
-   <div class = divInf>
+    </a>
+   <a href = "http://localhost:8888/processing/index.php" class = "divInf">
      <h2> Some exiting news on the progress of the new influensa vaccine</h2>
      <p> Some cool text introduction to the subject here </p>
      <h1> Insert picture here </h1>
-   </div>
-   <div class = divInf>
+    </a>
+   <a href = "http://localhost:8888/processing/index.php" class = "divInf">
      <h2> Traveling to Kenya this winter?</h2>
      <p> Get all the information you need about vacciens needed in the area!</p>
-     <h1> Insert picture here</h1>
-   </div>
+     <img src="test_image.jpg" alt="test_pic">
+   </a>
+  </div>
+
  </body>
 
 </body>
