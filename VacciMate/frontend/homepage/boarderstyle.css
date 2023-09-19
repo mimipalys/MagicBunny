@@ -1,17 +1,10 @@
+/* CSS styles */
+/* styles of the whole body of the page*/
 body {
   background-color: #ffd7b5;
+  position: fixed; 
+  overflow-x: scroll;
 }
-
-#container {
-  width: 100%;
-  Height: 10px;
-  border: none;
-  display: flex;
-            /*Making equal spaced divs*/
-  justify-content: space-between;
-  background-color: powderblue;
-}
-
 
 .topheader {
   align-items: center;
@@ -19,6 +12,17 @@ body {
   padding: 1rem 1rem;
   text-align: center;
   width: 100%;
+  Height: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rightpart_topheader{
+  align-items: center;
+  margin: auto;
+  margin-right: 50px;
+  text-align: center;
+  width: 40%;
   Height: 10px;
   display: flex;
   justify-content: space-between;
@@ -36,7 +40,7 @@ body {
   Height: 40px;
 }
 
-
+/* styles of the news pops*/
 .newscolumns {
   align-items: center;
   background-color: #ff6700;
@@ -49,23 +53,14 @@ body {
   float: left;
 }
 
-.rightpart_topheader{
-  align-items: center;
-  margin: auto;
-  margin-right: 50px;
-  text-align: center;
-  width: 40%;
-  Height: 10px;
-  display: flex;
-  justify-content: space-between;
-}
-
+/* the parts of the body (not the top or bottum headers)*/
 .bodydiv {
   display: flex;
   justify-content: space-between;
 }
 
 
+/* clickable link in topheader*/
 .costumbutton1 {
 text-align: center;
 float: left;
@@ -76,6 +71,8 @@ cursor: pointer;
 border-radius: 10px;
 margin: auto; /* Add some spacing between buttons */
 }
+
+/* clickable link in secound header*/
 .costumbutton2 {
 text-align: center;
 float: left;
@@ -85,11 +82,9 @@ font-size: 40px;
 cursor: pointer;
 border-radius: 10px;
 margin:auto; 
- /* Add some spacing between buttons */
 }
 
-
-
+/* The logo fonts and size etc. This we might want to change! put oute own logo here maybe*/
 .vaccimateLogo {
   text-align: center;
   float: left;
@@ -103,31 +98,19 @@ margin:auto;
   font-family: Copperplate;
 }
 
-.container > div {
-    display: inline-block;
-    display: -moz-inline-box;
-    *display: inline; /* For IE7 */
-    zoom: 1; /* Trigger hasLayout */
-    width: 33%;
-    text-align: center;
-}
-
+/* Image size*/
 img{
   max-width: 80%;
-  
 } 
 
-   /* Change button style on hover */
+/* Change button style on hover */
 .costumbutton1:hover {
-  /* background-color: #ffd7b5;*/
   border-style: outset;
 }
 .costumbutton2:hover {
-  /* background-color: #ffd7b5;*/
   border-style: outset;
 }
 .newscolumns:hover {
-  /* background-color: #ffd7b5;*/
   border-style: outset;
 }
 
