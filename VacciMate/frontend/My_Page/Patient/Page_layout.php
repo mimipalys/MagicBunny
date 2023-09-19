@@ -16,15 +16,15 @@
   <div class= "topheader">
     <a class="vaccimateLogo"> &#128137 VacciMate </a> 
     <div class= "rightpart_topheader">
-     <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> My Pages </a>
-     <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> &#9881 </a> 
+     <button id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> My Pages </button>
+     <button id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> &#9881 </button> 
     </div>
   </div>
 
   <div class= "bottomheader">
-    <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton2"> Travel information </a> 
-    <a id = "GFG" href = "http://localhost:8888/processing/search_vaccine.php" class="costumbutton2"> Search Vaccine </a> 
-    <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton2"> About Us </a> 
+    <button id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton2"> Travel information </button> 
+    <button id = "GFG" href = "http://localhost:8888/processing/search_vaccine.php" class="costumbutton2"> Search Vaccine </button> 
+    <button id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton2"> About Us </button> 
   </div>
 
  </header>
