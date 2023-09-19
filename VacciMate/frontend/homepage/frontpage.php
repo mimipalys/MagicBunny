@@ -4,7 +4,7 @@
 
 <head>
 
-  <link rel="stylesheet" type="text/css" href="boarderstyle.css">
+  <link rel="stylesheet" type="text/css" href="borderstyle.css">
   <title>
           Using display: flex and 
           justify-content: space-between
