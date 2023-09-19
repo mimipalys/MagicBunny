@@ -1,14 +1,138 @@
-header div {
-  border: 1px solid black;
-  margin: 1rem;
-  padding: 2rem 2rem;
-  text-align: center;
-  float: left;
-}
-.child {
-  display: inline-block;
-  border: 1px solid red;
-  padding: 1rem 1rem;
-  margin-right: 30px;
+body {
+  background-color: #ffd7b5;
 }
 
+#container {
+  width: 100%;
+  Height: 10px;
+  border: none;
+  display: flex;
+            /*Making equal spaced divs*/
+  justify-content: space-between;
+  background-color: powderblue;
+}
+
+
+.topheader {
+  align-items: center;
+  background-color: #ffb38a;
+  padding: 1rem 1rem;
+  text-align: center;
+  width: 100%;
+  Height: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottomheader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  margin: auto;
+  padding: 1rem 1rem;
+  text-align: center;
+  width: 100%;
+  Height: 40px;
+}
+
+
+.newscolumns {
+  align-items: center;
+  background-color: #ff6700;
+  margin: auto;
+  padding: 1rem 1rem;
+  text-align: center;
+  margin: 20px ; 
+  width: 400px;
+  Height: 500px;
+  float: left;
+}
+
+.rightpart_topheader{
+  align-items: center;
+  margin: auto;
+  margin-right: 50px;
+  text-align: center;
+  width: 40%;
+  Height: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bodydiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.costumbutton1 {
+text-align: center;
+float: left;
+border: none;
+padding: auto;
+font-size: 20px;
+cursor: pointer;
+border-radius: 10px;
+margin: auto; /* Add some spacing between buttons */
+}
+.costumbutton2 {
+text-align: center;
+float: left;
+border: none;
+padding: auto;
+font-size: 40px;
+cursor: pointer;
+border-radius: 10px;
+margin:auto; 
+ /* Add some spacing between buttons */
+}
+
+
+
+.vaccimateLogo {
+  text-align: center;
+  float: left;
+  border: none;
+  padding: auto;
+  font-size: 30px;
+  margin-right: 80px; 
+  margin-left: 80px; /* Add some spacing between buttons */
+  font-size: 40px; 
+  color: black; 
+  font-family: Copperplate;
+}
+
+.container > div {
+    display: inline-block;
+    display: -moz-inline-box;
+    *display: inline; /* For IE7 */
+    zoom: 1; /* Trigger hasLayout */
+    width: 33%;
+    text-align: center;
+}
+
+img{
+  max-width: 80%;
+  
+} 
+
+   /* Change button style on hover */
+.costumbutton1:hover {
+  /* background-color: #ffd7b5;*/
+  border-style: outset;
+}
+.costumbutton2:hover {
+  /* background-color: #ffd7b5;*/
+  border-style: outset;
+}
+.newscolumns:hover {
+  /* background-color: #ffd7b5;*/
+  border-style: outset;
+}
+
+/* Hyperlink decorations of*/
+#GFG {
+  text-decoration: none; 
+  color : black;
+}
