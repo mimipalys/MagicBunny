@@ -39,7 +39,7 @@
     " alt="test_pic">
    </a>
    <a id = "GFG" href = "http://localhost:8888/processing/index.php" class = "newscolumns">
-     <h2> Some exiting news on the progress of the new influensa vaccine</h2>
+     <h2> Some exiting news on the progress of the new influenza vaccine</h2>
      <p> Some cool text introduction to the subject here </p>
      <img src="https://media.istockphoto.com/id/826699900/vector/womans-hand-preventing-man-from-sneezing.jpg?s=612x612&w=0&k=20&c=KjaIIGfNoLwMZmCMf5AXEgVs3e8DFqefoajRocEwWmA=" alt="test_pic">
      
