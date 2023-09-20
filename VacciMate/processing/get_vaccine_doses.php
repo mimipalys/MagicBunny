@@ -25,11 +25,17 @@ if (!isset($_SESSION['user_id'])) {
 $patientID = $_SESSION['user_id'];
 
 // Initialize an empty array to store vaccine names
-$vaccineNames = array();
+$vaccines = array();
 
 // prepare sql statement
-$sql = "SELECT DISTINCT
-    V.VaccineName
+$sql = "SELECT
+    VD.DoseID,
+    VD.DoseNumber,
+    VD.AdministrationDate,
+    DATE_ADD(VD.AdministrationDate, INTERVAL VS.MaximumGap DAY) AS DoseExpirationDate,
+    V.VaccineName,
+    VS.MinimumGap,
+    VS.MaximumGap
 FROM
     VaccineDose VD
 JOIN
@@ -39,25 +45,37 @@ JOIN
 WHERE
     VD.PatientID = ?
 ORDER BY
-    V.VaccineName";
+    VD.AdministrationDate";
+
 
 $stmt = $db->prepare($sql);
 $stmt->bind_param("s", $patientID);
 $stmt->execute();
 
-$stmt->bind_result($vaccineName);
+$stmt->bind_result($doseID, $doseNumber, $administrationDate, $doseExpirationDate, $vaccineName, $minimumGap, $maximumGap);
+
+// create a dictionary with vaccine name as id and the
+// Close the statement
 
 // Fetch and store the results in the array
+// Fetch and store the results in the array
 while ($stmt->fetch()) {
-    // Add the retrieved value to the array
-    $vaccineNames[] = $vaccineName;
+    $vaccines[] = array(
+        'DoseID' => $doseID,
+        'DoseNumber' => $doseNumber,
+        'AdministrationDate' => $administrationDate,
+        'DoseExpirationDate' => $doseExpirationDate,
+        'VaccineName' => $vaccineName,
+        'MinimumGap' => $minimumGap,
+        'MaximumGap' => $maximumGap
+    );
 }
 
 // Close the statement
 $stmt->close();
 
 // Convert the dictionary to JSON
-$data_json = json_encode($vaccineNames);
+$data_json = json_encode($vaccines);
 
 // Set the response content type to JSON
 header('Content-Type: application/json');

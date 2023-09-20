@@ -34,88 +34,54 @@ echo $_SERVER["DOCUMENT_ROOT"]
   </div>
 
   <div class= "bottomheader">
-    <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton2"> My Doses and Refills </a> 
+    <a id = "GFG" href = "view_vaccine_history.php" class="costumbutton2"> My Doses and Refills </a> 
     <a id = "GFG" href = "http://localhost:8888/processing/search_vaccine.php" class="costumbutton2"> View Active Dose Schedules </a> 
     <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton2"> About Us </a> 
   </div>
 
-  <div class="newscolumns">
+  <div class="newscolumns", id="vaccinedoses">
         <h1>Vaccine Dose Information</h1>
-        <?php // index.php 
-        // include $_SERVER["DOCUMENT_ROOT"] . "/processing/get_vaccine_doses.php"; ?>
   </div>
 
-  <!-- Create a div to display the data -->
-  <div id="dataDisplay"></div>
-  <!-- JavaScript code -->
-  <script>
-    $(document).ready(function() {
-        // Function to fetch data from PHP using AJAX and display it on the web page
-        function fetchDataAndDisplay() {
-            $.ajax({
-                url: "/processing/send_data.php", // PHP file that generates the data
-                method: 'GET',       // HTTP method 
-                dataType: 'json',    // Expected data type
-                success: function(response) {
-                    // Display the data on the web page
-                    var dataDisplayElement = $('#dataDisplay');
-                    dataDisplayElement.empty(); // Clear any previous content
-                    dataDisplayElement.append('<p>Name: ' + response.name + '</p>');
-                    dataDisplayElement.append('<p>Email: ' + response.email + '</p>');
-                    dataDisplayElement.append('<p>Age: ' + response.age + '</p>');
-                },
-                error: function(xhr, status, error) {
-                    // Handle errors here
-                    console.error('AJAX Error: ' + status + ' - ' + error);
-                }
-            });
-        }
+<script>
+$(document).ready(function() {
+    // Function to fetch vaccine data from PHP using AJAX and display it on the web page
+    function fetchVaccineDataAndDisplay() {
+        $.ajax({
+            url: "/processing/get_vaccine_doses.php", // PHP file that generates the data
+            method: 'GET',                 // HTTP method
+            dataType: 'json',             // Expected data type
+            success: function(response) {
+                // Display the data on the web page
+                var vaccineContainer = $('.newscolumns');
 
-        // Call the fetchDataAndDisplay function when the page loads
-        fetchDataAndDisplay();
-    });
-  </script>
-  
+                // Loop through the vaccine information and generate divs for each vaccine
+                $.each(response, function(index, vaccine) {
+                    if (vaccine['MaximumGap'] == 0) {
+                      vaccine['DoseExpirationDate'] = "Life long"
 
-  <!-- Create a div to display the data -->
-  <div id="vaccinedoses"></div>
-  <!-- JavaScript code -->
-  <script>
-  $(document).ready(function() {
-    // Function to fetch data from PHP using AJAX and display it on the web page
-    function fetchDataAndDisplay() {
-      $.ajax({
-        url: "/processing/get_vaccine_doses.php", // PHP file that generates the data
-        method: 'GET',                 // HTTP method 
-        dataType: 'json',             // Expected data type
-        success: function(response) {
-          // Display the data on the web page
-          var dataDisplayElement = $('#dataDisplay');
-          dataDisplayElement.empty(); // Clear any previous content
+                    }
+                    var vaccineDiv = '<div class="vaccine-info">';
+                    vaccineDiv += '<h3>' + vaccine['VaccineName'] + '</h3>';
+                    vaccineDiv += '<p>Dose Number: ' + vaccine['DoseNumber'] + '</p>';
+                    vaccineDiv += '<p>Administration Date: ' + vaccine['AdministrationDate'] + '</p>';
+                    vaccineDiv += '<p>Dose Expiration Date: ' + vaccine['DoseExpirationDate'] + '</p>';
+                    vaccineDiv += '</div>';
 
-          if (response.vaccineNames.length === 0) {
-    // Display "empty" on the web page
-    var dataDisplayElement = $('#dataDisplay');
-    dataDisplayElement.html("empty");
-}
-
-          // Loop through the vaccine names and display them
-          $.each(response.vaccineNames, function(index, vaccineName) {
-            dataDisplayElement.append('<p>Vaccine Name: ' + vaccineName + '</p>');
-          });
-        },
-        error: function(xhr, status, error) {
-          // Handle errors here
-          console.error('AJAX Error: ' + status + ' - ' + error);
-        }
-      });
+                    vaccineContainer.append(vaccineDiv);
+                });
+            },
+            error: function(xhr, status, error) {
+                // Handle errors here
+                console.error('AJAX Error: ' + status + ' - ' + error);
+            }
+        });
     }
 
-    // Call the fetchDataAndDisplay function when the page loads
-    fetchDataAndDisplay();
-  });
+    // Call the fetchVaccineDataAndDisplay function when the "Load Vaccine Data" button is clicked
+    fetchVaccineDataAndDisplay();
+});
 </script>
-
 
 </body>
 </html>
