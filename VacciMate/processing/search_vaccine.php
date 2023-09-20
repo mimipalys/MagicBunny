@@ -25,14 +25,8 @@ if (mysqli_connect_error()) {
 }
 
 // Build the SQL query
-$sql = "SELECT VaccineName FROM Vaccine";
+$sql = "SELECT VaccineName, Description FROM Vaccine";
 $result = $link->query($sql);
-
-$Vaccine_list = array();
-
-while($row = $result->fetch_assoc()) {
-    $Vaccine_list[] = $row['VaccineName'];
-}
 
 
 // Close the database connection
@@ -48,19 +42,16 @@ $link->close();
     <h1>List of Vaccines</h1>
 
     <?php
-    // Your existing code for database connection and fetching vaccine names
+    // creates buttons and description
 
-    // Check if there are vaccines in the list
-    if (!empty($Vaccine_list)) {
-        echo '<ul>';
-        foreach ($Vaccine_list as $vaccineName) {
-            // Create a button for each vaccine name
-            echo '<li><button type="button">' . $vaccineName . '</button></li>';
-        }
-        echo '</ul>';
-    } else {
-        echo 'No vaccines found in the list.';
+    while($row = $result->fetch_assoc()) {
+        #$Vaccine_list[] = $row['VaccineName'];
+        echo '<details>';
+        echo '<summary>' . $row['VaccineName'] . '</summary>';
+        echo '<p>' . $row['Description'] . '</p>';
+        echo '</details>';
     }
+    
     ?>
 </body>
 </html>
