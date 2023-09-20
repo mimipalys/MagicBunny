@@ -39,36 +39,81 @@ echo $_SERVER["DOCUMENT_ROOT"]
     <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton2"> About Us </a> 
   </div>
 
-  <div class="newscolumns ">
+  <div class="newscolumns">
         <h1>Vaccine Dose Information</h1>
         <?php // index.php 
-        include $_SERVER["DOCUMENT_ROOT"] . "/processing/get_vaccine_doses.php"; ?>
-    </div>
+        // include $_SERVER["DOCUMENT_ROOT"] . "/processing/get_vaccine_doses.php"; ?>
+  </div>
 
- </body>
- <script>
-$(document).ready(function() {
-    // Function to fetch data from PHP using AJAX
-    function fetchData() {
-        $.ajax({
-            url: $_SERVER["DOCUMENT_ROOT"] . "/processing/get_vaccine_doses.php", // PHP file that generates the data
-            method: 'GET',       // HTTP method (GET or POST)
-            dataType: 'json',    // Expected data type
-            success: function(response) {
-                // Handle the response data here
-                // In this example, we'll simply display it in an alert
-                alert('Name: ' + response.name + '\nEmail: ' + response.email + '\nAge: ' + response.age);
-            },
-            error: function(xhr, status, error) {
-                // Handle errors here
-                console.error('AJAX Error: ' + status + ' - ' + error);
-            }
-        });
+  <!-- Create a div to display the data -->
+  <div id="dataDisplay"></div>
+  <!-- JavaScript code -->
+  <script>
+    $(document).ready(function() {
+        // Function to fetch data from PHP using AJAX and display it on the web page
+        function fetchDataAndDisplay() {
+            $.ajax({
+                url: "/processing/send_data.php", // PHP file that generates the data
+                method: 'GET',       // HTTP method 
+                dataType: 'json',    // Expected data type
+                success: function(response) {
+                    // Display the data on the web page
+                    var dataDisplayElement = $('#dataDisplay');
+                    dataDisplayElement.empty(); // Clear any previous content
+                    dataDisplayElement.append('<p>Name: ' + response.name + '</p>');
+                    dataDisplayElement.append('<p>Email: ' + response.email + '</p>');
+                    dataDisplayElement.append('<p>Age: ' + response.age + '</p>');
+                },
+                error: function(xhr, status, error) {
+                    // Handle errors here
+                    console.error('AJAX Error: ' + status + ' - ' + error);
+                }
+            });
+        }
+
+        // Call the fetchDataAndDisplay function when the page loads
+        fetchDataAndDisplay();
+    });
+  </script>
+  
+
+  <!-- Create a div to display the data -->
+  <div id="vaccinedoses"></div>
+  <!-- JavaScript code -->
+  <script>
+  $(document).ready(function() {
+    // Function to fetch data from PHP using AJAX and display it on the web page
+    function fetchDataAndDisplay() {
+      $.ajax({
+        url: "/processing/get_vaccine_doses.php", // PHP file that generates the data
+        method: 'GET',                 // HTTP method 
+        dataType: 'json',             // Expected data type
+        success: function(response) {
+          // Display the data on the web page
+          var dataDisplayElement = $('#dataDisplay');
+          dataDisplayElement.empty(); // Clear any previous content
+
+          if (response.vaccineNames.length === 0) {
+    // Display "empty" on the web page
+    var dataDisplayElement = $('#dataDisplay');
+    dataDisplayElement.html("empty");
+}
+
+          // Loop through the vaccine names and display them
+          $.each(response.vaccineNames, function(index, vaccineName) {
+            dataDisplayElement.append('<p>Vaccine Name: ' + vaccineName + '</p>');
+          });
+        },
+        error: function(xhr, status, error) {
+          // Handle errors here
+          console.error('AJAX Error: ' + status + ' - ' + error);
+        }
+      });
     }
 
-    // Call the fetchData function when the page loads
-    fetchData();
-});
+    // Call the fetchDataAndDisplay function when the page loads
+    fetchDataAndDisplay();
+  });
 </script>
 
 
