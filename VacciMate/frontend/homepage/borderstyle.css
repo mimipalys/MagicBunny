@@ -4,6 +4,7 @@ body {
   background-color: #ffd7b5;
   position: fixed; 
   overflow-x: scroll;
+  width: 100%;
 }
 
 .topheader {
@@ -57,6 +58,7 @@ body {
 .bodydiv {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 
