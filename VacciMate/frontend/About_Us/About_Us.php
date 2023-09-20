@@ -30,9 +30,19 @@
  </header>
 
  <body>
-  <div class = "bodydiv">
-    <h1> About Us </h1>
-   <p> hejjj </p>
+ <div class = "bodydiv">
+   <div class = "newscolumns">
+     <h2> Our Goal </h2>
+     <p> Our motivation is to improve world health one vaccine dose at the time. By offering easy access to all your vaccine history and sending reminders on upcoming doses we want to minimize unnessisarry sickness due to forgotten vaccine doses. At the same time we want to make sure your money and time will not be spend on taking a vaccine twice when its not needed, you can easyly check your what vaccines you have already taken when logged in. </p>
+   </div>
+   <div class = "newscolumns">
+     <h2> Who are we? </h2>
+     <p>  </p>
+   </div>
+   <div class = "newscolumns">
+     <h2> Contact Us </h2>
+     <p> Phone:  </p>
+   </div>
   </div>
 
  </body>
