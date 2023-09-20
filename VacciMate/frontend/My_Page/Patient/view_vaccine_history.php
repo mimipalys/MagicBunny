@@ -43,6 +43,10 @@ echo $_SERVER["DOCUMENT_ROOT"]
         <h1>Vaccine Dose Information</h1>
   </div>
 
+  <div class="vaccinerecord">
+        <h1>Vaccine Dose Information</h1>
+  </div>
+
 <script>
 $(document).ready(function() {
     // Function to fetch vaccine data from PHP using AJAX and display it on the web page
@@ -53,7 +57,7 @@ $(document).ready(function() {
             dataType: 'json',             // Expected data type
             success: function(response) {
                 // Display the data on the web page
-                var vaccineContainer = $('.newscolumns');
+                var vaccineContainer = $('.vaccinerecord');
 
                 // Loop through the vaccine information and generate divs for each vaccine
                 $.each(response, function(index, vaccine) {
@@ -78,7 +82,7 @@ $(document).ready(function() {
         });
     }
 
-    // Call the fetchVaccineDataAndDisplay function when the "Load Vaccine Data" button is clicked
+    // Call the fetchVaccineDataAndDisplay function when the page is loaded
     fetchVaccineDataAndDisplay();
 });
 </script>

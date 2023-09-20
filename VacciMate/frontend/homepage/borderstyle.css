@@ -54,6 +54,19 @@ body {
   float: left;
 }
 
+/* style for displaying vaccine records*/
+.vaccinerecord {
+  align-items: center;
+  background-color: #ffffff;
+  margin: auto;
+  padding: 1rem 1rem;
+  text-align: center;
+  margin: 20px ; 
+  width: 400px;
+  Height: 300px;
+  float: right;
+}
+
 /* the parts of the body (not the top or bottum headers)*/
 .bodydiv {
   display: flex;
