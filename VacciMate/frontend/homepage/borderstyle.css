@@ -75,7 +75,7 @@ margin: auto; /* Add some spacing between buttons */
 }
 
 /* clickable link in secound header*/
-.costumbutton2 {
+.costumbutton2, .costumbutton2_choosen {
 text-align: center;
 float: left;
 border: none;
@@ -83,7 +83,13 @@ padding: auto;
 font-size: 40px;
 cursor: pointer;
 border-radius: 10px;
-margin:auto; 
+margin: auto; 
+}
+
+/* Use on the button where you are currently */
+.costumbutton2_choosen {
+  background-color: #ffd7b5;
+  cursor: none;
 }
 
 /* The logo fonts and size etc. This we might want to change! put oute own logo here maybe*/
@@ -98,6 +104,7 @@ margin:auto;
   font-size: 40px; 
   color: black; 
   font-family: Copperplate;
+  cursor: pointer;
 }
 
 /* Image size*/

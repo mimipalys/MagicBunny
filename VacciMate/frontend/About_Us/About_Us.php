@@ -3,7 +3,6 @@
 <html>
 
 <head>
-
   <link rel="stylesheet" type="text/css" href="../homepage/borderstyle.css">
   <title>
           Using display: flex and 
@@ -14,7 +13,7 @@
 <body>
  <header>
   <div class= "topheader">
-    <a class="vaccimateLogo"> &#128137 VacciMate </a> 
+    <a id = "GFG" class="vaccimateLogo" href = "http://localhost:8888/frontend/homepage/frontpage.php"> &#128137 VacciMate </a> 
     <div class= "rightpart_topheader">
      <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> Login </a> 
      <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> Register </a> 
@@ -25,13 +24,14 @@
   <div class= "bottomheader">
     <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton2"> Travel information </a> 
     <a id = "GFG" href = "http://localhost:8888/processing/search_vaccine.php" class="costumbutton2"> Search Vaccine </a> 
-    <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton2"> About Us </a> 
+    <p id = "GFG" class="costumbutton2_choosen"> About Us </p> 
   </div>
 
  </header>
 
  <body>
   <div class = "bodydiv">
+    <h1> About Us </h1>
    <p> hejjj </p>
   </div>
 
