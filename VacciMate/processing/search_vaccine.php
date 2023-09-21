@@ -39,7 +39,7 @@
         /* Style for the description initially hidden */
 
         /* Style for the button */
-        .show-description-button {
+        .show-description-button1 {
             cursor: pointer;
         }
 
@@ -49,7 +49,7 @@
         }
 
         /* When the checkbox is checked, show the hidden description */
-        .show-description-checkbox:checked + .hidden-description {
+        .show-description-checkbox:checked + .vaccine_description {
             display: block;
         }
     </style>
@@ -93,7 +93,7 @@ $link->close();
         echo '<div>';
         echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
         echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox">';
-        echo '<p class="hidden-description">' . $row['Description'] . '</p>';
+        echo '<p class="vaccine_description">' . $row['Description'] . '</p>';
         echo '</div>';
     }
     
