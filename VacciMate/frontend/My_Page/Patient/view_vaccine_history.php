@@ -49,7 +49,7 @@ echo $_SERVER["DOCUMENT_ROOT"]
     </ul>
   </div>
 
-  <script>
+<script>
 $(document).ready(function() {
     // Function to fetch vaccine data from PHP using AJAX and display it on the web page
     function fetchVaccineDataAndDisplay() {
@@ -73,9 +73,8 @@ $(document).ready(function() {
                     // Create a list item for the current vaccine
                     var vaccineItem = '<li class="vaccine-info">';
                     vaccineItem += '<h3>' + vaccine['VaccineName'] + '</h3>';
-                    vaccineItem += '<p>Dose Number: ' + vaccine['DoseNumber'] + '</p>';
-                    vaccineItem += '<p>Administration Date: ' + vaccine['AdministrationDate'] + '</p>';
-                    vaccineItem += '<p>Dose Expiration Date: ' + vaccine['DoseExpirationDate'] + '</p>';
+                    vaccineItem += '<h4> Dose Number' + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp '+ 'Administration Date' + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + 'Dose Expiration Date</h4>';
+                    vaccineItem += '<p> &nbsp &nbsp &nbsp' + vaccine['DoseNumber'] + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp'+ vaccine['AdministrationDate'] + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + vaccine['DoseExpirationDate'] + '</p>';
                     vaccineItem += '</li>';
 
                     // Append the list item to the unordered list
