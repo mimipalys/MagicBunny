@@ -8,14 +8,13 @@ echo $_SESSION['user_id'];
 echo $_SERVER["DOCUMENT_ROOT"]
 ?>
 
-
 <!DOCTYPE html>
 <html>
 
 <head>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="borderstyle.css">
+  <link rel="stylesheet" type="text/css" href="../../homepage/borderstyle.css">
   <title>
           Using display: flex and 
           justify-content: space-between
@@ -39,15 +38,18 @@ echo $_SERVER["DOCUMENT_ROOT"]
     <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton2"> About Us </a> 
   </div>
 
-  <div class="newscolumns", id="vaccinedoses">
+  <!-- <div class="newscolumns", id="vaccinedoses">
         <h1>Vaccine Dose Information</h1>
-  </div>
+  </div> -->
 
   <div class="vaccinerecord">
-        <h1>Vaccine Dose Information</h1>
+    <h1>Vaccine Dose Information</h1>
+    <ul class="vaccine-list">
+      <!-- List items will be dynamically added here -->
+    </ul>
   </div>
 
-<script>
+  <script>
 $(document).ready(function() {
     // Function to fetch vaccine data from PHP using AJAX and display it on the web page
     function fetchVaccineDataAndDisplay() {
@@ -56,24 +58,32 @@ $(document).ready(function() {
             method: 'GET',                 // HTTP method
             dataType: 'json',             // Expected data type
             success: function(response) {
-                // Display the data on the web page
+                // Select the container where you'll append the list
                 var vaccineContainer = $('.vaccinerecord');
 
-                // Loop through the vaccine information and generate divs for each vaccine
+                // Create an unordered list for the vaccines
+                var vaccineList = $('<ul class="vaccine-list"></ul>');
+
+                // Loop through the vaccine information and generate list items for each vaccine
                 $.each(response, function(index, vaccine) {
                     if (vaccine['MaximumGap'] == 0) {
-                      vaccine['DoseExpirationDate'] = "Life long"
-
+                        vaccine['DoseExpirationDate'] = "Life long";
                     }
-                    var vaccineDiv = '<div class="vaccine-info">';
-                    vaccineDiv += '<h3>' + vaccine['VaccineName'] + '</h3>';
-                    vaccineDiv += '<p>Dose Number: ' + vaccine['DoseNumber'] + '</p>';
-                    vaccineDiv += '<p>Administration Date: ' + vaccine['AdministrationDate'] + '</p>';
-                    vaccineDiv += '<p>Dose Expiration Date: ' + vaccine['DoseExpirationDate'] + '</p>';
-                    vaccineDiv += '</div>';
 
-                    vaccineContainer.append(vaccineDiv);
+                    // Create a list item for the current vaccine
+                    var vaccineItem = '<li class="vaccine-info">';
+                    vaccineItem += '<h3>' + vaccine['VaccineName'] + '</h3>';
+                    vaccineItem += '<p>Dose Number: ' + vaccine['DoseNumber'] + '</p>';
+                    vaccineItem += '<p>Administration Date: ' + vaccine['AdministrationDate'] + '</p>';
+                    vaccineItem += '<p>Dose Expiration Date: ' + vaccine['DoseExpirationDate'] + '</p>';
+                    vaccineItem += '</li>';
+
+                    // Append the list item to the unordered list
+                    vaccineList.append(vaccineItem);
                 });
+
+                // Append the unordered list to the container
+                vaccineContainer.append(vaccineList);
             },
             error: function(xhr, status, error) {
                 // Handle errors here
@@ -86,6 +96,7 @@ $(document).ready(function() {
     fetchVaccineDataAndDisplay();
 });
 </script>
+
 
 </body>
 </html>

@@ -35,9 +35,21 @@ body {
   height: 40px;
 }
 
+/* style for displaying vaccine records*/
+.vaccinerecord {
+  align-items: center;
+  background-color: #08ff32;
+  margin: 75px;
+  padding: 1rem;
+  text-align: center;
+  width: 600px;
+  Height: 500px;
+  float: left;
+}
+
 .newscolumns {
   align-items: center;
-  background-color: #ff6700;
+  background-color: #ff0101;
   margin: 75px;
   padding: 1rem;
   text-align: center;
@@ -103,7 +115,7 @@ body {
 .container > div {
   display: inline-block;
   display: -moz-inline-box;
-  *display: inline; /* For IE7 */
+  display: inline; /* For IE7 */
   zoom: 1; /* Trigger hasLayout */
   width: 33%;
   text-align: center;

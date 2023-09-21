@@ -54,17 +54,32 @@ body {
   float: left;
 }
 
-/* style for displaying vaccine records*/
+/* styles for the container (.vaccinerecord) */
 .vaccinerecord {
-  align-items: center;
-  background-color: #ffffff;
+  background-color: #ffb38a;
   margin: auto;
-  padding: 1rem 1rem;
+  padding: 20px;
   text-align: center;
-  margin: 20px ; 
-  width: 400px;
-  Height: 300px;
-  float: right;
+  margin: 20px;
+  width: 95%;
+  height: auto; /* Adjust height to "auto" to accommodate dynamic content */
+  float: left;
+}
+
+/* styles for list items within the container */
+.vaccinerecord ul {
+  list-style-type: none; /* no list bullets */
+  padding: 0;
+  margin: auto;
+}
+
+.vaccinerecord ul li {
+  background-color: #fff; /* White background color for list items */
+  padding: 10px; /* Adjust spacing and padding automatically */
+  border: 1px solid #ffb38a; /* Add a border around list items */
+  margin-bottom: 10px; /* Add margin between list items */
+  border-radius: 20px; /* Add rounded corners to list items */
+  overflow: hidden; /* Ensure content doesn't overflow rounded corners */
 }
 
 /* the parts of the body (not the top or bottum headers)*/
@@ -73,7 +88,6 @@ body {
   justify-content: space-between;
   width: 100%;
 }
-
 
 /* clickable link in topheader*/
 .costumbutton1 {
