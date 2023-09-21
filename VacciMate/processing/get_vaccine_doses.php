@@ -45,7 +45,7 @@ JOIN
 WHERE
     VD.PatientID = ?
 ORDER BY
-    VD.AdministrationDate";
+    VD.AdministrationDate DESC";
 
 
 $stmt = $db->prepare($sql);
