@@ -44,7 +44,7 @@ echo $_SERVER["DOCUMENT_ROOT"]
   </div>
 
   <div class="vaccinerecord">
-        <h1>Vaccine Dos e Information</h1>
+        <h1>Vaccine Dose Information</h1>
   </div>
 
 <script>
