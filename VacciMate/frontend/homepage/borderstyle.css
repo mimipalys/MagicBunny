@@ -54,6 +54,19 @@ body {
   float: left;
 }
 
+/* styles of the news pops*/
+.vaccineinfo {
+  align-items: center;
+  background-color: #ffb38a;
+  margin: auto;
+  padding: 1rem 1rem;
+  text-align: center;
+  margin: 20px ; 
+  width: 40px;
+  Height: 50px;
+  float: left;
+}
+
 /* styles for the container (.vaccinerecord) */
 .vaccinerecord {
   background-color: #ffb38a;

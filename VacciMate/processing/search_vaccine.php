@@ -93,7 +93,7 @@ $link->close();
     // creates buttons and description
 
     while($row = $result->fetch_assoc()) {
-        echo '<div>';
+        echo '<div class = "Vaccineinfo">';
         echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
         echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox">';
         echo '<p class="hidden-description">' . $row['Description'] . '</p>';
