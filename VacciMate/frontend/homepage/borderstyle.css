@@ -54,16 +54,18 @@ body {
   float: left;
 }
 
-/* styles of the news pops*/
-.vaccineinfo {
+/* styles of the vaccine descriptions in seach vaccine*/
+
+.vaccine_description {
+  display: none;
   align-items: center;
   background-color: #ffb38a;
   margin: auto;
   padding: 1rem 1rem;
   text-align: center;
   margin: 20px ; 
-  width: 40px;
-  Height: 50px;
+  width: 400px;
+  Height: 100px;
   float: left;
 }
 
