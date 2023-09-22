@@ -57,13 +57,13 @@ body {
 /* styles of the vaccinename buttons that are clickable to view the description*/
 .show-description-button {
   text-align: center;
-  float: left;
   border: none;
   padding: auto;
   font-size: 20px;
   cursor: pointer;
   border-radius: 10px;
   margin: auto; /* Add some spacing between buttons */
+  display:
 }
 
 
@@ -72,14 +72,14 @@ body {
 .vaccine_description {
   display: none;
   align-items: center;
-  background-color: #ffb38a;
+  background-color: #ffffff;
   margin: auto;
   padding: 1rem 1rem;
   text-align: center;
   margin: 20px ; 
   width: 400px;
   Height: 100px;
-  float: left;
+  border-radius:20px;
 }
 
 /* styles for the container (.vaccinerecord) */
