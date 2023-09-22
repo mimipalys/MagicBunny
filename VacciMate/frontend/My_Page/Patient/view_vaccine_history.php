@@ -97,5 +97,9 @@ $(document).ready(function() {
 </script>
 
 
+<!-- Display upcoming vaccine doses to the right in a box -->
+
+
+
 </body>
 </html>
