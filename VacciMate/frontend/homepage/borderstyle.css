@@ -88,7 +88,7 @@ body {
   padding: 20px;
   text-align: left;
   margin: 20px;
-  width: 90%;
+  width: 50%;
   height: auto; /* Adjust height to "auto" to accommodate dynamic content */
   float: left;
 }
