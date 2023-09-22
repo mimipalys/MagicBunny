@@ -63,7 +63,7 @@ body {
   cursor: pointer;
   border-radius: 10px;
   margin: auto; /* Add some spacing between buttons */
-  display:
+  display: block
 }
 
 
