@@ -35,6 +35,14 @@
         .search_vaccine {
             text-align: center;
             font-size: 20px; 
+            border-radius:20px;
+            border: none;
+            padding: auto;
+        }
+
+        .list_of_vaccine {
+            text-align: center;
+            font-size: 20px; 
         }
         /* Style for the button */
         .show-description-button1 {
@@ -49,6 +57,8 @@
         /* When the checkbox is checked, show the hidden description */
         .show-description-checkbox:checked + .vaccine_description {
             display: block;
+            text-align: center;
+            align-items: center;
         }
     </style>
     
@@ -82,23 +92,47 @@ $link->close();
     <div class = "search_vaccine">
     <form action="">
         <input type="text" name="query" placeholder="Vaccine Name or Disease..." class = "search_vaccine" >
-        <button type="submit">Search</button class="costumbutton1">
+        <button type="submit">Search</button class = "search_vaccine">
     </form>
     </div>
+</body>
 
-    <h1>List of Vaccines</h1>
 
+   
+<body>
+    <div class = "list_of_vaccine">
+        <h2> List of Vaccines </h2>;
+    </div>
+    
     <?php
     // creates buttons and description
-
+    
     while($row = $result->fetch_assoc()) {
-        echo '<div>';
+        echo '<div class>';
         echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
         echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox">';
         echo '<p class="vaccine_description">' . $row['Description'] . '</p>';
         echo '</div>';
     }
     
+    function showvaccine() {
+        while($row = $result->fetch_assoc()) {
+            if (in_array("query", $result)){
+                echo "hej";
+            }
+        }
+    }
+
     ?>
 </body>
+
+<body>
+    <form action="">
+        <input type="text" name="query" placeholder="Vaccine Name or Disease..." class = "search_vaccine">
+        <button type="submit">Search</button class = "search_vaccine" onkeyup="showvaccine()">
+    </form>
+
+    
+</body>
+
 </html>
