@@ -2,7 +2,6 @@
 /* styles of the whole body of the page*/
 body {
   background-color: #ffd7b5;
-  position: fixed; 
   overflow-x: scroll;
   width: 100%;
 }
@@ -77,8 +76,8 @@ body {
   padding: 1rem 1rem;
   text-align: center;
   margin: 20px ; 
-  width: 400px;
-  Height: 100px;
+  width: auto;
+  Height: auto;
   border-radius:20px;
 }
 
