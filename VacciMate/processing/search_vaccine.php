@@ -30,14 +30,12 @@
     <a id = "GFG" href = "http://localhost:8888/frontend/About_Us/About_Us.php" class="costumbutton2"> About Us </a> 
   </div>
 
-    <form method="POST">
-        <input type="text" name="query" placeholder="Vaccine Name or Disease..." >
-        <button type="submit">Search</button class="costumbutton1">
-    </form>
-
     <style>
         /* Style for the description initially hidden */
-
+        .search_vaccine {
+            text-align: center;
+            font-size: 20px; 
+        }
         /* Style for the button */
         .show-description-button1 {
             cursor: pointer;
@@ -80,10 +78,14 @@ $link->close();
 
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Vaccine List</title>
-</head>
 <body>
+    <div class = "search_vaccine">
+    <form action="">
+        <input type="text" name="query" placeholder="Vaccine Name or Disease..." class = "search_vaccine" >
+        <button type="submit">Search</button class="costumbutton1">
+    </form>
+    </div>
+
     <h1>List of Vaccines</h1>
 
     <?php
