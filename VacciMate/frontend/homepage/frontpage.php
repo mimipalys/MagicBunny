@@ -4,7 +4,7 @@
 
 <head>
 
-  <link rel="stylesheet" type="text/css" href="borderstyle.css">
+  <link rel="stylesheet" type="text/css" href="../borderstyle.css">
   <title>
           Using display: flex and 
           justify-content: space-between
@@ -18,7 +18,7 @@
     <div class= "rightpart_topheader">
      <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> Login </a> 
      <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> Register </a> 
-     <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> &#9881 </a> 
+     <a id = "GFG" href = "http://localhost:8888/frontend/Settings/Settings_Page.php" class="costumbutton1"> &#9881 </a> 
     </div>
   </div>
 
