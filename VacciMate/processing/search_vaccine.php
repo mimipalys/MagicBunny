@@ -5,7 +5,7 @@
 
 <head>
 
-  <link rel="stylesheet" type="text/css" href="../frontend/homepage/borderstyle.css">
+  <link rel="stylesheet" type="text/css" href="../frontend/borderstyle.css">
   <title>
           Using display: flex and 
           justify-content: space-between
