@@ -34,8 +34,8 @@ echo $_SERVER["DOCUMENT_ROOT"]
 
   <div class= "bottomheader">
     <a id = "GFG" href = "view_vaccine_history.php" class="costumbutton2"> My Doses and Refills </a> 
-    <a id = "GFG" href = "http://localhost:8888/processing/search_vaccine.php" class="costumbutton2"> View Active Dose Schedules </a> 
-    <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton2"> About Us </a> 
+    <a id = "GFG" href = "http://localhost:8888/processing/search_vaccine.php" class="costumbutton2"> Search Vaccine   </a> 
+    <a id = "GFG" href = "../../About_Us/About_Us.php" class="costumbutton2"> About Us </a> 
   </div>
 
   <!-- <div class="newscolumns", id="vaccinedoses">

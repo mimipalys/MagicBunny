@@ -106,7 +106,7 @@ body {
   padding: 10px; /* Adjust spacing and padding automatically */
   border: 1px solid #ffb38a; /* Add a border around list items */
   margin-bottom: 10px; /* Add margin between list items */
-  border-radius: 20px; /* Add rounded corners to list items */
+  border-radius: 0px; /* Add rounded corners to list items */
   overflow: hidden; /* Ensure content doesn't overflow rounded corners */
 }
 
