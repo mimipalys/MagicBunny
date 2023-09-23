@@ -5,7 +5,10 @@
 session_start();
 echo "frontend: ";
 echo $_SESSION['user_id'];
-echo $_SERVER["DOCUMENT_ROOT"]
+echo $_SERVER["DOCUMENT_ROOT"];
+
+include("../../../processing/get_upcoming_doses.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +17,7 @@ echo $_SERVER["DOCUMENT_ROOT"]
 <head>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="../../homepage/borderstyle.css">
+  <link rel="stylesheet" type="text/css" href="../../borderstyle.css">
   <title>
           Using display: flex and 
           justify-content: space-between
