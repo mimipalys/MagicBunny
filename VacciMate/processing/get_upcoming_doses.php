@@ -100,11 +100,10 @@ foreach ($results as $result) {
         $stmt->bind_result($vaccineName, $nextDoseNumber, $minimumGap, $maximumGap);
         $stmt->fetch();
         
-        // Calculate EarliestDateToTake
-        $latestAdminDate = new DateTime($LatestAdministrationDate); // Convert to DateTime
-        $earliestDateToTake = clone $latestAdminDate; // Create a clone to avoid modifying the original object
+        // add minimumgap to admin date of previous dose
+        $earliestDateToTake = date('Y-m-d', strtotime($LatestAdministrationDate. ' + ' . $minimumGap . 'days'));
+        $latestDateToTake = date('Y-m-d', strtotime($LatestAdministrationDate. ' + ' . $maximumGap . 'days'));
 
-        // if this exists, add to array with upcoming doses
         $upcoming_doses[] = array(
             "VaccineName" => $vaccineName,
             "DoseNumber" => $nextDoseNumber,
@@ -118,7 +117,8 @@ foreach ($results as $result) {
         echo "Dose Number: " . $nextDoseNumber . "\n";
         echo "Minimum Gap: " . $minimumGap . " days\n";
         echo "Maximum Gap: " . $maximumGap . " days\n";
-        echo "earliest date: " . $earliestDateToTake->format('Y/m/d');
+        echo "earliest date: " . $earliestDateToTake . ' ';
+        echo "latest date: " . $latestDateToTake;
         
     } else {
         // Next dose doesn't exist, check if there's a "Refill"

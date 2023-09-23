@@ -17,7 +17,7 @@ if ($db->connect_error) {
 
 // Check if the user is logged in; if not, redirect to the login page
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
+    header("Location: index.php");
     exit;
 }
 
