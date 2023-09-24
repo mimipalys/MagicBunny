@@ -100,6 +100,7 @@ foreach ($results as $result) {
         $stmt->bind_result($vaccineName, $nextDoseNumber, $minimumGap, $maximumGap);
         $stmt->fetch();
         
+        // calculate interval to take next dose
         // add minimumgap to admin date of previous dose
         $earliestDateToTake = date('Y-m-d', strtotime($LatestAdministrationDate. ' + ' . $minimumGap . 'days'));
         $latestDateToTake = date('Y-m-d', strtotime($LatestAdministrationDate. ' + ' . $maximumGap . 'days'));
@@ -122,7 +123,17 @@ foreach ($results as $result) {
         
     } else {
         // Next dose doesn't exist, check if there's a "Refill"
-        $sql = "SELECT DoseNumber FROM VaccineSchedule WHERE VaccineID = ? AND DoseNumber = 'Refill'";
+        // $sql = "SELECT DoseNumber FROM VaccineSchedule WHERE VaccineID = ? AND DoseNumber = 'Refill'";
+        $sql = "SELECT 
+        V.VaccineName, VS.DoseNumber, VS.MinimumGap, VS.MaximumGap 
+    FROM 
+        VaccineSchedule AS VS 
+    JOIN 
+        Vaccine AS V 
+    ON 
+        V.VaccineID = VS.VaccineID 
+    WHERE 
+        V.VaccineID = ? AND DoseNumber = 'Refill'";
         $stmt = $db->prepare($sql);
         $stmt->bind_param("i", $vaccineID);
         $stmt->execute();
@@ -130,12 +141,25 @@ foreach ($results as $result) {
 
         if ($stmt->num_rows > 0) {
             // Refill exists, fetch and handle it
-            $stmt->bind_result($refillDoseNumber);
+            $stmt->bind_result($vaccineName, $nextDoseNumber, $minimumGap, $maximumGap);
             $stmt->fetch();
+
+            // calculate interval to take refill
+            $earliestDateToTake = date('Y-m-d', strtotime($LatestAdministrationDate. ' + ' . $minimumGap . 'days'));
+            $latestDateToTake = date('Y-m-d', strtotime($LatestAdministrationDate. ' + ' . $maximumGap . 'days'));    
             
             // Handle the refill here, for example, display or store the information
             // add to array of upcoming doses
             echo "Refill for VaccineID $vaccineID: DoseNumber = $refillDoseNumber <br>";
+            
+            echo "Upcoming Dose:\n";
+            echo "Vaccine Name: " . $vaccineName . "\n";
+            echo "Dose Number: " . $refillDoseNumber . "\n";
+            echo "Minimum Gap: " . $minimumGap . " days\n";
+            echo "Maximum Gap: " . $maximumGap . " days\n";
+            echo "earliest date: " . $earliestDateToTake . ' ';
+            echo "latest date: " . $latestDateToTake;
+            
         }
     }
 }
