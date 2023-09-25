@@ -9,6 +9,6 @@ unset($_SESSION['username']);
 session_destroy();
 
 // Redirect to the index page or any other desired location
-header("Location: index.php"); // Replace "index.php" with your actual index page URL
+header("Location: ../frontend/homepage/frontpage.php"); // Replace "index.php" with your actual index page URL
 exit; // Ensure that no code is executed after the redirect
 ?>

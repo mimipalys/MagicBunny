@@ -21,10 +21,10 @@
 <body>
 <header>
     <div class= "topheader">
-        <a id = "GFG" class="vaccimateLogo" href = "http://localhost/MagicBunny/VacciMate/frontend/homepage/frontpage.php"> &#128137 VacciMate </a>
+        <a id = "GFG" class="vaccimateLogo" href = "../homepage/frontpage.php"> &#128137 VacciMate </a>
         <div class= "rightpart_topheader">
-            <a id = "GFG" href = "http://localhost/MagicBunny/VacciMate/frontend/homepage/frontpage.php" class="costumbutton1"> Home </a>
-            <a id = "GFG" href = "http://localhost/MagicBunny/VacciMate/frontend/SignupandSingnin/signIn.php" class="costumbutton1"> Login </a>
+            <a id = "GFG" href = "../homepage/frontpage.php" class="costumbutton1"> Home </a>
+            <a id = "GFG" href = "signIn.php" class="costumbutton1"> Login </a>
             <a id = "GFG" href = "http://localhost:8888/frontend/Settings/Settings_Page.php" class="costumbutton1"> &#9881 </a>
         </div>
     </div>

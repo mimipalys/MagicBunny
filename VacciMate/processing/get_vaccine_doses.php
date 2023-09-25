@@ -58,7 +58,6 @@ $stmt->bind_result($doseID, $doseNumber, $administrationDate, $doseExpirationDat
 // Close the statement
 
 // Fetch and store the results in the array
-// Fetch and store the results in the array
 while ($stmt->fetch()) {
     $vaccines[] = array(
         'DoseID' => $doseID,

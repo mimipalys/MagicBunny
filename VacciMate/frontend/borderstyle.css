@@ -90,6 +90,30 @@ body {
   border-radius:20px;
 }
 
+.upcoming_refill_container {
+  background-color: #ffb38a;
+  padding: 20px;
+  text-align: left;
+  margin: 20px;
+  width: 36%; /* Adjust the width as needed */
+  float: right;
+}
+
+.upcoming_refill_container h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.upcoming_refill_container .refill-list {
+  list-style: none;
+  padding: 0;
+}
+
+.upcoming_refill_container .vaccine-info {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
 /* styles for the container (.vaccinerecord) */
 .vaccinerecord {
   background-color: #ffb38a;
@@ -97,7 +121,7 @@ body {
   padding: 20px;
   text-align: left;
   margin: 20px;
-  width: 70%;
+  width: 50%;
   height: auto; /* Adjust height to "auto" to accommodate dynamic content */
   float: left;
 }
