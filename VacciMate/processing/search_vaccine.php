@@ -67,7 +67,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "root";
-$dbname = "Vaccine";
+$dbname = "VacciMate";
 
 // Create connection
 $link = mysqli_connect($servername, $username, $password, $dbname);
@@ -117,7 +117,7 @@ $link->close();
     
     function showvaccine() {
         while($row = $result->fetch_assoc()) {
-            if (in_array("query", $result)){
+            if ($row['VaccineName']="query"){
                 echo "hej";
             }
         }
