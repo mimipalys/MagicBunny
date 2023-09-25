@@ -64,6 +64,7 @@ while ($stmt->fetch()) {
     );
 }
 $stmt->close();
+
 echo count($results);
 echo "HELLO";
 

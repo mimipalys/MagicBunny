@@ -1,7 +1,7 @@
 <?php
 
-// Now I just need to check in vaccineDOse if the min/max gap is 0 or not.
-// If it is anything but 0, there should be an upcoming vaccine dose.ttt
+// check in vaccineDOse if the min/max gap is 0 or not.
+// If it is anything but 0, there should be an upcoming vaccine dose
 
 session_start();
 error_reporting(E_ALL);
@@ -29,6 +29,7 @@ if (!isset($_SESSION['user_id'])) {
 // get session id
 $patientID = $_SESSION['user_id'];
 
+echo "UPCOMNING REFILLS";
 
 // Execute the SQL query to get the latest doses for each vaccine
 $sql = "SELECT
@@ -86,6 +87,7 @@ foreach ($results as $result) {
     $LatestAdministrationDate = $result["LatestAdministrationDate"];
     $minimumGap = $result["minGap"];
     $maximumGap = $result["maxGap"];
+    $vaccineName = $result["VaccineName"];
 
     // check whether minimumGap is not 0, if it isn't, that means there is a "next dose"
     if ($minimumGap != 0) {
@@ -116,15 +118,18 @@ foreach ($results as $result) {
             "EarliestDateToTake" => $EarliestDateToTake,
             "LatestDateToTake" => $LatestDateToTake
         );
+
+        echo "Upcoming Dose:\n";
+        echo "Vaccine Name: " . $vaccineName . "\n";
+        echo "Dose Number: " . $nextDoseNumber . "\n";
+        echo "Minimum Gap: " . $minimumGap . " days\n";
+        echo "Maximum Gap: " . $maximumGap . " days\n";
+        echo "earliest date: " . $EarliestDateToTake . ' ';
+        echo "latest date: " . $LatestDateToTake;
     }
 
-        // calculate interval to take next dose
-        // add minimumgap to admin date of previous dose
-        $earliestDateToTake = date('Y-m-d', strtotime($LatestAdministrationDate. ' + ' . $minimumGap . 'days'));
-        $latestDateToTake = date('Y-m-d', strtotime($LatestAdministrationDate. ' + ' . $maximumGap . 'days'));
-
-
-
 }
+
+// Write code to send upcoming_doses array to frotend page
 
 ?>

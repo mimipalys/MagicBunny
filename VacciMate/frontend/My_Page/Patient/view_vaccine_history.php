@@ -8,7 +8,7 @@ echo $_SESSION['user_id'];
 echo $_SERVER["DOCUMENT_ROOT"];
 
 include("../../../processing/get_upcoming_doses.php");
-
+//include("../../../processing/get_upcoming_refills.php");
 ?>
 
 <!DOCTYPE html>
