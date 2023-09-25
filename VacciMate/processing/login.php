@@ -31,7 +31,7 @@ if ($user && password_verify($password, $user['Password'])) {
     $_SESSION['user_id'] = $user['PatientID'];
     $_SESSION['username'] = $user['Fname'];
     header("Location: dashboard.php");
-    echo "succesful login";
+    echo "succesful signIn.php";
 } else {
     echo "Login failed. Please check your credentials.";
 }
