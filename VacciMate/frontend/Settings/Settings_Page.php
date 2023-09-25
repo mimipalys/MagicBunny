@@ -54,3 +54,33 @@
 
 </body>
 </html>
+
+
+
+
+<?php
+
+// Database connection parameters
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "Vaccine";
+
+// Create connection
+$link = mysqli_connect($servername, $username, $password, $dbname);
+
+// Check if connection is established
+if (mysqli_connect_error()) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// when save is pressed; 
+// change notification attribue in table to true or false deppending on checked or not. 
+
+// Build the SQL query
+//$sql = "SELECT VaccineName, Description FROM Vaccine";
+//$result = $link->query($sql);
+
+// Close the database connection
+//$link->close();
+?>

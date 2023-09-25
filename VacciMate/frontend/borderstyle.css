@@ -41,7 +41,7 @@ body {
 }
 
 /* styles of the news pops*/
-.newscolumns, .newscolumns_Wide{
+.newscolumns, .newscolumns_Wide, .Body_fullscreen{
   align-items: center;
   background-color: #ffb38a;
   margin: auto;
@@ -55,6 +55,10 @@ body {
 
 .newscolumns_Wide{
   width: 900px;
+}
+
+.Body_fullscreen{
+  width: 990px;
 }
 
 
