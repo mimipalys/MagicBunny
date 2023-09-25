@@ -21,10 +21,10 @@
 <body>
 <header>
     <div class= "topheader">
-        <a id = "GFG" class="vaccimateLogo" href = "http://localhost:8888/frontend/homepage/frontpage.php"> &#128137 VacciMate </a>
+        <a id = "GFG" class="vaccimateLogo" href = "http://localhost/MagicBunny/VacciMate/frontend/homepage/frontpage.php"> &#128137 VacciMate </a>
         <div class= "rightpart_topheader">
-            <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> Home </a>
-            <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> Login </a>
+            <a id = "GFG" href = "http://localhost/MagicBunny/VacciMate/frontend/homepage/frontpage.php" class="costumbutton1"> Home </a>
+            <a id = "GFG" href = "http://localhost/MagicBunny/VacciMate/frontend/SignupandSingnin/signIn.php" class="costumbutton1"> Login </a>
             <a id = "GFG" href = "http://localhost:8888/frontend/Settings/Settings_Page.php" class="costumbutton1"> &#9881 </a>
         </div>
     </div>
@@ -50,7 +50,7 @@
         <div id="administratorForm" style="display:none;">
             <!-- Administrator Form Elements -->
             <h2>Administrator</h2>
-            <form action="//processing/healthcareprovider_registration.php" method="POST">
+            <form action="http://localhost/MagicBunny/VacciMate/processing/healthcareprovider_registration.php" method="POST">
                 <label for="ID">ID:</label>
                 <input type="int" id="ID" name="ID" required>
                 <br>
@@ -73,7 +73,7 @@
         <div id="clientForm">
             <!-- Client Form Elements -->
             <h2>Client</h2>
-            <form action="//processing/patient_registration.php" method="POST">
+            <form action="http://localhost/MagicBunny/VacciMate/processing/patient_registration.php" method="POST">
                 <label for="ID">ID:</label>
                 <input type="int" id="ID" name="ID" required>
                 <br>
