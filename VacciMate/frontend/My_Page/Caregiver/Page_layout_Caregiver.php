@@ -49,7 +49,7 @@
      <p> Get all the information you need about vacciens needed in the area!</p>
      <img src="https://www.thesafaricollection.com/wp-content/uploads/2022/07/The-Safari-Collection-Hey-You-Giraffe-Manor-1.jpg" alt="test_pic">
    </a>
-  </div>
+  </div>  
 
  </body>
 
