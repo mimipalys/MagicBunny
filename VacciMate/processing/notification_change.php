@@ -26,9 +26,12 @@ $patientID = $_SESSION['user_id'];
 $phone_note = $_POST['text_note'];
 $email_note = $_POST['email_note'];
 
-$sqlID = "UPDATE Patient SET NotificationsEmail = ?, NotficationsPhone = ? WHERE PatientID = ?";
+echo "$email_note"; 
+
+$sqlID = "UPDATE Patient SET NotificationsEmail, NotficationsPhone VALUE (?, ?) WHERE PatientID = $patientID";
 $stmtID = $db->prepare($sqlID);
-$stmtID->bind_param("iis", $phone_note, $email_note, $patientID); 
+$stmtID->bind_param("ss", $phone_note, $email_note); 
+$stmt->execute();
 
   // Redirecting to the settingspage with a key value pair changed=1 OBS a GET method maybe better to use POST
   header("location: http://localhost:8888/frontend/Settings/Settings_Page.php?changed=1");
