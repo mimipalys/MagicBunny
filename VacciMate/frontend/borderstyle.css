@@ -221,4 +221,41 @@ img{
   color : black;
 }
 
+/* Containers for the "register vaccine" tab in the caregivers my page */
+.registervaccinecontainer {
+  max-width: 600px;
+  margin: 50px auto; /* Add margin to the top to move it down */
+  padding: 50px;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center; /* Center align the container */
+}
 
+.register-vaccine-title {
+  text-align: center;
+}
+
+.register-vaccine-label {
+  font-weight: bold;
+}
+
+.register-vaccine-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.register-vaccine-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.register-vaccine-button:hover {
+  background-color: #0056b3;
+}
