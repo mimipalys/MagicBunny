@@ -6,7 +6,12 @@ session_start();
 echo "frontend: ";
 echo $_SESSION['user_id'];
 echo $_SERVER["DOCUMENT_ROOT"];
+
+$caregiverID = $_SESSION['user_id'];
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -47,11 +52,10 @@ echo $_SERVER["DOCUMENT_ROOT"];
             <input class="register-vaccine-input" type="text" id="patientID" name="patientID" required>
 
             <label class="register-vaccine-label" for="healthcareProviderID">Healthcare Provider ID:</label>
-            <input class="register-vaccine-input" type="text" id="healthcareProviderID" name="healthcareProviderID"
-                required>
-
-            <label class="register-vaccine-label" for="vaccineID">Vaccine ID:</label>
-            <input class="register-vaccine-input" type="text" id="vaccineID" name="vaccineID" required>
+            <input class="register-vaccine-input" type="text" value="<?php echo $caregiverID; ?>" id="healthcareProviderID" name="healthcareProviderID" readonly>
+            <!-- make into searchable dropdown menu -->
+            <label class="register-vaccine-label" for="vaccine">Vaccine:</label>
+            <input class="register-vaccine-input" type="text" id="vaccine" name="vaccine" required>
 
             <label class="register-vaccine-label" for="doseNumber">Dose Number:</label>
             <input class="register-vaccine-input" type="text" id="doseNumber" name="doseNumber" required>
