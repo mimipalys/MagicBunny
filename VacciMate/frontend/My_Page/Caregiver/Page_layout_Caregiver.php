@@ -14,7 +14,7 @@
 <body>
  <header>
   <div class= "topheader">
-    <a id = "GFG" class="vaccimateLogo" href = "http://localhost:8888/frontend/homepage/frontpage.php"> &#128137 VacciMate </a> 
+    <a id = "GFG" class="vaccimateLogo" href = "http://localhost/Page_layout_Caregiver.php"> &#128137 VacciMate </a> 
     <div class= "rightpart_topheader">
      <a id = "GFG" href = "../SignupandSingnin/signIn.php" class="costumbutton1"> My Pages </a>
      <a id = "GFG" href = "../SignupandSingnin/signUp.php" class="costumbutton1"> Logout </a>

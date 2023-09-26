@@ -152,10 +152,13 @@ body {
   /* clickable link in topheader*/
   .costumbutton1, .costumbutton1_choosen{
   text-align: center;
+  top: -10px;
+  right: -10px;
+  position:relative;
   float: left;
   border: none;
   padding: auto;
-  font-size: 20px;
+  font-size: 25px;
   cursor: pointer;
   border-radius: 10px;
   margin: auto; /* Add some spacing between buttons */
@@ -220,6 +223,3 @@ body {
     text-decoration: none; 
     color : black;
   }
-  
-  
-  
