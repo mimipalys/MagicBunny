@@ -44,8 +44,16 @@
         <label for="email_note"> I want to reccive emails on upcoming vaccine doses </label><br> <br>
         <input type="submit" value="Save">
     </form>
+    
+    
+    </fieldset>
+  
+    <?php
 
-   </fieldset>
+   if (isset($_GET['changed'])) {
+    echo "Notification settings changed!";
+}
+  ?>
   </div>
 
  </div>
