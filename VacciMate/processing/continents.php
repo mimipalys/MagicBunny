@@ -2,6 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="http://localhost/frontend/borderstyle.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost/processing/continent_page.css">
     <title>
           Using display: flex and 
           justify-content: space-between

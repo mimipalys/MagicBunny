@@ -1,0 +1,41 @@
+/* Styles for the country page */
+section {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #444;
+}
+
+/* Style country descriptions with text justification */
+
+
+li strong {
+    font-size: 20px;
+    color: #444444; 
+    font-weight: bold;
+}
+
+.highlight-link {
+    text-decoration: none;
+    color: #080606; 
+    font-weight: bold;
+}
