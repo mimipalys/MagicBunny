@@ -29,7 +29,7 @@
 
  </header>
  <body>
- <h1> Vaycation</h1>
+ <h1> Vacation</h1>
  <div class = "bodydiv">
    <div class = "Body_fullscreen">
      <h2> Traveling to Kenya? </h2>
