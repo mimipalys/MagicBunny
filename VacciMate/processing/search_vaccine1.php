@@ -63,11 +63,12 @@
 <!DOCTYPE html>
 <html>
 <body>
-    <form action="search_vaccine1.php" method="POST">
-    <p class="search_vaccine">Search HEJ Vaccine</p> <input type="text" name="search_query">
-    <text-align: center><input type="submit" value="Search">
-    </form>
-
+    <div  class = "search_vaccine">
+        <form action="search_vaccine1.php" method="POST">
+        <p class="search_vaccine">Search Vaccine</p> <input class="search_vaccine" type="text" name="search_query" placeholder="Vaccine Name or Disease..." >
+        <text-align: center><input type="submit" value="Search">
+        </form>
+    </div>
 </body>
 
 
