@@ -30,6 +30,11 @@
     
     <!-- Travel Destinations Section -->
     <section class="continent_page">
+        <!-- Search Form -->
+        <form action="search_country.php" method="get" class="search-form">
+            <input type="text" name="country" id="country" placeholder="Search for your destination here">
+            <input type="submit" value="Search">
+        </form>
         <h1 class="continent_title">Travel Destinations</h1>
         <p class="continent_description">Travelling abroad but unsure about possible vaccinations you may need? Simply type in the country or continent you are visiting to find out all you need to know and recommended vaccines.</p>
         <ul class="continent_list">
