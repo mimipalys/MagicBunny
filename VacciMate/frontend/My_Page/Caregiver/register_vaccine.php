@@ -56,7 +56,7 @@ $caregiverID = $_SESSION['user_id'];
             <!-- make into searchable dropdown menu -->
             <label class="register-vaccine-label" for="vaccine">Vaccine:</label>
             <input class="register-vaccine-input" type="text" id="vaccine" name="vaccine" required>
-
+            
             <label class="register-vaccine-label" for="doseNumber">Dose Number:</label>
             <input class="register-vaccine-input" type="text" id="doseNumber" name="doseNumber" required>
 
