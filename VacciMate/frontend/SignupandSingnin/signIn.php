@@ -36,7 +36,15 @@
 
 <main>
 
+
     <div class="loginbox">
+
+      <!-- only if a GET value changed is passed with the URL-->
+      <?php
+        if (isset($_GET['changed'])) {
+        echo "<br> Please login before viewing your account settings";
+        }
+      ?>
         <h1>Login</h1>
         <form action="../../processing/login.php" method="POST">
             <div id="k">

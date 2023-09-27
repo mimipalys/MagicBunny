@@ -4,6 +4,11 @@
 
 <?php
   include('../links.php');
+  if (!isset($_SESSION['user_id'])) {
+   header("Location: $login_link?changed=1");
+   exit;
+  }
+  
 ?>
 
 <head>
