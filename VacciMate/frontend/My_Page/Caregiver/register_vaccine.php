@@ -10,7 +10,7 @@ echo $_SERVER["DOCUMENT_ROOT"];
 $caregiverID = $_SESSION['user_id'];
 
 // Check if the user is logged in; if not, redirect to the signIn.php page
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
     header("Location: ../../SignupandSingnin/signIn.php");
     exit;
   }
@@ -53,13 +53,16 @@ if (!isset($_SESSION['user_id'])) {
 
     <div class="registervaccinecontainer">
         <h1 class="register-vaccine-title">Register Vaccine Dose</h1>
-        <form action="submit_vaccine_dose.php" method="post">
+        <form action="../../../processing/insert_vaccine.php" method="post">
             <label class="register-vaccine-label" for="patientID">Patient ID:</label>
             <input class="register-vaccine-input" type="text" id="patientID" name="patientID" required>
 
             <label class="register-vaccine-label" for="healthcareProviderID">Healthcare Provider ID:</label>
             <input class="register-vaccine-input" type="text" value="<?php echo $caregiverID; ?>" id="healthcareProviderID" name="healthcareProviderID" readonly>
             <!-- make into searchable dropdown menu -->
+            <label class="register-vaccine-label" for="doseID">Dose ID:</label>
+            <input class="register-vaccine-input" type="text" id="doseID" name="doseID" required>
+
             <label class="register-vaccine-label" for="vaccine">Vaccine:</label>
             <input class="register-vaccine-input" type="text" id="vaccine" name="vaccine" required>
             

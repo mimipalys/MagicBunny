@@ -30,6 +30,9 @@ $user = $result->fetch_assoc();
 if ($user && password_verify($password, $user['Password'])) {
     $_SESSION['user_id'] = $user['HealthcareProviderID'];
     $_SESSION['username'] = $user['Fname'];
+    // logged in as caregiver
+    $_SESSION['role'] = 'caregiver';
+
     header("Location: ../frontend/homepage/frontpage.php");
     echo "succesful signIn.php";
 } else {

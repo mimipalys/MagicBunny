@@ -8,7 +8,7 @@ echo $_SESSION['user_id'];
 echo $_SERVER["DOCUMENT_ROOT"];
 
 // Check if the user is logged in; if not, redirect to the signIn.php page
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "patient" ) {
   header("Location: ../../SignupandSingnin/signIn.php");
   exit;
 }
@@ -128,9 +128,9 @@ $(document).ready(function() {
           // Create a list item for the current upcoming refill
           var refillItem = '<li class="refill-info">';
           refillItem += '<h3>' + upcoming_refill['VaccineName'] + '</h3>';
-          refillItem += '<h4>Dose Number: ' + upcoming_refill['DoseNumber'] + '</h4>';
-          refillItem += '<h4>Earliest Date: ' + upcoming_refill['EarliestDateToTake'] + '</h4>';
-          refillItem += '<h4>Latest Date: ' + upcoming_refill['LatestDateToTake'] + '</h4>';
+          refillItem += '<div><h5 style="display: inline;">Dose Number: </h5>' + upcoming_refill['DoseNumber'] + '</div>';
+          refillItem += '<div><h5 style="display: inline;">Earliest Date: </h5>' + upcoming_refill['EarliestDateToTake'] + '</div>';
+          refillItem += '<div><h5 style="display: inline;">Latest Date: </h5>' + upcoming_refill['LatestDateToTake'] + '</div>';
           refillItem += '</li>';
 
           // Append the list item to the unordered list
