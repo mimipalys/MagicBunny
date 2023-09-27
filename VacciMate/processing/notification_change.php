@@ -1,39 +1,41 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "VacciMate";
+session_start();
 
-// Create connection
-$link = mysqli_connect($servername, $username, $password, $dbname);
+// Database connection details
+$dbHost = 'localhost';
+$dbUsername = 'root';
+$dbPassword = 'root';
+$dbName = 'VacciMate';
 
-// Check if connection is established
-if (mysqli_connect_error()) {
-    die("Connection failed: " . mysqli_connect_error());
+// Create a database connection
+$db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+
+// Check the connection
+if ($db->connect_error) {
+    die("Connection failed: " . $db->connect_error);
 }
 
+// Check if the user is logged in; if not, redirect to the signIn.php page
+if (!isset($_SESSION['user_id'])) {
+    header("Location: index.php");
+    exit;
+}
 
- $uppcoming_notification = $_POST['Uppcoming'];
- $news_notification = $_POST['News'];
- $appointment_notification = $_POST['Appointment'];
+// get session id
+$patientID = $_SESSION['user_id'];
+$phone_note = $_POST['text_note'];
+$email_note = $_POST['email_note'];
 
- // when save is pressed; 
- // change notification attribue in table to true or false deppending on checked or not. 
+echo "$email_note"; 
 
- // Build the SQL query
- //$sql = "SELECT VaccineName, Description FROM Vaccine";
- //$result = $link->query($sql);
+$sqlID = "UPDATE Patient SET NotificationsEmail, NotficationsPhone VALUE (?, ?) WHERE PatientID = $patientID";
+$stmtID = $db->prepare($sqlID);
+$stmtID->bind_param("ss", $phone_note, $email_note); 
+$stmt->execute();
 
- // Close the database connection
- //$link->close();
+  // Redirecting to the settingspage with a key value pair changed=1 OBS a GET method maybe better to use POST
+  header("location: http://localhost:8888/frontend/Settings/Settings_Page.php?changed=1");
 
-  // Make this echo back tp settingsscreen when added to the DB
-  echo "<h1> Notification settings succesfully changed <h1/>"; 
-  //header("Location ../frontend/Setting/Settings_Page.php.$message"); 
-
- //header("location: http://localhost:8888/frontend/Settings/Settings_Page.php");
- //echo "<h1> Your settings has been saved </h1>"; 
- //header("location: http://localhost:8888/frontend/Settings/Settings_Page.php"); //replaces 1.html
 ?>
 
 
