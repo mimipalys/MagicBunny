@@ -118,6 +118,9 @@
 
 <?php
 // Database connection parameters
+session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 $servername = "localhost";
 $username = "root";
 $password = "root";
@@ -130,7 +133,13 @@ $link = mysqli_connect($servername, $username, $password, $dbname);
 if (mysqli_connect_error()) {
     die("Connection failed: " . mysqli_connect_error());
 }
+// Check if user is logged in 
+if (isset($_SESSION['user_id'])) {
+    $patientID = $_SESSION['user_id'];
 
+}
+
+//if query is searched
 
 if (isset($_GET['search_query'])) {
     // Build the SQL query
