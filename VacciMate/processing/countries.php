@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="http://localhost/frontend/borderstyle.css">
-    <link rel="stylesheet" type="text/css" href="http://localhost/processing/country_page.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:8888/frontend/borderstyle.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:8888/processing/country_page.css">
     <title>
           Using display: flex and 
           justify-content: space-between
