@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-
 <?php
-
 // Database connection details
 $dbHost = 'localhost';
 $dbUsername = 'root';
@@ -18,10 +14,10 @@ if ($db->connect_error) {
 }
 
 // Check if the user is logged in; if not, redirect to the signIn.php page WO IS LOGED IN? IT WORKED?
-if (!isset($_SESSION['user_id'])) {
-    header("Location: index.php");
-    exit;
-}
+// if (!isset($_SESSION['user_id'])) {
+//     header("Location: index.php");
+//     exit;
+// }
 
 // $todays_date = date('Y-m-d');
 // $next_due_date = date('Y-m-d', strtotime("+30 days"));
@@ -46,7 +42,7 @@ FROM (
 ) AS subquery
 WHERE DATE_ADD(AdministrationDate, INTERVAL MinimumGap DAY) = DATE_ADD('2022-01-01', INTERVAL 30 DAY)";
 
-$result = $db->query($rows_to_send_note_to);
+$result = $db->query($sql_specific_rows);
 
 // For each row in specific query if NotificationsEmail= 1 --> send email to MailAddress if NotificationsPhone = 1 --> send text to phone PhoneNumber
 // Assuming you have executed your SQL query and fetched the results into $result.
@@ -92,5 +88,5 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 
 ?>
-</html>
+
 
