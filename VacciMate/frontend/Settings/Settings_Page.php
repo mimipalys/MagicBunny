@@ -63,7 +63,7 @@
    <fieldset>
    <legend>Notifications:</legend>
      
-     <form action="../../processing/notification_change.php" method="POST">
+     <form action="../../processing/Notification/notification_change.php" method="POST">
         <input type="hidden" name="text_note" value="0">
         <input type="checkbox" name="text_note" value="1">
         <label for="text_note"> I want to reccive texts on upcoming vaccine doses </label><br> <br>

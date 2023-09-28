@@ -1,5 +1,9 @@
+<!DOCTYPE html>
+<html>
+
 <?php
-//First header
+
+// Database connection details
 $dbHost = 'localhost';
 $dbUsername = 'root';
 $dbPassword = 'root';
@@ -61,5 +65,32 @@ while ($row = mysqli_fetch_assoc($result)) {
     }
 }
 
-echo "hiiiii"; 
+// The real deal
+// $sql_specific_rows = "SELECT *
+// FROM (
+//     SELECT 
+//         `AdministrationDate`, 
+//         `MailAddress`, 
+//         `PhoneNumber`, 
+//         `NotificationsEmail`,
+//         `NotificationsPhone`,
+//         `MinimumGap`,
+//         `MaximumGap`,
+//         `VaccineName`
+//     FROM `Patient`
+//     JOIN `VaccineDose` ON Patient.PatientID = VaccineDose.PatientID
+//     JOIN `VaccineSchedule` ON VaccineDose.VaccineID = VaccineSchedule.VaccineID
+//     JOIN `Vaccine` ON VaccineDose.VaccineID = Vaccine.VaccineID
+//     WHERE NotificationsEmail = 1 OR NotificationsPhone = 1
+// ) AS subquery
+// WHERE DATE_ADD(AdministrationDate, INTERVAL MinimumGap DAY) = DATE_ADD(CURDATE(), INTERVAL 30 DAY)";
+
+
+
+
+
+
+
 ?>
+</html>
+
