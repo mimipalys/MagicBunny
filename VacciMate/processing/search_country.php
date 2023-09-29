@@ -3,6 +3,8 @@
 <?php
   include('../frontend/links.php');
 ?>
+
+
 <head>
     <link rel="stylesheet" type="text/css" href="http://localhost:8888/frontend/borderstyle.css">
     <link rel="stylesheet" type="text/css" href="http://localhost:8888/processing/country_page.css">
@@ -48,10 +50,10 @@
         $servername = "localhost";
         $username = "root";
         $password = "root";
-        $dbname = "vaccimate"; 
+        $dbname = "vaccimate"; // Update with your actual database name
 
         // Get the selected continent from the URL parameter
-        $selectedContinent = $_GET['continent'];
+        $selectedCountry = $_GET['country'];
 
         // Create connection
         $link = mysqli_connect($servername, $username, $password, $dbname);
@@ -62,7 +64,7 @@
         }
 
         // SQL query to fetch countries and descriptions for the selected continent
-        $sql = "SELECT Name, description FROM Country WHERE continent = '$selectedContinent'";
+        $sql = "SELECT Name, description FROM Country WHERE Name = '$selectedCountry'";
 
         // Execute the query
         $result = $link->query($sql);

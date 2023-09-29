@@ -1,3 +1,25 @@
+.search-form {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.search-form input[type="text"] {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.search-form input[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
 
 /* Styles for the continent page */
 .continent_page ul {
@@ -21,7 +43,7 @@
     text-decoration: none;
     text-align: center;
     color: #333;
-    font-size: 18px;
+    font-size: 22Zpx;
   }
   
   .continent_page ul li a img {

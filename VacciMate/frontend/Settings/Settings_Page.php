@@ -2,6 +2,15 @@
 <!DOCTYPE html>
 <html>
 
+<?php
+  include('../links.php');
+  //if (!isset($_SESSION['user_id'])) {
+  //header("Location: $login_link?changed=1");
+  //exit;
+  //}
+  
+?>
+
 <head>
   <link rel="stylesheet" type="text/css" href="../borderstyle.css">
   <title>
@@ -11,23 +20,40 @@
 </head>
 
 <body>
- <header>
-  <div class= "topheader">
-    <a id = "GFG" class="vaccimateLogo" href = "http://localhost:8888/frontend/homepage/frontpage.php"> &#128137 VacciMate </a> 
-    <div class= "rightpart_topheader">
-     <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> Login </a> 
-     <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> Register </a> 
-     <p id = "GFG" class="costumbutton1_choosen"> &#9881 </p>
-    </div>
-  </div>
+<head>
 
-  <div class= "bottomheader">
-    <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton2"> Travel information </a> 
-    <a id = "GFG" href = "http://localhost:8888/processing/search_vaccine.php" class="costumbutton2"> Search Vaccine </a> 
-    <a id = "GFG" href = "http://localhost:8888/frontend/Non_connected_pages/About_Us/About_Us.php" class="costumbutton2"> About Us </a> 
-  </div>
+<link rel="stylesheet" type="text/css" href="../borderstyle.css">
+<title>
+        Using display: flex and 
+        justify-content: space-between
+</title>
+</head>
 
- </header>
+<body>
+<header>
+<div class= "topheader">
+  <?php
+   echo '<a id="GFG" class="vaccimateLogo" href="' . $homepage_link . '">&#128137 VacciMate</a>';
+  ?>
+  
+  <div class= "rightpart_topheader">
+  <?php
+   echo '<a id="GFG" href="' . $login_link . '" class="costumbutton1">Login</a>';
+   echo '<a id="GFG" href="' . $register_link . '"  class="costumbutton1">Register</a>';
+   echo '<p id = "GFG" class="costumbutton1_choosen"> &#9881 </p>';
+  ?>
+  </div>
+</div>
+
+<div class= "bottomheader">
+<?php
+  echo '<a id="GFG" href="' . $travel_link . '" class="costumbutton2">Travel information</a>';
+  echo '<a id="GFG" href="' . $search_link . '"  class="costumbutton2">Search Vaccine</a>';
+  echo '<a id="GFG" href="' . $aboutUs_link . '"  class="costumbutton2">About Us</a>';
+?>
+</div>
+
+</header>
 
  <body>
 
@@ -37,7 +63,7 @@
    <fieldset>
    <legend>Notifications:</legend>
      
-     <form action="../../processing/notification_change.php" method="POST">
+     <form action="../../processing/Notifications/notification_change.php" method="POST">
         <input type="hidden" name="text_note" value="0">
         <input type="checkbox" name="text_note" value="1">
         <label for="text_note"> I want to reccive texts on upcoming vaccine doses </label><br> <br>
