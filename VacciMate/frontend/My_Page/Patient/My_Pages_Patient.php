@@ -1,16 +1,10 @@
 
 <!DOCTYPE html>
 <html>
-<?php
-  include('../../links.php');
-?>
+
 <head>
 
-<<<<<<< HEAD
-  <link rel="stylesheet" type="text/css" href="../../borderstyle.css">
-=======
   <link rel="stylesheet" type="text/css" href="borderstyle.css">
->>>>>>> 3cebf714843465de45932718da77b6cf1e2f27a8
   <title>
           Using display: flex and 
           justify-content: space-between
@@ -18,27 +12,20 @@
 </head>
 
 <body>
-<header>
+ <header>
   <div class= "topheader">
-    <?php
-     echo '<a id="GFG" class="vaccimateLogo" href="' . $homepage_link . '">&#128137 VacciMate</a>';
-    ?>
-    
+    <a id = "GFG" class="vaccimateLogo" href = "http://localhost/Page_layout_C.php"> &#128137 VacciMate </a> 
     <div class= "rightpart_topheader">
-    <?php
-     echo '<a id="GFG" href="' . $login_link . '" class="costumbutton1">My Page</a>';
-     echo '<a id="GFG" href="' . $register_link . '"  class="costumbutton1">Register</a>';
-     echo '<a id="GFG" href="' . $setting_link . '" class="costumbutton1">&#9881</a>';
-    ?>
+     <a id = "GFG" href = "../SignupandSingnin/signIn.php" class="costumbutton1">  </a>
+     <a id = "GFG" href = "../SignupandSingnin/signUp.php" class="costumbutton1">  </a>
+     <a id = "GFG" href = "http://localhost:8888/frontend/Settings/Settings_Page.php" class="costumbutton1"> &#9881 </a> 
     </div>
   </div>
-  
+
   <div class= "bottomheader">
-  <?php
-    echo '<a id="GFG" href="' . $travel_link . '" class="costumbutton2">Travel information</a>';
-    echo '<a id="GFG" href="' . $search_link . '"  class="costumbutton2">Search Vaccine</a>';
-    echo '<a id="GFG" href="' . $aboutUs_link . '"  class="costumbutton2">About Us</a>';
-  ?>
+    <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton2"> Travel information </a> 
+    <a id = "GFG" href = "http://localhost:8888/processing/search_vaccine.php" class="costumbutton2"> Search Vaccine </a> 
+    <a id = "GFG" href = "http://localhost:8888/frontend/Non_connected_pages/About_Us/About_Us.php" class="costumbutton2"> About Us </a> 
   </div>
 
  </header>
