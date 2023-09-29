@@ -12,6 +12,8 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "patient" ) {
   exit;
 }
 
+include('../../links.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -32,8 +34,8 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "patient" ) {
  <div class= "topheader">
     <a class="vaccimateLogo"> &#128137 VacciMate </a> 
     <div class= "rightpart_topheader">
-      <a id = "GFG" href = "../../../processing/logout.php" class="costumbutton1"> Logout </a>
-     <button id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> My Pages </button>
+      <a id = "GFG" href = "<?php $homepage_link?>" class="costumbutton1"> Logout </a>
+     <button id = "GFG" href = "<?php $my_page?>" class="costumbutton1"> My Pages </button>
      <button id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> &#9881 </button> 
     </div>
   </div>
@@ -44,10 +46,6 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "patient" ) {
     <a id = "GFG" href = "http://localhost:8888/processing/search_vaccine.php" class="costumbutton2"> Saved Vaccines   </a> 
     <a id = "GFG" href = "../../About_Us/About_Us.php" class="costumbutton2"> About Us </a> 
   </div>
-
-  <!-- <div class="newscolumns", id="vaccinedoses">
-        <h1>Vaccine Dose Information</h1>
-  </div> -->
 
   <div class="vaccinerecord">
     <h1>Vaccine Dose Information</h1>
