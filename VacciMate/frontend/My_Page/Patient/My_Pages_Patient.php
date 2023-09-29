@@ -1,3 +1,5 @@
+<?php session_start();
+?>
 
 <!DOCTYPE html>
 <html>
@@ -12,15 +14,16 @@
 </head>
 
 <body>
- <header>
+<header>
   <div class= "topheader">
-    <a id = "GFG" class="vaccimateLogo" href = "http://localhost/Page_layout_C.php"> &#128137 VacciMate </a> 
+    <a id = "GFG" class="vaccimateLogo" href = "http://localhost/Page_layout_Patient.php"> &#128137 VacciMate </a> 
     <div class= "rightpart_topheader">
-     <a id = "GFG" href = "../SignupandSingnin/signIn.php" class="costumbutton1">  </a>
-     <a id = "GFG" href = "../SignupandSingnin/signUp.php" class="costumbutton1">  </a>
+     <a id = "GFG" href = "http://localhost/frontend/My_Page/Patient/view_vaccine_history.php" class="costumbutton1"> My Pages </a>
+     <a id = "GFG" href = "../SignupandSingnin/signUp.php" class="costumbutton1"> Logout </a>
      <a id = "GFG" href = "http://localhost:8888/frontend/Settings/Settings_Page.php" class="costumbutton1"> &#9881 </a> 
     </div>
   </div>
+
 
   <div class= "bottomheader">
     <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton2"> Travel information </a> 

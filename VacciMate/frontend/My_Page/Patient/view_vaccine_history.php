@@ -22,7 +22,7 @@ include('../../links.php');
 <head>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="../../borderstyle.css">
+  <link rel="stylesheet" type="text/css" href="borderstyle.css">
   <title>
           Using display: flex and 
           justify-content: space-between
