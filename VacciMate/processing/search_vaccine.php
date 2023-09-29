@@ -1,6 +1,10 @@
 
 <!DOCTYPE html>
 <html>
+<?php
+  include('../frontend/links.php');
+?>
+
 
 <head>
 
@@ -12,21 +16,29 @@
 </head>
 
 <body>
- <header>
+<header>
   <div class= "topheader">
-    <a id = "GFG" class="vaccimateLogo" href = "http://localhost:8888/frontend/homepage/frontpage.php"> &#128137 VacciMate </a> 
+    <?php
+     echo '<a id="GFG" class="vaccimateLogo" href="' . $homepage_link . '">&#128137 VacciMate</a>';
+    ?>
+    
     <div class= "rightpart_topheader">
-     <a id = "GFG" href = "http://localhost:8888/processing/i 
-     <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> &#9881 </a> 
+    <?php
+     echo '<a id="GFG" href="' . $login_link . '" class="costumbutton1">Login</a>';
+     echo '<a id="GFG" href="' . $register_link . '"  class="costumbutton1">Register</a>';
+     echo '<a id="GFG" href="' . $setting_link . '" class="costumbutton1">&#9881</a>';
+    ?>
     </div>
   </div>
   
-
   <div class= "bottomheader">
-    <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton2"> Travel information </a> 
-    <p id = "GFG" class="costumbutton2_choosen"> Search Vaccine </p>  
-    <a id = "GFG" href = "http://localhost:8888/frontend/About_Us/About_Us.php" class="costumbutton2"> About Us </a> 
+  <?php
+    echo '<a id="GFG" href="' . $travel_link . '" class="costumbutton2">Travel information</a>';
+    echo '<p id = "GFG" class="costumbutton2_choosen"> Search Vaccine </p>';
+    echo '<a id="GFG" href="' . $aboutUs_link . '"  class="costumbutton2">About Us</a>';
+  ?>
   </div>
+</header>
 
     <style>
         /* Style for the description initially hidden */

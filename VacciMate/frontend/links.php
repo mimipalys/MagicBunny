@@ -4,6 +4,7 @@ $homepage_link = "http://localhost:8888/frontend/homepage/frontpage.php";
 $login_link = "http://localhost:8888/frontend/SignupandSingnin/signIn.php"; 
 $register_link = "http://localhost:8888/frontend/SignupandSingnin/signUp.php"; 
 $setting_link = "http://localhost:8888/frontend/Settings/Settings_Page.php"; 
+$my_page = "http://localhost:8888/frontend/My_Page/Patient/view_vaccine_history.php";
 
 //Secound header
 $travel_link = "http://localhost:8888/processing/continents.php"; 
