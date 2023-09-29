@@ -11,6 +11,8 @@
     header("Location: ../My_Page/Patient/Page_layout_Patient.php");
     exit;
 }
+$baseDir = __DIR__;
+echo $baseDir;
 ?>
 
 <head>

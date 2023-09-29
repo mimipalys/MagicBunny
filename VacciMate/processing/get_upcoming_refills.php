@@ -127,14 +127,6 @@ foreach ($results as $result) {
             "LatestDateToTake" => $LatestDateToTake
         );
 
-        // echo "Upcoming Dose:\n";
-        // echo "Vaccine Name: " . $vaccineName . "\n";
-        // echo "Dose Number: " . $nextDoseNumber . "\n";
-        // echo "Minimum Gap: " . $minimumGap . " days\n";
-        // echo "Maximum Gap: " . $maximumGap . " days\n";
-        // echo "earliest date: " . $EarliestDateToTake . ' ';
-        // echo "latest date: " . $LatestDateToTake;
-
         // Close the statement
         $stmt->close();
         
