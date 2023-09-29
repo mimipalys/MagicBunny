@@ -14,6 +14,7 @@ $login_link = $protocol . $host . '/frontend/SignupandSingnin/signIn.php';
 $register_link = $protocol . $host . '/frontend/SignupandSingnin/signUp.php'; 
 $setting_link = $protocol . $host . '/frontend/Settings/Settings_Page.php'; 
 $my_page = $protocol . $host . '/frontend/My_Page/Patient/view_vaccine_history.php';
+$logout = $protocol . $host . '/processing/logout.php';
 
 //Secound header
 $travel_link = $protocol . $host . '/processing/continents.php'; 
