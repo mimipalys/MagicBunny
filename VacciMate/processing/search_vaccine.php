@@ -106,6 +106,7 @@
 <!DOCTYPE html>
 <html>
 <body>
+    qwerqweqwerweweq
     <div  class = "search_vaccine">
         <form action="search_vaccine.php" method="GET">
         <p class="search_vaccine">Search forccine</p> <input class="search_vaccine" type="text" name="search_query" placeholder="Vaccine Name or Disease..." >
