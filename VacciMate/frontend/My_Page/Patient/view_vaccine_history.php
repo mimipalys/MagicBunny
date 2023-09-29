@@ -7,11 +7,11 @@ echo "frontend: ";
 echo $_SESSION['user_id'];
 echo $_SERVER["DOCUMENT_ROOT"];
 
-// Check if the user is logged in; if not, redirect to the signIn.php page
-if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "patient" ) {
-  header("Location: ../../SignupandSingnin/signIn.php");
-  exit;
-}
+// // Check if the user is logged in; if not, redirect to the signIn.php page
+// if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "patient" ) {
+//   header("Location: ../../SignupandSingnin/signIn.php");
+//   exit;
+// }
 
 ?>
 
@@ -21,7 +21,7 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "patient" ) {
 <head>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="../../borderstyle.css">
+  <link rel="stylesheet" type="text/css" href="borderstyle.css">
   <title>
           Using display: flex and 
           justify-content: space-between
