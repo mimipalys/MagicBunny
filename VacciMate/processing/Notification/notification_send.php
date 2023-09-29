@@ -43,7 +43,6 @@ $result = $db->query($sql_specific_rows);
 while ($row = mysqli_fetch_assoc($result)) {
     if ($row['NotificationsEmail'] == 1) {
         echo "To implement, sennding a notification to: " . $row['MailAddress'] . " ";
-
         // Send an email to $row['MailAddress']
         // You can use PHPMailer or another email library here
     }

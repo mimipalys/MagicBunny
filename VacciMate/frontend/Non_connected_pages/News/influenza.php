@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <?php
-  include('../links.php');
+  include('../../links.php');
 ?>
 <head>
   <link rel="stylesheet" type="text/css" href="../../borderstyle.css">
