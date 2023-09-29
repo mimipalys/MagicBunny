@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
+<?php
+  include('../frontend/links.php');
+?>
 <head>
-    <link rel="stylesheet" type="text/css" href="http://localhost/frontend/borderstyle.css">
-    <link rel="stylesheet" type="text/css" href="http://localhost/processing/country_page.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:8888/frontend/borderstyle.css">
+    <link rel="stylesheet" type="text/css" href="http://localhost:8888/processing/country_page.css">
     <title>
           Using display: flex and 
           justify-content: space-between
@@ -10,20 +13,27 @@
 </head>
 
 <body>
- <header>
+<header>
   <div class= "topheader">
-    <a id = "GFG" class="vaccimateLogo" href = "http://localhost:8888/frontend/homepage/frontpage.php"> &#128137 VacciMate </a> 
+    <?php
+     echo '<a id="GFG" class="vaccimateLogo" href="' . $homepage_link . '">&#128137 VacciMate</a>';
+    ?>
+    
     <div class= "rightpart_topheader">
-     <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> Login </a> 
-     <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> Register </a> 
-     <a id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> &#9881 </a> 
+    <?php
+     echo '<a id="GFG" href="' . $login_link . '" class="costumbutton1">Login</a>';
+     echo '<a id="GFG" href="' . $register_link . '"  class="costumbutton1">Register</a>';
+     echo '<a id="GFG" href="' . $setting_link . '" class="costumbutton1">&#9881</a>';
+    ?>
     </div>
   </div>
-
+  
   <div class= "bottomheader">
-  <a id = "GFG" href = "http://localhost:8888/processing/continents.php" class="costumbutton2"> Travel information </a> 
-    <a id = "GFG" href = "http://localhost:8888/processing/search_vaccine.php" class="costumbutton2"> Search Vaccine </a> 
-    <a id = "GFG" href = "http://localhost:8888/frontend/About_Us/About_Us.php" class="costumbutton2"> About Us </a>
+  <?php
+    echo '<a id="GFG" href="' . $travel_link . '" class="costumbutton2">Travel information</a>';
+    echo '<a id="GFG" href="' . $search_link . '"  class="costumbutton2">Search Vaccine</a>';
+    echo '<a id="GFG" href="' . $aboutUs_link . '"  class="costumbutton2">About Us</a>';
+  ?>
   </div>
 
  </header>
