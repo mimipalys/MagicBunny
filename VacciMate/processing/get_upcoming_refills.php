@@ -29,31 +29,39 @@ if (!isset($_SESSION['user_id'])) {
 // get session id
 $patientID = $_SESSION['user_id'];
 
-echo "UPCOMNING REFILLS";
-
 // Execute the SQL query to get the latest doses for each vaccine
 $sql = "SELECT
-    V.VaccineName,
-    VD.PatientID,
-    VD.VaccineID,
-    MAX(VD.DoseNumber) AS LatestDoseNumber,
-    MAX(VD.AdministrationDate) AS LatestAdministrationDate,
-    VS.MinimumGap,
-    VS.MaximumGap
+V.VaccineName,
+VD.PatientID,
+VD.VaccineID,
+VD.DoseNumber AS LatestDoseNumber,
+VD.AdministrationDate AS LatestAdministrationDate,
+VS.MinimumGap,
+VS.MaximumGap
 FROM
-    VaccineDose VD
+VaccineDose VD
 JOIN 
-    Vaccine as V ON V.VaccineID = VD.VaccineID
+Vaccine AS V ON V.VaccineID = VD.VaccineID
 JOIN
-    VaccineSchedule VS ON VD.DoseNumber = VS.DoseNumber AND VD.VaccineID = VS.VaccineID
+VaccineSchedule VS ON VD.DoseNumber = VS.DoseNumber AND VD.VaccineID = VS.VaccineID
 WHERE
-    VD.PatientID = ?
-GROUP BY
-    VD.PatientID,
-    VD.VaccineID";
+VD.PatientID = ?
+AND (VD.DoseNumber, VD.AdministrationDate) = (
+    SELECT
+        MAX(DoseNumber),
+        MAX(AdministrationDate)
+    FROM
+        VaccineDose
+    WHERE
+        PatientID = ?
+        AND VaccineID = VD.VaccineID
+)";
 
 $stmt = $db->prepare($sql);
-$stmt->bind_param("s", $patientID);
+if (!$stmt) {
+    die("Error in SQL query: " . $db->error);
+}
+$stmt->bind_param("ss", $patientID, $patientID);
 $stmt->execute();
 
 $stmt->bind_result($vaccineName, $patientID, $vaccineID, $LatestDoseNumber, $LatestAdministrationDate, $minGap, $maxGap);
@@ -85,8 +93,8 @@ $upcoming_doses = array();
 foreach ($results as $result) {
 
     $LatestAdministrationDate = $result["LatestAdministrationDate"];
-    $minimumGap = $result["minGap"];
-    $maximumGap = $result["maxGap"];
+    $minimumGap = $result["MinimumGap"];
+    $maximumGap = $result["MaximumGap"];
     $vaccineName = $result["VaccineName"];
 
     // check whether minimumGap is not 0, if it isn't, that means there is a "next dose"
@@ -119,17 +127,29 @@ foreach ($results as $result) {
             "LatestDateToTake" => $LatestDateToTake
         );
 
-        echo "Upcoming Dose:\n";
-        echo "Vaccine Name: " . $vaccineName . "\n";
-        echo "Dose Number: " . $nextDoseNumber . "\n";
-        echo "Minimum Gap: " . $minimumGap . " days\n";
-        echo "Maximum Gap: " . $maximumGap . " days\n";
-        echo "earliest date: " . $EarliestDateToTake . ' ';
-        echo "latest date: " . $LatestDateToTake;
+        // echo "Upcoming Dose:\n";
+        // echo "Vaccine Name: " . $vaccineName . "\n";
+        // echo "Dose Number: " . $nextDoseNumber . "\n";
+        // echo "Minimum Gap: " . $minimumGap . " days\n";
+        // echo "Maximum Gap: " . $maximumGap . " days\n";
+        // echo "earliest date: " . $EarliestDateToTake . ' ';
+        // echo "latest date: " . $LatestDateToTake;
+
+        // Close the statement
+        $stmt->close();
+        
+
     }
 
 }
 
-// Write code to send upcoming_doses array to frotend page
+// Convert the dictionary to JSON
+$data_json = json_encode($upcoming_doses);
+
+// Set the response content type to JSON
+header('Content-Type: application/json');
+
+// Send the JSON response
+echo $data_json;
 
 ?>
