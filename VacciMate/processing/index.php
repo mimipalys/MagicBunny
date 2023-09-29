@@ -70,5 +70,17 @@
         <br>
         <input type="submit" name="login" value="Login">
     </form>
+
+        <!-- caregiver Login Form -->
+        <h2>Login</h2>
+    <form action="login_caregiver.php" method="POST">
+        <label for="loginUsername">Username:</label>
+        <input type="text" id="loginUsername" name="ID" required>
+        <br>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" name="password" required>
+        <br>
+        <input type="submit" name="login" value="Login">
+    </form>
 </body>
 </html>

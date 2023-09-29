@@ -3,15 +3,16 @@
 // display  vaccine doses and refills when that button is pressed, display shcedules when that button is pressed
 // have if-statement to check
 session_start();
-echo "frontend: ";
 echo $_SESSION['user_id'];
 echo $_SERVER["DOCUMENT_ROOT"];
 
-// // Check if the user is logged in; if not, redirect to the signIn.php page
-// if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "patient" ) {
-//   header("Location: ../../SignupandSingnin/signIn.php");
-//   exit;
-// }
+// Check if the user is logged in; if not, redirect to the signIn.php page
+if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "patient" ) {
+  header("Location: ../../SignupandSingnin/signIn.php");
+  exit;
+}
+
+include('../../links.php');
 
 ?>
 
@@ -29,13 +30,13 @@ echo $_SERVER["DOCUMENT_ROOT"];
 </head>
 
 <body>
- <header>
- <div class= "topheader">
-    <a class="vaccimateLogo"> &#128137 VacciMate </a> 
+<header>
+  <div class= "topheader">
+    <a id = "GFG" class="vaccimateLogo" href = "http://localhost/Page_layout_Patient.php"> &#128137 VacciMate </a> 
     <div class= "rightpart_topheader">
-      <a id = "GFG" href = "../../../processing/logout.php" class="costumbutton1"> Logout </a>
-     <button id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> My Pages </button>
-     <button id = "GFG" href = "http://localhost:8888/processing/index.php" class="costumbutton1"> &#9881 </button> 
+     <a id = "GFG" href = "http://localhost:8888/frontend/My_Page/Patient/view_vaccine_history.php" class="costumbutton1"> My Pages </a>
+     <a id = "GFG" href = "../../../processing/logout.php" class="costumbutton1"> Logout </a>
+     <a id = "GFG" href = "http://localhost:8888/frontend/Settings/Settings_Page.php" class="costumbutton1"> &#9881 </a> 
     </div>
   </div>
 
@@ -45,10 +46,6 @@ echo $_SERVER["DOCUMENT_ROOT"];
     <a id = "GFG" href = "http://localhost:8888/processing/search_vaccine.php" class="costumbutton2"> Saved Vaccines   </a> 
     <a id = "GFG" href = "../../About_Us/About_Us.php" class="costumbutton2"> About Us </a> 
   </div>
-
-  <!-- <div class="newscolumns", id="vaccinedoses">
-        <h1>Vaccine Dose Information</h1>
-  </div> -->
 
   <div class="vaccinerecord">
     <h1>Vaccine Dose Information</h1>
@@ -128,9 +125,9 @@ $(document).ready(function() {
           // Create a list item for the current upcoming refill
           var refillItem = '<li class="refill-info">';
           refillItem += '<h3>' + upcoming_refill['VaccineName'] + '</h3>';
-          refillItem += '<h4>Dose Number: ' + upcoming_refill['DoseNumber'] + '</h4>';
-          refillItem += '<h4>Earliest Date: ' + upcoming_refill['EarliestDateToTake'] + '</h4>';
-          refillItem += '<h4>Latest Date: ' + upcoming_refill['LatestDateToTake'] + '</h4>';
+          refillItem += '<div><h5 style="display: inline;">Dose Number: </h5>' + upcoming_refill['DoseNumber'] + '</div>';
+          refillItem += '<div><h5 style="display: inline;">Earliest Date: </h5>' + upcoming_refill['EarliestDateToTake'] + '</div>';
+          refillItem += '<div><h5 style="display: inline;">Latest Date: </h5>' + upcoming_refill['LatestDateToTake'] + '</div>';
           refillItem += '</li>';
 
           // Append the list item to the unordered list
