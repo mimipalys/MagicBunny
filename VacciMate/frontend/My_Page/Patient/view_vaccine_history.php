@@ -7,6 +7,11 @@ echo "frontend: ";
 echo $_SESSION['user_id'];
 echo $_SERVER["DOCUMENT_ROOT"];
 
+// Check if the user is logged in; if not, redirect to the signIn.php page
+if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "patient" ) {
+  header("Location: ../../SignupandSingnin/signIn.php");
+  exit;
+}
 
 ?>
 
