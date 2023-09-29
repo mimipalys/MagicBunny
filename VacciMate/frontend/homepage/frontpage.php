@@ -3,6 +3,14 @@
 <html>
 <?php
   include('../links.php');
+  // Check if the user is logged in; if not, redirect to the signIn.php page
+  session_start();
+  echo $_SESSION['user_id'];
+  
+  if (isset($_SESSION['user_id'])) {
+    header("Location: ../My_Page/Patient/Page_layout_Patient.php");
+    exit;
+}
 ?>
 
 <head>
