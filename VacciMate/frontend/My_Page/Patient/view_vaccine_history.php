@@ -3,7 +3,6 @@
 // display  vaccine doses and refills when that button is pressed, display shcedules when that button is pressed
 // have if-statement to check
 session_start();
-echo "frontend: ";
 echo $_SESSION['user_id'];
 echo $_SERVER["DOCUMENT_ROOT"];
 
