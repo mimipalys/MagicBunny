@@ -6,7 +6,11 @@
 ?>
 <head>
 
+<<<<<<< HEAD
   <link rel="stylesheet" type="text/css" href="../../borderstyle.css">
+=======
+  <link rel="stylesheet" type="text/css" href="borderstyle.css">
+>>>>>>> 3cebf714843465de45932718da77b6cf1e2f27a8
   <title>
           Using display: flex and 
           justify-content: space-between
