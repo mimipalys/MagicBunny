@@ -9,7 +9,7 @@ echo $_SERVER["DOCUMENT_ROOT"];
 
 $caregiverID = $_SESSION['user_id'];
 
-// Check if the user is logged in; if not, redirect to the signIn.php page
+// Check if the user is logged in and is a caregiver; if not, redirect to the signIn.php page
 if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
     header("Location: ../../SignupandSingnin/signIn.php");
     exit;
