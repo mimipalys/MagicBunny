@@ -13,14 +13,7 @@ if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 }
 
-// Check if the user is logged in; if not, redirect to the signIn.php page WO IS LOGED IN? IT WORKED?
-// if (!isset($_SESSION['user_id'])) {
-//     header("Location: index.php");
-//     exit;
-// }
-
 // $todays_date = date('Y-m-d');
-// $next_due_date = date('Y-m-d', strtotime("+30 days"));
 
 // test with another date as todays date. 
 $sql_specific_rows = "SELECT *
@@ -49,7 +42,8 @@ $result = $db->query($sql_specific_rows);
 
 while ($row = mysqli_fetch_assoc($result)) {
     if ($row['NotificationsEmail'] == 1) {
-        echo "Hi Email"; 
+        echo "To implement, sennding a notification to: " . $row['MailAddress'] . " ";
+
         // Send an email to $row['MailAddress']
         // You can use PHPMailer or another email library here
     }
