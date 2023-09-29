@@ -53,22 +53,67 @@
         }
 
         /* When the checkbox is checked, show the hidden description */
-        .show-description-checkbox:checked + .vaccine_description {
+        .show-description-checkbox:checked + .vaccine_description1 {
             display: block;
-            text-align: center;
-            align-items: center;
+            text-align: left;
+            align-items: right;
         }
+
+        .show-all-button {
+            cursor: pointer;
+            border: none;
+            padding: auto;
+            align-items: right;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin: auto; /* Add some spacing between buttons */
+            display: block
+        }
+        /* styles of the vaccinename buttons that are clickable to view the description*/
+        .show-description-button {
+        text-align: left;
+        border: none;
+        padding: auto;
+        align-items: right;
+        font-size: 20px;
+        cursor: pointer;
+        border-radius: 10px;
+        margin: auto; /* Add some spacing between buttons */
+        display: block
+        }
+    
+
+        /* styles of the vaccine descriptions in seach vaccine*/
+
+        .vaccine_description1 {
+        display: none;
+        align-items: center;
+        background-color: #ffffff;
+        margin: auto;
+        padding: 1rem 1rem;
+        text-align: right;
+        margin: 20px ; 
+        width: 700px;
+        Height: auto;
+        border-radius:20px;
+        }
+
+
+
     </style>
     
 <!DOCTYPE html>
 <html>
 <body>
+    qwerqweqwerweweq
     <div  class = "search_vaccine">
-        <form action="search_vaccine1.php" method="POST">
-        <p class="search_vaccine">Search Vaccine</p> <input class="search_vaccine" type="text" name="search_query" placeholder="Vaccine Name or Disease..." >
+        <form action="search_vaccine.php" method="GET">
+        <p class="search_vaccine">Search forccine</p> <input class="search_vaccine" type="text" name="search_query" placeholder="Vaccine Name or Disease..." >
         <text-align: center><input type="submit" value="Search">
         </form>
     </div>
+
 </body>
 
 
@@ -88,23 +133,29 @@ if (mysqli_connect_error()) {
 }
 
 
-if (isset($_POST['search_query'])) {
-    $searchQuery = $_POST['search_query'];
-    $sql = "SELECT VaccineName, Description FROM Vaccine WHERE VaccineName LIKE '%$searchQuery%'";
-    $test = 1;
+if (isset($_GET['search_query'])) {
+    // Build the SQL query
+    $searchQuery = $_GET['search_query'];
+    $sql = "SELECT VaccineName, Description, RelatedDisease FROM Vaccine WHERE VaccineName LIKE '%$searchQuery%'";
+
+    // Create button that takes you back
+    echo '<div  class = "show-all-button">';
+    echo '<a id = "GFG" href = "http://localhost:8888/processing/search_vaccine.php" class="show-all-button"> Show all vaccines</a>';
+    echo '</div>';
+
 }   else {
     // Build the SQL query
-    $sql = "SELECT VaccineName, Description FROM Vaccine";
+    $sql = "SELECT VaccineName, Description, RelatedDisease FROM Vaccine";
     $test = 0;
 }
 
+// Create the vaccine buttons
 $result = $link->query($sql);
-
 while($row = $result->fetch_assoc()) {
     echo '<div>';
     echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
     echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox">';
-    echo '<p class="vaccine_description">' . $row['Description'] . '</p>';
+    echo '<p class="vaccine_description1">'. "Vaccine Name: ".  $row['VaccineName']  ."<br><br>". "Related Disease: " . $row['RelatedDisease']."<br><br>". "Description: " .$row['Description'] . '</p>';
     echo '</div>';
 }
 
@@ -118,8 +169,3 @@ $link->close();
 
 
 
-
-
-
-
-    
