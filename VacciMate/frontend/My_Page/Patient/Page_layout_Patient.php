@@ -2,6 +2,9 @@
 session_start();
 $userID = $_SESSION['user_id'] ?? 'Placeholder User ID';
 echo 'UserID: <span class="user-id">' . $userID . '</span>';
+echo $_SESSION['role'];
+// universal links
+include('../../links.php');
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +25,7 @@ echo 'UserID: <span class="user-id">' . $userID . '</span>';
     <a id = "GFG" class="vaccimateLogo" href = "http://localhost/Page_layout_Patient.php"> &#128137 VacciMate </a> 
     <div class= "rightpart_topheader">
      <a id = "GFG" href = "http://localhost:8888/frontend/My_Page/Patient/view_vaccine_history.php" class="costumbutton1"> My Pages </a>
-     <a id = "GFG" href = "../SignupandSingnin/signUp.php" class="costumbutton1"> Logout </a>
+     <a id = "GFG" href = "<?php echo $logout ?>" class="costumbutton1"> Logout </a>
      <a id = "GFG" href = "http://localhost:8888/frontend/Settings/Settings_Page.php" class="costumbutton1"> &#9881 </a> 
     </div>
   </div>
