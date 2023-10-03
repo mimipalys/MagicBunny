@@ -203,22 +203,29 @@
             $sql = "SELECT VaccineName, Description, RelatedDisease FROM Vaccine";
             $test = 0;
         }
+        $result = $link->query($sql);
 
+
+        
+        while($row = $result->fetch_assoc()) {
+            echo '<div>';
+            echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
+            echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox">';
+            echo '<p class="vaccine_description1">'. "Vaccine Name: ".  $row['VaccineName']  ."<br><br>". "Related Disease: " . $row['RelatedDisease']."<br><br>". "Description: " .$row['Description'] . '</p>';
+            echo '</div>';
+        }
         // check if session
         if (isset($_SESSION['user_id'])) {
-            header("Location: signIn.php");
-            echo "hej";
-        } else
-            // Create the vaccine buttons
-            $result = $link->query($sql);
-            while($row = $result->fetch_assoc()) {
-                echo '<div>';
-                echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
-                echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox">';
-                echo '<p class="vaccine_description1">'. "Vaccine Name: ".  $row['VaccineName']  ."<br><br>". "Related Disease: " . $row['RelatedDisease']."<br><br>". "Description: " .$row['Description'] . '</p>';
-                echo '</div>';
+            $patientID = $_SESSION['user_id'];
+            $sql2 = "SELECT VaccineName FROM VaccineDose VD JOIN Vaccine AS V ON V.VaccineID = VD.VaccineID WHERE VD.PatientID = $patientID";
+            $result2 = $link->query($sql2);
         }
 
+        while($row2 = $result2 ->fetch_assoc()) {
+            echo '<div>';
+            echo $row2['VaccineName'] ;
+            echo '</div>';
+        }
 
 
         // Close the database connection
