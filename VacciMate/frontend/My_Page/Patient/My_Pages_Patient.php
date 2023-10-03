@@ -2,7 +2,6 @@
 
 // universal links
 include('../../links.php');
-
 ?>
 
 <!DOCTYPE html>
