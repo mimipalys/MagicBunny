@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html>
 <?php
-  include('../frontend/links.php');
+    session_start();
+    include('../frontend/links.php');
 ?>
 
 
@@ -154,6 +155,8 @@
         }
 </style>
 
+
+
 <link rel="stylesheet" type="text/css" href="http://localhost:8888/processing/search_vaccine_page.css">
 <header>
     <section class="search_vaccine_page">   
@@ -182,9 +185,11 @@
             die("Connection failed: " . mysqli_connect_error());
         }
 
+        //check if there is a search query 
 
         if (isset($_GET['search_query'])) {
-            // Build the SQL query
+
+            // Build the SQL query for search query
             $searchQuery = $_GET['search_query'];
             $sql = "SELECT VaccineName, Description, RelatedDisease FROM Vaccine WHERE VaccineName LIKE '%$searchQuery%'";
 
@@ -194,19 +199,24 @@
             echo '</div>';
 
         }   else {
-            // Build the SQL query
+            // Build the SQL query for all vaccines in DB
             $sql = "SELECT VaccineName, Description, RelatedDisease FROM Vaccine";
             $test = 0;
         }
 
-        // Create the vaccine buttons
-        $result = $link->query($sql);
-        while($row = $result->fetch_assoc()) {
-            echo '<div>';
-            echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
-            echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox">';
-            echo '<p class="vaccine_description1">'. "Vaccine Name: ".  $row['VaccineName']  ."<br><br>". "Related Disease: " . $row['RelatedDisease']."<br><br>". "Description: " .$row['Description'] . '</p>';
-            echo '</div>';
+        // check if session
+        if (isset($_SESSION['user_id'])) {
+            header("Location: signIn.php");
+            echo "hej";
+        } else
+            // Create the vaccine buttons
+            $result = $link->query($sql);
+            while($row = $result->fetch_assoc()) {
+                echo '<div>';
+                echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
+                echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox">';
+                echo '<p class="vaccine_description1">'. "Vaccine Name: ".  $row['VaccineName']  ."<br><br>". "Related Disease: " . $row['RelatedDisease']."<br><br>". "Description: " .$row['Description'] . '</p>';
+                echo '</div>';
         }
 
 
