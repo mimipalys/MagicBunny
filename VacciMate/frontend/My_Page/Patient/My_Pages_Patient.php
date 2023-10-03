@@ -1,5 +1,4 @@
 <?php session_start();
-
 // universal links
 include('../../links.php');
 ?>
