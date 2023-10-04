@@ -21,14 +21,24 @@ if ($db->connect_error) {
 $doseID = $_POST["doseID"];
 $patientID = $_POST["patientID"];
 $healthcareProviderID = $_POST["healthcareProviderID"];
-$vaccineID =  $_POST["vaccine"];
+$vaccineName =  $_POST["vaccine"];
 $doseNumber = $_POST["doseNumber"];
 $adminDate = $_POST["administrationDate"];
 
-echo $doseID;
-echo $adminDate;
-
 // check if patientID exists
+
+// get vaccineID of given vaccineName
+$sql = "SELECT VaccineID FROM Vaccine WHERE VaccineName = ?";
+$stmt = $db->prepare($sql);
+$stmt->bind_param("s", $vaccineName);
+
+// Execute the prepared statement
+$stmt->execute();
+$stmt->bind_result($vaccineID);
+
+// Fetch the result
+$stmt->fetch();
+$stmt->close();
 
 
 $sql = "INSERT INTO VaccineDose(DoseID, PatientID, HealthcareProviderID, VaccineID, DoseNumber, AdministrationDate)
@@ -40,9 +50,13 @@ VALUES (?, ?, ?, ?, ?, ?)";
 $stmt = $db->prepare($sql);
 $stmt->bind_param("isiiss", $doseID, $patientID, $healthcareProviderID, $vaccineID, $doseNumber, $adminDate);
 
+
 if ($stmt->execute()) {
     echo "Vaccine Registration successful.";
 } else {
-    echo "Vaccine Registration failed. Error: " . $db->error;
-}  
+    echo "Vaccine Registration failed. Error: " . $stmt->error;
+}
+
+$stmt->close();
+$db->close();
 ?>

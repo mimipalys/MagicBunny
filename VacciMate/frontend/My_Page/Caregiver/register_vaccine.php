@@ -15,6 +15,8 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
     exit;
   }
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 ?>
 
 
@@ -63,7 +65,8 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
 
             <label class="register-vaccine-label" for="vaccine">Vaccine:</label>
             <input class="register-vaccine-input" type="text" id="vaccine" name="vaccine" required>
-            
+            <div id="suggestions"></div>
+
             <label class="register-vaccine-label" for="doseNumber">Dose Number:</label>
             <input class="register-vaccine-input" type="text" id="doseNumber" name="doseNumber" required>
 
@@ -73,6 +76,52 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
 
             <button class="register-vaccine-button" type="submit">Register Dose</button>
         </form>
+
+        <script>
+const vaccineNameInput = document.getElementById('vaccine');
+const suggestionsDiv = document.getElementById('suggestions');
+
+vaccineNameInput.addEventListener('input', function() {
+    const input = vaccineNameInput.value;
+    console.log('Input Value:', input); // Log the input value to the console
+
+    // Make an AJAX request to the server-side script
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', `../../../processing/get_vaccines_for_live_search_form.php?input=${input}`, true);
+    
+    xhr.onload = function() {
+        console.log('Response from Server:', xhr.responseText); // Log the server response
+        const response = JSON.parse(xhr.responseText);
+        displaySuggestions(response);
+    };
+    
+    xhr.send();
+});
+
+function displaySuggestions(suggestions) {
+    // Clear previous suggestions
+    suggestionsDiv.innerHTML = '';
+    
+    // Log the suggestions array
+    console.log('Suggestions from Server:', suggestions);
+
+    // Display new suggestions
+    suggestions.forEach(function(suggestion) {
+        const suggestionDiv = document.createElement('div');
+        suggestionDiv.textContent = suggestion;
+        suggestionDiv.addEventListener('click', function() {
+            // Set the selected suggestion as the input value
+            vaccineNameInput.value = suggestion;
+            // Clear the suggestions
+            suggestionsDiv.innerHTML = '';
+        });
+        suggestionsDiv.appendChild(suggestionDiv);
+    });
+}
+
+
+        </script>
+
     </div>
 
 </body>
