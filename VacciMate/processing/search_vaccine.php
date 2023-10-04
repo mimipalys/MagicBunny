@@ -206,7 +206,6 @@
         $result = $link->query($sql);
 
 
-        
         while($row = $result->fetch_assoc()) {
             echo '<div>';
             echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
@@ -217,13 +216,29 @@
         // check if session
         if (isset($_SESSION['user_id'])) {
             $patientID = $_SESSION['user_id'];
-            $sql2 = "SELECT VaccineName FROM VaccineDose VD JOIN Vaccine AS V ON V.VaccineID = VD.VaccineID WHERE VD.PatientID = $patientID";
+            $sql2 = "SELECT DISTINCT
+            V.VaccineName
+            FROM
+            Vaccine V
+            JOIN 
+            VaccineDose AS VD ON V.VaccineID = VD.VaccineID
+            WHERE VD.PatientID = $patientID";
             $result2 = $link->query($sql2);
-        }
 
+            $sql3 = "SELECT VaccineName FROM Vaccine";
+            $result3 =  $link->query($sql3);
+        }
+        
+        $Vaccine_list = array();
+        while($row3 = $result3 ->fetch_assoc()){
+            array_push($Vaccine_list, $row3['VaccineName']);   
+        }
+        
         while($row2 = $result2 ->fetch_assoc()) {
             echo '<div>';
-            echo $row2['VaccineName'] ;
+            if(in_array($row2['VaccineName'], $Vaccine_list )) {
+                echo "yay";
+            }
             echo '</div>';
         }
 
