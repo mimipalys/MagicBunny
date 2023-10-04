@@ -205,16 +205,10 @@
         }
         $result = $link->query($sql);
 
-
-        while($row = $result->fetch_assoc()) {
-            echo '<div>';
-            echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
-            echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox">';
-            echo '<p class="vaccine_description1">'. "Vaccine Name: ".  $row['VaccineName']  ."<br><br>". "Related Disease: " . $row['RelatedDisease']."<br><br>". "Description: " .$row['Description'] . '</p>';
-            echo '</div>';
-        }
+      
         // check if session
         if (isset($_SESSION['user_id'])) {
+            // If session: extract vaccine information about patient
             $patientID = $_SESSION['user_id'];
             $sql2 = "SELECT DISTINCT
             V.VaccineName
@@ -223,28 +217,49 @@
             JOIN 
             VaccineDose AS VD ON V.VaccineID = VD.VaccineID
             WHERE VD.PatientID = $patientID";
+            //Build sql query
             $result2 = $link->query($sql2);
-
-            $sql3 = "SELECT VaccineName FROM Vaccine";
-            $result3 =  $link->query($sql3);
-        }
         
-        $Vaccine_list = array();
-        while($row3 = $result3 ->fetch_assoc()){
-            array_push($Vaccine_list, $row3['VaccineName']);   
-        }
-        
-        while($row2 = $result2 ->fetch_assoc()) {
-            echo '<div>';
-            if(in_array($row2['VaccineName'], $Vaccine_list )) {
-                echo "yay";
+            // create list of all the users vaccines
+            $Vaccine_list_patient = array();
+            while($row2 = $result2 ->fetch_assoc()){
+                array_push($Vaccine_list_patient, $row2['VaccineName']);   
             }
-            echo '</div>';
-        }
+            
+            // create everything that is shown on the page for each vaccine
+            while($row = $result->fetch_assoc()) {
 
+                // check if the vaccine is in the list of the users vaccine
+                if(in_array($row['VaccineName'], $Vaccine_list_patient)){
+                    $already_vaccinated = "You have this vaccine";
+                } else { 
+                    $already_vaccinated = "You dont have this vaccine click here to add to saved vaccines";
+                }
+
+                echo '<div>';
+                //create the label for the vaccine name that is also a cliclable button
+                echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
+                echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox">';
+
+                //Create the collapseble information box
+                echo '<p class="vaccine_description1">'. "Vaccine Name: ".  $row['VaccineName']  ."<br><br>". "Related Disease: " . $row['RelatedDisease']."<br><br>". "Description: " .$row['Description'] ."<br><br>". $already_vaccinated. '</p>';
+                echo '</div>';
+            }
+        } else {
+            while($row = $result->fetch_assoc()) {
+
+                // same thing as before but wihtout information about the person
+                echo '<div>';
+                echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
+                echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox">';
+                echo '<p class="vaccine_description1">'. "Vaccine Name: ".  $row['VaccineName']  ."<br><br>". "Related Disease: " . $row['RelatedDisease']."<br><br>". "Description: " .$row['Description'] . '</p>';
+                echo '</div>';
+            }
+        }
 
         // Close the database connection
         $link->close();
+        
         ?>
     </section>
 </body>
