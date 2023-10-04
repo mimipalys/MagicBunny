@@ -14,6 +14,8 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "patient" ) {
 
 include('../../links.php');
 
+echo $search_link;
+
 ?>
 
 <!DOCTYPE html>
@@ -32,19 +34,19 @@ include('../../links.php');
 <body>
 <header>
   <div class= "topheader">
-    <a id = "GFG" class="vaccimateLogo" href = "http://localhost/Page_layout_Patient.php"> &#128137 VacciMate </a> 
+    <a id = "GFG" class="vaccimateLogo" href = "<?php $my_page ?>"> &#128137 VacciMate </a> 
     <div class= "rightpart_topheader">
-     <a id = "GFG" href = "http://localhost:8888/frontend/My_Page/Patient/view_vaccine_history.php" class="costumbutton1"> My Pages </a>
-     <a id = "GFG" href = "../../../processing/logout.php" class="costumbutton1"> Logout </a>
-     <a id = "GFG" href = "http://localhost:8888/frontend/Settings/Settings_Page.php" class="costumbutton1"> &#9881 </a> 
+     <a id = "GFG" href = "<?php echo $my_page ?>" class="costumbutton1"> My Pages </a>
+     <a id = "GFG" href = "<?php echo $logout ?>" class="costumbutton1"> Logout </a>
+     <a id = "GFG" href = "<?php echo $setting_link ?>" class="costumbutton1"> &#9881 </a> 
     </div>
   </div>
 
   <div class= "bottomheader">
-    <a id = "GFG" href = "../../homepage/frontpage.php" class="costumbutton2"> Home </a>
+    <a id = "GFG" href = "<?php echo $homepage_link; ?>"  class="costumbutton2"> Home </a>
     <a id = "GFG" href = "view_vaccine_history.php" class="costumbutton2"> My Doses and Refills </a> 
-    <a id = "GFG" href = "http://localhost:8888/processing/search_vaccine.php" class="costumbutton2"> Saved Vaccines   </a> 
-    <a id = "GFG" href = "../../About_Us/About_Us.php" class="costumbutton2"> About Us </a> 
+    <a id = "GFG" href = "<?php echo $search_link; ?>" class="costumbutton2"> Saved Vaccines   </a> 
+    <a id = "GFG" href = "<?php echo $aboutUs_link;  ?>" class="costumbutton2"> About Us </a> 
   </div>
 
   <div class="vaccinerecord">

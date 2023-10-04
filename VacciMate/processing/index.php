@@ -60,7 +60,7 @@
     </form>
 
     <!-- User Login Form -->
-    <h2>Login</h2>
+    <h2>Login patient</h2>
     <form action="login.php" method="POST">
         <label for="loginUsername">Username:</label>
         <input type="text" id="loginUsername" name="ID" required>
@@ -72,7 +72,7 @@
     </form>
 
         <!-- caregiver Login Form -->
-        <h2>Login</h2>
+        <h2>Login caregiver</h2>
     <form action="login_caregiver.php" method="POST">
         <label for="loginUsername">Username:</label>
         <input type="text" id="loginUsername" name="ID" required>
