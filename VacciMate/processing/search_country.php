@@ -94,10 +94,12 @@
 
                 // Loop through the target words and highlight them in the description
                 foreach ($targetWords as $word) {
-                    // Perform a case-insensitive search and replace
+                    // Create a link to the search_vaccine page with the search_query parameter
+                    $vaccineLink = "http://localhost:8888/processing/search_vaccine.php?search_query=" . urlencode($word);
+                    // Perform a case-insensitive search and replace with the link
                     $description = preg_replace(
                         "/\b" . preg_quote($word, '/') . "\b/i",
-                        "<a href='http://localhost/processing/search_vaccine.php'class='highlight-link'>$0</a>",
+                        "<a href='$vaccineLink' class='highlight-link'>$word</a>",
                         $description
                     );
                 }

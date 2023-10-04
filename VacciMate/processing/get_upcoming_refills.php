@@ -22,7 +22,7 @@ if ($db->connect_error) {
 
 // Check if the user is logged in; if not, redirect to the signIn.php page
 if (!isset($_SESSION['user_id'])) {
-    header("Location: signIn.php.php");
+    header("Location: signIn.php");
     exit;
 }
 
@@ -58,6 +58,7 @@ AND (VD.DoseNumber, VD.AdministrationDate) = (
 )";
 
 $stmt = $db->prepare($sql);
+
 if (!$stmt) {
     die("Error in SQL query: " . $db->error);
 }
@@ -127,20 +128,10 @@ foreach ($results as $result) {
             "LatestDateToTake" => $LatestDateToTake
         );
 
-        // echo "Upcoming Dose:\n";
-        // echo "Vaccine Name: " . $vaccineName . "\n";
-        // echo "Dose Number: " . $nextDoseNumber . "\n";
-        // echo "Minimum Gap: " . $minimumGap . " days\n";
-        // echo "Maximum Gap: " . $maximumGap . " days\n";
-        // echo "earliest date: " . $EarliestDateToTake . ' ';
-        // echo "latest date: " . $LatestDateToTake;
-
         // Close the statement
         $stmt->close();
-        
 
     }
-
 }
 
 // Convert the dictionary to JSON

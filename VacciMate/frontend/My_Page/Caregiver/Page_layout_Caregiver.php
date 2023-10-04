@@ -1,10 +1,12 @@
+<?php include('../../links.php'); ?>
+
 
 <!DOCTYPE html>
 <html>
 
 <head>
 
-  <link rel="stylesheet" type="text/css" href="orderstyle.css">
+  <link rel="stylesheet" type="text/css" href="borderstyle.css">
   <title>
           Using display: flex and 
           justify-content: space-between
@@ -16,8 +18,8 @@
   <div class= "topheader">
     <a id = "GFG" class="vaccimateLogo" href = "http://localhost/Page_layout_Caregiver.php"> &#128137 VacciMate </a> 
     <div class= "rightpart_topheader">
-     <a id = "GFG" href = "../SignupandSingnin/signIn.php" class="costumbutton1"> My Pages </a>
-     <a id = "GFG" href = "../SignupandSingnin/signUp.php" class="costumbutton1"> Logout </a>
+     <a id = "GFG" href = "<?php echo $my_page_caregiver; ?>" class="costumbutton1"> My Pages </a>
+     <a id = "GFG" href = "<?php echo $logout; ?>"  class="costumbutton1"> Logout </a>
      <a id = "GFG" href = "http://localhost:8888/frontend/Settings/Settings_Page.php" class="costumbutton1"> &#9881 </a> 
     </div>
   </div>

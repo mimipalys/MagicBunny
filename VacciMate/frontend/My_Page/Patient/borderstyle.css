@@ -166,7 +166,7 @@ margin: auto; /* Add some spacing between buttons */
 
 .costumbutton1_choosen {
   background-color: white;
-  cursor: default;
+  cursor: pointer;
 }
 
 /* clickable link in secound header*/
