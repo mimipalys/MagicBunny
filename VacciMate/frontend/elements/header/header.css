@@ -1,0 +1,34 @@
+
+.topheader {
+    align-items: center;
+    background-color: #ffb38a;
+    padding: 1rem 1rem;
+    text-align: center;
+    width: 100%;
+    Height: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rightpart_topheader{
+    align-items: center;
+    margin: auto;
+    margin-right: 50px;
+    text-align: center;
+    width: 40%;
+    Height: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottomheader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    margin: auto;
+    padding: 1rem 1rem;
+    text-align: center;
+    width: 100%;
+    Height: 40px;
+}
