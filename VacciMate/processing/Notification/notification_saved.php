@@ -23,38 +23,43 @@ if ($db->connect_error) {
 
 // $todays_date = date('Y-m-d');
 
-// test with another date as todays date. 
-$sql_specific_rows = "SELECT *
+// 
+$all_saved_for_all = "SELECT  Subquery.PatientID,
+VaccineArray, 
+`Fname`, 
+`Lname`, 
+`MailAddress`, 
+`PhoneNumber`, 
+`NotificationsEmail`,
+`NotificationsPhone`
 FROM (
-    SELECT 
-        `Fname`, 
-        `Lname`, 
-        `AdministrationDate`, 
-        `MailAddress`, 
-        `PhoneNumber`, 
-        `NotificationsEmail`,
-        `NotificationsPhone`,
-        `MinimumGap`,
-        `MaximumGap`,
-        `VaccineName`
-    FROM `Patient`
-    JOIN `VaccineDose` ON Patient.PatientID = VaccineDose.PatientID
-    JOIN `VaccineSchedule` ON VaccineDose.VaccineID = VaccineSchedule.VaccineID
-    JOIN `Vaccine` ON VaccineDose.VaccineID = Vaccine.VaccineID
-    WHERE NotificationsEmail = 1 OR NotificationsPhone = 1
-) AS subquery
-WHERE DATE_ADD(AdministrationDate, INTERVAL MinimumGap DAY) = DATE_ADD('2022-01-01', INTERVAL 30 DAY)";
+SELECT PatientID, GROUP_CONCAT(VaccineName) AS VaccineArray
+FROM SavedVaccine
+INNER JOIN Vaccine ON SavedVaccine.VaccineID = Vaccine.VaccineID
+GROUP BY PatientID
+) AS Subquery
+INNER JOIN Patient ON Patient.PatientID = Subquery.PatientID";
+
 // use row below for real implementation!!
 // WHERE DATE_ADD(AdministrationDate, INTERVAL MinimumGap DAY) = DATE_ADD(CURDATE(), INTERVAL 30 DAY)";
 
-$result = $db->query($sql_specific_rows);
+$result = $db->query($all_saved_for_all);
 
-// For each row in specific query if NotificationsEmail= 1 --> send email to MailAddress if NotificationsPhone = 1 --> send text to phone PhoneNumber
-// Assuming you have executed your SQL query and fetched the results into $result.
+// for ever row (id with saved): 
 while ($row = mysqli_fetch_assoc($result)) {
+    // all that has same name add to list. 
     if ($row['NotificationsEmail'] == 1) {
         
+        
         $mail = new PHPMailer(true); 
+
+        $original_string = $row['VaccineArray'];
+        $search = "";
+        $replace = ", ";
+
+        $new_string_vaccines = str_replace($search, $replace, $original_string);
+
+
         try {
             $mail->SMTPDebug = 2;                                      
             $mail->isSMTP();                                           
@@ -70,7 +75,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     
             $mail->isHTML(true);  
             $mail->Subject = 'Vaccine Reminder';
-            $mail->Body    = 'Hi ' . $row['Fname'] . ' ' .  $row['Lname'] . '! <br> It is time for you to refill your ' .  $row['VaccineName'] . '! Please try to do this within the next ' .  $row['MaximumGap'] . ' days!';
+            $mail->Body    = 'Hi ' . $row['Fname'] . ' ' .  $row['Lname'] . '! <br> <br> You have saved vaccines on your account. Your saved vaccines are: ' .  $new_string_vaccines . '!<br> Maybe you would like to book a time fore theese vaccines.' ;
             // $mail->AltBody = 'Body in plain text for non-HTML mail clients';
             $mail->send();
             echo "Mail has been sent successfully according to schedule!";
