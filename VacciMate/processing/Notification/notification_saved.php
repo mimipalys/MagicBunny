@@ -50,12 +50,14 @@ while ($row = mysqli_fetch_assoc($result)) {
     // all that has same name add to list. 
     if ($row['NotificationsEmail'] == 1) {
         
-        
+        $mailAdressToSendTo = 'VacciMate@gmail.com' ; 
+        //$mailAdressToSendTo = 'erika-lindberg97@hotmail.com' ; 
+        //$mailAdressToSendTo = $row['MailAddress'] ; //the mail of the person that is supposed to get email (from DB)
         $mail = new PHPMailer(true); 
 
         $original_string = $row['VaccineArray'];
         $search = "";
-        $replace = ", ";
+        $replace = ",  ";
 
         $new_string_vaccines = str_replace($search, $replace, $original_string);
 
@@ -71,7 +73,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             $mail->Port       = 587; 
          
             $mail->setFrom('VacciMate@gmail.com', 'VacciMate');   // Set sender of the mail
-            $mail->addAddress('VacciMate@gmail.com');   // Set receiver of email 
+            $mail->addAddress($mailAdressToSendTo);   // Set receiver of email 
     
             $mail->isHTML(true);  
             $mail->Subject = 'Vaccine Reminder';

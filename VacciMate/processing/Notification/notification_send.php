@@ -53,6 +53,9 @@ $result = $db->query($sql_specific_rows);
 // Assuming you have executed your SQL query and fetched the results into $result.
 while ($row = mysqli_fetch_assoc($result)) {
     if ($row['NotificationsEmail'] == 1) {
+        $mailAdressToSendTo = 'VacciMate@gmail.com' ; 
+        //$mailAdressToSendTo = 'erika-lindberg97@hotmail.com' ; 
+        //$mailAdressToSendTo = $row['MailAddress'] ; //the mail of the person that is supposed to get email (from DB)
         
         $mail = new PHPMailer(true); 
         try {
@@ -66,7 +69,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             $mail->Port       = 587; 
          
             $mail->setFrom('VacciMate@gmail.com', 'VacciMate');   // Set sender of the mail
-            $mail->addAddress('VacciMate@gmail.com');   // Set receiver of email 
+            $mail->addAddress($mailAdressToSendTo);   // Set receiver of email 
     
             $mail->isHTML(true);  
             $mail->Subject = 'Vaccine Reminder';
