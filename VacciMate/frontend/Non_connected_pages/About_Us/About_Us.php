@@ -53,9 +53,12 @@
      <h2> Contact Us </h2>
      <p> Email: www.VacciMate.se </p>
      <p> Phone: 070 000 00 00 </p>
+     <h2>Privacy Policy</h2>
+     <p>To learn more about how we handle your data, please read our
+     <a class="privacy-policy-link" href="privacy_policy.php"style="color: black; font-weight: bold; text-decoration: none;">Privacy Policy</a>.</p>
    </div>
   </div>
-
+  
  </body>
 
 </body>

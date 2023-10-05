@@ -62,6 +62,7 @@ body {
 }
 
 
+
 /* styles of the vaccinename buttons that are clickable to view the description*/
 .show-description-button {
   text-align: center;
@@ -259,3 +260,17 @@ img{
 .register-vaccine-button:hover {
   background-color: #0056b3;
 }
+
+/* styles of the privacy policy*/
+.privacy_policy{
+  align-items: center;
+  background-color: #ffb38a;
+  margin: auto;
+  padding: 1rem 1rem;
+  text-align: left;
+  margin: 20px ; 
+  width:990px;
+  Height: 500px;
+  float: left;
+}
+
