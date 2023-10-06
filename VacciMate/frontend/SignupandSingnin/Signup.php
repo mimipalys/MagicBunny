@@ -71,8 +71,13 @@
                 <label for="lname">Last Name:</label>
                 <input type="text" id="lname" name="lname" required>
                 <br>
-                <label for="clinicID">Clinic ID:</label>
-                <input type="int" id="clinicID" name="clinicID" required>
+                <label for="clinicID">Clinic:</label>
+                <select id="options" name="options">
+                    <option value="option1">akademiska sjukhuset</option>
+                    <option value="option2">Ersta sjukhus</option>
+                    <option value="option3">Skånes universitetssjukhus Malmö</option>
+                    <option value="option4">Gothenburg Health</option>
+                </select>
                 <br>
                 <input type="submit" name="register" value="Register">
             </form>

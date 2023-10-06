@@ -6,33 +6,25 @@
 <head>
     <link rel="stylesheet" type="text/css" href="login.css">
     <title>SignIn</title>
+
+    <script>
+        function showAdministratorForm() {
+            document.getElementById('clientForm').style.display = 'none';
+            document.getElementById('administratorForm').style.display = 'block';
+        }
+
+        function showClientForm() {
+            document.getElementById('administratorForm').style.display = 'none';
+            document.getElementById('clientForm').style.display = 'block';
+        }
+    </script>
+
 </head>
 
 <body>
-<header>
-  <div class= "topheader">
-    <?php
-     echo '<a id="GFG" class="vaccimateLogo" href="' . $homepage_link . '">&#128137 VacciMate</a>';
-    ?>
-    
-    <div class= "rightpart_topheader">
-    <?php
-     echo '<a id="GFG" href="' . $login_link . '" class="costumbutton1">Login</a>';
-     echo '<a id="GFG" href="' . $register_link . '"  class="costumbutton1">Register</a>';
-     echo '<a id="GFG" href="' . $setting_link . '" class="costumbutton1">&#9881</a>';
-    ?>
-    </div>
-  </div>
-  
-  <div class= "bottomheader">
-  <?php
-    echo '<a id="GFG" href="' . $travel_link . '" class="costumbutton2">Travel information</a>';
-    echo '<a id="GFG" href="' . $search_link . '"  class="costumbutton2">Search Vaccine</a>';
-    echo '<a id="GFG" href="' . $aboutUs_link . '"  class="costumbutton2">About Us</a>';
-  ?>
-  </div>
-
- </header>
+<?php
+$pageTitle = 'SignIn Page';
+include('/Applications/XAMPP/xamppfiles/htdocs/MagicBunny/VacciMate/frontend/elements/header/header.php'); ?>
 
 <main>
 
@@ -46,6 +38,8 @@
         }
       ?>
         <h1>Login</h1>
+        <div id="administratorForm" style="display:none;">
+            <h2>Administrator</h2>
         <form action="../../processing/login.php" method="POST">
             <div id="k">
             <label for="loginUsername">Username:</label>
@@ -59,14 +53,37 @@
             <input type="submit" name="login" value="Login">
             </div>
         </form>
+        </div>
+
+        <div id="clientForm">
+            <h2>Client</h2>
+            <form action="../../processing/login.php" method="POST">
+                <div id="k">
+                    <label for="loginUsername">Personnumer:</label>
+                    <input type="text" id="loginUsername" name="ID" required>
+                </div>
+                <div id="k">
+                    <label for="loginPassword">Password:</label>
+                    <input type="password" id="loginPassword" name="password" required>
+                </div>
+                <div id="submit" >
+                    <input type="submit" name="login" value="Login">
+                </div>
+            </form>
+        </div>
+
+        <div class="formbtn">
+            <button onclick="showAdministratorForm()">Administrator</button>
+            <button onclick="showClientForm()">Client</button>
+        </div>
 
     </div>
 
 </main>
 
-<footer>
-
-</footer>
+<?php
+$pageTitle = 'SignIn Page';
+include('/Applications/XAMPP/xamppfiles/htdocs/MagicBunny/VacciMate/frontend/elements/footer/footer.php'); ?>
 
 </body>
 

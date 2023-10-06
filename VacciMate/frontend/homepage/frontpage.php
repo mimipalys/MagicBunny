@@ -53,7 +53,7 @@ echo $baseDir;
 
  </header>
 
- <body>
+ <main>
  <div class="bodydiv">
     <?php
     echo '<a id="GFG" href="' . $TBE_link . '" class="newscolumns">
@@ -79,7 +79,7 @@ echo $baseDir;
     ?>
   </div>
 
- </body>
+ </main>
 
 </body>
 </html>
