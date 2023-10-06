@@ -270,7 +270,7 @@
 
                 //Create a button to save vaccine
                 if ($already_vaccinated == "You dont have this vaccine click here to add to saved vaccines"){
-                    echo '<form method="post">';
+                    echo '<form action="search_vaccine.php" method="post">';
                     echo '<input type="submit" name='.$row['VaccineID'].' class="button" value="Save this vaccine" />';
                     echo '</form>';
                 }

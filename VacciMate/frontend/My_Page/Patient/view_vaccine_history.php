@@ -45,7 +45,7 @@ echo $search_link;
   <div class= "bottomheader">
     <a id = "GFG" href = "<?php echo $homepage_link; ?>"  class="costumbutton2"> Home </a>
     <a id = "GFG" href = "view_vaccine_history.php" class="costumbutton2"> My Doses and Refills </a> 
-    <a id = "GFG" href = "<?php echo $search_link; ?>" class="costumbutton2"> Saved Vaccines   </a> 
+    <a id = "GFG" href = "<?php echo $savedvaccine_link; ?>" class="costumbutton2"> Saved Vaccines   </a> 
     <a id = "GFG" href = "<?php echo $aboutUs_link;  ?>" class="costumbutton2"> About Us </a> 
   </div>
 
