@@ -267,21 +267,27 @@
                 
                 // echo '<p class="vaccine_description1">'. "Vaccine Name: ".  $row['VaccineName']  ."<br><br>". "Related Disease: " . $row['RelatedDisease']."<br><br>". "Description: " .$row['Description'] ."<br><br>". $already_vaccinated. '</p>';
                 
-                //check if patient is vaccinated or already saved this vaccine
+
+                //Create a button to save vaccine
                 if ($already_vaccinated == "You dont have this vaccine click here to add to saved vaccines"){
-                    //Create save vaccine button
-                    echo '<form method="POST">';
-                    echo '<input type="submit" name='. $row['VaccineName'].' class="button" value="Save this Vaccine"/>';
+                    echo '<form method="post">';
+                    echo '<input type="submit" name='.$row['VaccineID'].' class="button" value="Save this vaccine" />';
                     echo '</form>';
                 }
+
                 echo '</section>';
                 echo '</div>';
 
-                //Save vaccine
-                if(array_key_exists($row['VaccineName'], $_POST)){
+                //If the button is clicked add the infomration in the database 
+
+                if(isset($_POST[$row['VaccineID']])) { 
                     $sql_save = "INSERT INTO SavedVaccine (PatientID, VaccineID) VALUES ($patientID, {$row['VaccineID']})";
                     $result_save = $link->query($sql_save);
                 }
+
+
+                //check if patient is vaccinated or already saved this vaccin
+
             }    
         } else {
             while($row = $result->fetch_assoc()) {
@@ -295,6 +301,7 @@
                 echo '</div>';
             }
         }
+
 
         // Close the database connection
         $link->close();
