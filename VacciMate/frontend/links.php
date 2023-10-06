@@ -24,7 +24,7 @@ $aboutUs_link = $protocol . $host . '/frontend/Non_connected_pages/About_Us/Abou
 
 //my page links 
 $savedvaccine_link = $protocol . $host . '/processing/savedvaccine.php'; 
-$dosesrefills
+// $dosesrefills
 
 //News links
 $TBE_link = $protocol . $host . '/frontend/Non_connected_pages/News/TBE.php'; 
