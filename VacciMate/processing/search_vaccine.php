@@ -91,6 +91,24 @@
             border: none;
             padding: auto;
         }
+        .vaccinerecord1 {
+            background-color: #ffb38a;
+            margin: auto;
+            padding: 20px;
+            text-align: left;
+            margin: 20px;
+            width: 100%;
+            height: auto; /* Adjust height to "auto" to accommodate dynamic content */
+            float: left;
+        }
+        div.parent {
+	        text-align: center;
+	    }
+        ul { 
+	        display: inline-block; 
+	        text-align: left; 
+	    }
+
 
         .list_of_vaccine {
             text-align: center;
@@ -114,8 +132,9 @@
         }
 
         .show-all-button {
+            text-align: center;
             cursor: pointer;
-            border: none;
+            border: groove;
             padding: auto;
             align-items: right;
             font-size: 20px;
@@ -243,65 +262,69 @@
                 array_push($Saved_vaccine_list, $row_saved['VaccineID']);   
             }
 
-            
-            // create everything that is shown on the page for each vaccine
-            while($row = $result->fetch_assoc()) {
-                //Check if the vaccine is saved
-                // check if the vaccine is in the list of the users vaccine
-                if(in_array($row['VaccineName'], $Vaccine_list_patient)){
-                    $already_vaccinated = "You have this vaccine";
-                } elseif (in_array($row['VaccineID'], $Saved_vaccine_list)) { 
-                    $already_vaccinated = "You have saved this vaccine";    
-                } else{
-                    $already_vaccinated = "You dont have this vaccine click here to add to saved vaccines";
+            echo '<div class=parent>';
+                echo '<ul>';
+                echo '<section class = vaccinerecord1>';
+                    // create everything that is shown on the page for each vaccine
+                    while($row = $result->fetch_assoc()) {
+                        //Check if the vaccine is saved
+                        // check if the vaccine is in the list of the users vaccine
+                        if(in_array($row['VaccineName'], $Vaccine_list_patient)){
+                            $already_vaccinated = "You have this vaccine";
+                        } elseif (in_array($row['VaccineID'], $Saved_vaccine_list)) { 
+                            $already_vaccinated = "You have saved this vaccine";    
+                        } else{
+                            $already_vaccinated = "You dont have this vaccine click here to add to saved vaccines";
+                        }
+
+                        echo '<div>';
+                        //create the label for the vaccine name that is also a cliclable button
+                        echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
+                        echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox">';
+
+                        //Create the collapseble information box
+                        echo '<section class ="vaccine_description1">';
+                        echo '<p>' . "Vaccine Name: " .  $row['VaccineName']  . "<br><br>". "Related Disease: " . $row['RelatedDisease']."<br><br>". "Description: " .$row['Description'] ."<br><br>". $already_vaccinated .'</p>';
+                        
+                        // echo '<p class="vaccine_description1">'. "Vaccine Name: ".  $row['VaccineName']  ."<br><br>". "Related Disease: " . $row['RelatedDisease']."<br><br>". "Description: " .$row['Description'] ."<br><br>". $already_vaccinated. '</p>';
+                        
+
+                        //Create a button to save vaccine
+                        if ($already_vaccinated == "You dont have this vaccine click here to add to saved vaccines"){
+                            echo '<form action="search_vaccine.php" method="post">';
+                            echo '<input type="submit" name='.$row['VaccineID'].' class="button" value="Save this vaccine" />';
+                            echo '</form>';
+                        }
+
+                        echo '</section>';
+                        echo '</div>';
+
+                        //If the button is clicked add the infomration in the database 
+
+                        if(isset($_POST[$row['VaccineID']])) { 
+                            $sql_save = "INSERT INTO SavedVaccine (PatientID, VaccineID) VALUES ($patientID, {$row['VaccineID']})";
+                            $result_save = $link->query($sql_save);
+                        }
+
+
+                        //check if patient is vaccinated or already saved this vaccin
+
+                    }    
+                } else {
+                    while($row = $result->fetch_assoc()) {
+
+                        // same thing as before but wihtout information about the person
+                        echo '<div>';
+                        echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
+                        echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox">';
+                        echo '<p class="vaccine_description1">'. "Vaccine Name: ".  $row['VaccineName']  ."<br><br>". "Related Disease: " . $row['RelatedDisease']."<br><br>". "Description: " .$row['Description'] . '</p>';
+                        
+                        echo '</div>';
+                    }
                 }
-
-                echo '<div>';
-                //create the label for the vaccine name that is also a cliclable button
-                echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
-                echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox">';
-
-                //Create the collapseble information box
-                echo '<section class ="vaccine_description1">';
-                echo '<p>' . "Vaccine Name: " .  $row['VaccineName']  . "<br><br>". "Related Disease: " . $row['RelatedDisease']."<br><br>". "Description: " .$row['Description'] ."<br><br>". $already_vaccinated .'</p>';
-                
-                // echo '<p class="vaccine_description1">'. "Vaccine Name: ".  $row['VaccineName']  ."<br><br>". "Related Disease: " . $row['RelatedDisease']."<br><br>". "Description: " .$row['Description'] ."<br><br>". $already_vaccinated. '</p>';
-                
-
-                //Create a button to save vaccine
-                if ($already_vaccinated == "You dont have this vaccine click here to add to saved vaccines"){
-                    echo '<form action="search_vaccine.php" method="post">';
-                    echo '<input type="submit" name='.$row['VaccineID'].' class="button" value="Save this vaccine" />';
-                    echo '</form>';
-                }
-
-                echo '</section>';
-                echo '</div>';
-
-                //If the button is clicked add the infomration in the database 
-
-                if(isset($_POST[$row['VaccineID']])) { 
-                    $sql_save = "INSERT INTO SavedVaccine (PatientID, VaccineID) VALUES ($patientID, {$row['VaccineID']})";
-                    $result_save = $link->query($sql_save);
-                }
-
-
-                //check if patient is vaccinated or already saved this vaccin
-
-            }    
-        } else {
-            while($row = $result->fetch_assoc()) {
-
-                // same thing as before but wihtout information about the person
-                echo '<div>';
-                echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
-                echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox">';
-                echo '<p class="vaccine_description1">'. "Vaccine Name: ".  $row['VaccineName']  ."<br><br>". "Related Disease: " . $row['RelatedDisease']."<br><br>". "Description: " .$row['Description'] . '</p>';
-                
-                echo '</div>';
-            }
-        }
-
+            echo '</section>';
+            echo '</ul>';
+        echo '</div>';
 
         // Close the database connection
         $link->close();
