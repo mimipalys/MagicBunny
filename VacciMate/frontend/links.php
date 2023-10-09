@@ -21,6 +21,7 @@ $my_page_caregiver = $protocol . $host . '/frontend/My_Page/Caregiver/register_v
 $travel_link = $protocol . $host . '/processing/continents.php'; 
 $search_link = $protocol . $host . '/processing/search_vaccine.php'; 
 $aboutUs_link = $protocol . $host . '/frontend/Non_connected_pages/About_Us/About_Us.php';
+$view_administered_vaccines = $protocol . $host . '/frontend/My_Page/Caregiver/view_administered_vaccines.php';
 
 //my page links 
 $savedvaccine_link = $protocol . $host . '/processing/savedvaccine.php'; 
