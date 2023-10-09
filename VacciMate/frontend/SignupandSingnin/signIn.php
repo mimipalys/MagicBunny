@@ -52,6 +52,7 @@ include('/Applications/XAMPP/xamppfiles/htdocs/MagicBunny/VacciMate/frontend/ele
             <div id="submit" >
             <input type="submit" name="login" value="Login">
             </div>
+            <a href="#">forgot password</a>
         </form>
         </div>
 
@@ -69,6 +70,7 @@ include('/Applications/XAMPP/xamppfiles/htdocs/MagicBunny/VacciMate/frontend/ele
                 <div id="submit" >
                     <input type="submit" name="login" value="Login">
                 </div>
+                <a href="#">forgot password</a>
             </form>
         </div>
 

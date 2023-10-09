@@ -79,6 +79,9 @@
                     <option value="option4">Gothenburg Health</option>
                 </select>
                 <br>
+                <input type="checkbox" id="privacy" name="privacy" value="gdpr">
+                <label for="privacy"> I accept the privacy and policy<a href="#"> Click here to veiw GDPR</a></label><br>
+                <br>
                 <input type="submit" name="register" value="Register">
             </form>
         </div>
@@ -110,6 +113,9 @@
                 <br>
                 <label for="address">Address:</label>
                 <input type="text" id="address" name="address">
+                <br>
+                <input type="checkbox" id="privacy" name="privacy" value="gdpr">
+                <label for="privacy"> I accept the privacy and policy <a href="#"> Click here to veiw GDPR</a> </label><br>
                 <br>
                 <input type="submit" name="register" value="Register">
             </form>
