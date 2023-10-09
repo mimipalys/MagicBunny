@@ -12,7 +12,6 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "patient" ) {
 
 include('../../links.php');
 
-
 ?>
 
 <!DOCTYPE html>
