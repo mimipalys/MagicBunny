@@ -17,7 +17,6 @@ $logout = $protocol . $host . '/processing/logout.php';
 $my_page_caregiver = $protocol . $host . '/frontend/My_Page/Caregiver/register_vaccine.php';
 
 
-
 //Secound header
 $travel_link = $protocol . $host . '/processing/continents.php'; 
 $search_link = $protocol . $host . '/processing/search_vaccine.php'; 
@@ -44,5 +43,12 @@ $delete_account =  $protocol . $host . '/processing/delete_account.php';
 // register users processing link
 $register_patient = $protocol . $host . '/processing/patient_registration.php';
 $register_caregiver = $protocol . $host . '/processing/healthcareprovider_registration.php';
+
+
+// Header
+$header = $_SERVER['DOCUMENT_ROOT'] . '/frontend/elements/header/header.php';
+$header_logged_in_patient = $_SERVER['DOCUMENT_ROOT'] . '/frontend/elements/header/header_logged_in_patient.php';
+$header_logged_in_caregiver = $_SERVER['DOCUMENT_ROOT'] . '/frontend/elements/header/header_logged_in_caregiver.php';
+$styles_doc = $protocol . $host . '/frontend/borderstyle.css';
 
 ?>
