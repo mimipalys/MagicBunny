@@ -33,4 +33,8 @@ $influenza_link = "http://localhost:8888/frontend/Non_connected_pages/News/influ
 $kenya_link = "http://localhost:8888/frontend/Non_connected_pages/News/kenya.php"; 
 $kenya_image = "https://www.thesafaricollection.com/wp-content/uploads/2022/07/The-Safari-Collection-Hey-You-Giraffe-Manor-1.jpg"; 
 
+
+//settings links
+$delete_account =  $protocol . $host . '/processing/delete_account.php';
+
 ?>
