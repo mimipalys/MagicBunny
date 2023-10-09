@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+//links
+include('../frontend/links.php'); 
+
 // Database connection details
 $dbHost = 'localhost';
 $dbUsername = 'root';
@@ -27,7 +30,6 @@ $phoneNumber = $_POST['phone'];
 $address = $_POST['address'];
 
 // Input validation
-echo $mailAddress;
 
 if (!filter_var($mailAddress, FILTER_VALIDATE_EMAIL, FILTER_FLAG_EMAIL_UNICODE)) {
     echo "Invalid e-mail adress. Please try again";
@@ -47,7 +49,7 @@ $stmt = $db->prepare($sql);
 $stmt->bind_param("isssssss", $username, $fname, $lname, $dateOfBirth, $hashed_password, $mailAddress, $phoneNumber, $address);
     
 if ($stmt->execute()) {
-    echo "Registration successful. <a href='index.php'>Login here</a>";
+    echo "Registration successful. <a href=$login_link >Login here</a>";
 } else {
     echo "Registration failed. Error: " . $db->error;
 }    

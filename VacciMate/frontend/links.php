@@ -17,6 +17,7 @@ $logout = $protocol . $host . '/processing/logout.php';
 $my_page_caregiver = $protocol . $host . '/frontend/My_Page/Caregiver/register_vaccine.php';
 
 
+
 //Secound header
 $travel_link = $protocol . $host . '/processing/continents.php'; 
 $search_link = $protocol . $host . '/processing/search_vaccine.php'; 
@@ -39,5 +40,9 @@ $kenya_image = "https://www.thesafaricollection.com/wp-content/uploads/2022/07/T
 
 //settings links
 $delete_account =  $protocol . $host . '/processing/delete_account.php';
+
+// register users processing link
+$register_patient = $protocol . $host . '/processing/patient_registration.php';
+$register_caregiver = $protocol . $host . '/processing/healthcareprovider_registration.php';
 
 ?>
