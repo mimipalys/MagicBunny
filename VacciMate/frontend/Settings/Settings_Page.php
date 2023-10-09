@@ -66,12 +66,12 @@
 
      <form action="../../processing/Notification/notification_change.php" method="POST">
 
-        <input type="hidden" name="text_note" value="0">
-        <input type="checkbox" name="text_note" value="1">
-        <label for="text_note"> I want to reccive texts on upcoming vaccine doses </label><br> <br>
-        <input type="hidden" name="email_note" value="0">
-        <input type="checkbox" name="email_note" value="1">
-        <label for="email_note"> I want to reccive emails on upcoming vaccine doses </label><br> <br>
+        <input type="hidden" name="refill_note" value="0">
+        <input type="checkbox" name="refill_note" value="1">
+        <label for="refill_note"> I want to reccive emails on upcoming vaccine doses </label><br> <br>
+        <input type="hidden" name="saved_note" value="0">
+        <input type="checkbox" name="saved_note" value="1">
+        <label for="saved_note"> I want to reccive emails on my saved vaccines once a month </label><br> <br>
         <input type="submit" value="Save">
     </form>
 

@@ -53,13 +53,28 @@ while ($row = mysqli_fetch_assoc($result)) {
         $mailAdressToSendTo = 'VacciMate@gmail.com' ; 
         //$mailAdressToSendTo = 'erika-lindberg97@hotmail.com' ; 
         //$mailAdressToSendTo = $row['MailAddress'] ; //the mail of the person that is supposed to get email (from DB)
-        $mail = new PHPMailer(true); 
+        
 
         $original_string = $row['VaccineArray'];
-        $search = "";
-        $replace = ",  ";
+        $parts = explode(',', $original_string);
 
-        $new_string_vaccines = str_replace($search, $replace, $original_string);
+        // Check if there are more than one parts
+        if (count($parts) > 1) {
+        // Get the last part
+            $last_part = array_pop($parts);
+
+            // Implode the array with ', ' again and add ' and ' before the last part
+            $modified_string = implode(', ', $parts) . ' and ' . $last_part;
+            $body_vaccine = 'Hi ' . $row['Fname'] . ' ' .  $row['Lname'] . '! <br> <br> You have saved vaccines on your account. Your saved vaccines are: ' .  $modified_string . '!<br> Please consider to book appointments for theese vaccine.' ;
+        } 
+
+        else {
+            // If there's only one part, no need for 'and'
+            $modified_string = $original_string;
+            $body_vaccine = 'Hi ' . $row['Fname'] . ' ' .  $row['Lname'] . '! <br> <br> You have a saved vaccine on your account. Your saved vaccine is: ' .  $modified_string . '!<br> Please consider to book an appointment for this vaccine.' ;
+        }
+
+        $mail = new PHPMailer(true); 
 
 
         try {
@@ -77,7 +92,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     
             $mail->isHTML(true);  
             $mail->Subject = 'Vaccine Reminder';
-            $mail->Body    = 'Hi ' . $row['Fname'] . ' ' .  $row['Lname'] . '! <br> <br> You have saved vaccines on your account. Your saved vaccines are: ' .  $new_string_vaccines . '!<br> Maybe you would like to book a time fore theese vaccines.' ;
+            $mail->Body    = $body_vaccine; 
             // $mail->AltBody = 'Body in plain text for non-HTML mail clients';
             $mail->send();
             echo "Mail has been sent successfully according to schedule!";
@@ -87,14 +102,6 @@ while ($row = mysqli_fetch_assoc($result)) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     }
-
-    if ($row['NotificationsPhone'] == 1) {
-        // echo "HI Phone"; 
-        // Send a text message to $row['PhoneNumber']
-        // You would need to use a text messaging service or API for this
-    }
 }
 
 ?>
-
-
