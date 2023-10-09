@@ -20,40 +20,21 @@
 </head>
 
 <body>
-<head>
 
-<link rel="stylesheet" type="text/css" href="../borderstyle.css">
-<title>
-        Using display: flex and 
-        justify-content: space-between
-</title>
-</head>
 
-<body>
-<header>
-<div class= "topheader">
-  <?php
-   echo '<a id="GFG" class="vaccimateLogo" href="' . $homepage_link . '">&#128137 VacciMate</a>';
-  ?>
-  
-  <div class= "rightpart_topheader">
-  <?php
-   echo '<a id="GFG" href="' . $login_link . '" class="costumbutton1">Login</a>';
-   echo '<a id="GFG" href="' . $register_link . '"  class="costumbutton1">Register</a>';
-   echo '<p id = "GFG" class="costumbutton1_choosen"> &#9881 </p>';
-  ?>
-  </div>
-</div>
+<?php 
+session_start();
 
-<div class= "bottomheader">
-<?php
-  echo '<a id="GFG" href="' . $travel_link . '" class="costumbutton2">Travel information</a>';
-  echo '<a id="GFG" href="' . $search_link . '"  class="costumbutton2">Search Vaccine</a>';
-  echo '<a id="GFG" href="' . $aboutUs_link . '"  class="costumbutton2">About Us</a>';
+//include correct header
+if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
+  include $header_logged_in_patient;
+} elseif (isset($_SESSION['user_id']) and $_SESSION['role'] == "caregiver") {
+  include $header_logged_in_caregiver;
+} else {
+  include $header;
+}
+
 ?>
-</div>
-
-</header>
 
  <body>
 
