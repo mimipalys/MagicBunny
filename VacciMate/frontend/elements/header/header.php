@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -9,7 +9,7 @@
           Using display: flex and 
           justify-content: space-between
   </title>
-</head>
+</head> -->
 
 <body>
 

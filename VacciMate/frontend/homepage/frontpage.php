@@ -1,5 +1,17 @@
+<!DOCTYPE html>
+<html>
+
+<?php include('../links.php'); ?>
+<head>
+  <link rel="stylesheet" type="text/css" href="<?php echo $styles_doc ?>">
+
+  <title>
+          Using display: flex and 
+          justify-content: space-between
+  </title>
+</head>
+
 <?php 
-include('../links.php');
 session_start();
 
 //include correct header

@@ -49,6 +49,7 @@ $register_caregiver = $protocol . $host . '/processing/healthcareprovider_regist
 $header = $_SERVER['DOCUMENT_ROOT'] . '/frontend/elements/header/header.php';
 $header_logged_in_patient = $_SERVER['DOCUMENT_ROOT'] . '/frontend/elements/header/header_logged_in_patient.php';
 $header_logged_in_caregiver = $_SERVER['DOCUMENT_ROOT'] . '/frontend/elements/header/header_logged_in_caregiver.php';
+
 $styles_doc = $protocol . $host . '/frontend/borderstyle.css';
 
 ?>
