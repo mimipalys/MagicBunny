@@ -1,12 +1,13 @@
 #GFG2 {
     text-decoration: none;
     color: black;
+    display: inline-block; /* Set to inline-block to keep it in the same line */
 }
 
 .vaccimateLogo2 {
     text-decoration: none;
     text-align: center;
-    float: left;
+    display: inline-block; /* Set to inline-block to keep it in the same line */
     border: none;
     padding: auto;
     font-size: 30px;
@@ -19,7 +20,6 @@
 }
 
 .footwrap {
-    position: relative;
     width: 100%;
     background-color: #f8f9fa;
     padding: 20px;
@@ -27,9 +27,5 @@
 }
 
 .footwrap p {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
     margin: 0;
 }
