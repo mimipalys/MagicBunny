@@ -7,7 +7,6 @@ $host = $_SERVER['HTTP_HOST'];
 
 // Construct the login URL dynamically using the protocol, hostname, and port number
 
-
 //First header
 $homepage_link = $protocol . $host . '/frontend/homepage/frontpage.php'; 
 $login_link = $protocol . $host . '/frontend/SignupandSingnin/signIn.php';
@@ -17,10 +16,18 @@ $my_page = $protocol . $host . '/frontend/My_Page/Patient/view_vaccine_history.p
 $logout = $protocol . $host . '/processing/logout.php';
 $my_page_caregiver = $protocol . $host . '/frontend/My_Page/Caregiver/register_vaccine.php';
 
+
 //Secound header
 $travel_link = $protocol . $host . '/processing/continents.php'; 
 $search_link = $protocol . $host . '/processing/search_vaccine.php'; 
-$aboutUs_link = $protocol . $host . '/frontend/Non_connected_pages/About_Us/About_Us.php'; 
+$aboutUs_link = $protocol . $host . '/frontend/Non_connected_pages/About_Us/About_Us.php';
+
+//my page links 
+$savedvaccine_link = $protocol . $host . '/processing/savedvaccine.php'; 
+<<<<<<< Updated upstream
+// $dosesrefills
+=======
+>>>>>>> Stashed changes
 
 //News links
 $TBE_link = $protocol . $host . '/frontend/Non_connected_pages/News/TBE.php'; 
@@ -32,5 +39,9 @@ $influenza_link = "http://localhost:8888/frontend/Non_connected_pages/News/influ
 
 $kenya_link = "http://localhost:8888/frontend/Non_connected_pages/News/kenya.php"; 
 $kenya_image = "https://www.thesafaricollection.com/wp-content/uploads/2022/07/The-Safari-Collection-Hey-You-Giraffe-Manor-1.jpg"; 
+
+
+//settings links
+$delete_account =  $protocol . $host . '/processing/delete_account.php';
 
 ?>
