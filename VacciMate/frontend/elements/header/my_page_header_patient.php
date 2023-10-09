@@ -5,7 +5,6 @@
     <div class= "rightpart_topheader">
      <a id = "GFG" href = "<?php echo $my_page ?>" class="costumbutton1"> My Pages </a>
      <a id = "GFG" href = "<?php echo $logout ?>" class="costumbutton1"> Logout </a>
-     <a id = "GFG" href = "<?php echo $setting_link ?>" class="costumbutton1"> &#9881 </a> 
     </div>
   </div>
 
@@ -13,5 +12,5 @@
     <a id = "GFG" href = "<?php echo $homepage_link; ?>"  class="costumbutton2"> Home </a>
     <a id = "GFG" href = "<?php echo $my_page; ?>" class="costumbutton2"> My Doses and Refills </a> 
     <a id = "GFG" href = "<?php echo $savedvaccine_link; ?>" class="costumbutton2"> Saved Vaccines   </a> 
-    <a id = "GFG" href = "<?php echo $aboutUs_link;  ?>" class="costumbutton2"> About Us </a> 
+    <a id = "GFG" href = "<?php echo $setting_link ?>" class="costumbutton2"> &#9881 </a> 
   </div>

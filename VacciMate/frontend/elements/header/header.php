@@ -10,7 +10,6 @@
     <?php
      echo '<a id="GFG" href="' . $login_link . '" class="costumbutton1">Login</a>';
      echo '<a id="GFG" href="' . $register_link . '"  class="costumbutton1">Register</a>';
-     echo '<a id="GFG" href="' . $setting_link . '" class="costumbutton1">&#9881</a>';
     ?>
     </div>
   </div>

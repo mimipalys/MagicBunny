@@ -5,7 +5,6 @@
     <div class= "rightpart_topheader">
      <a id = "GFG" href = "<?php echo $my_page_caregiver ?>"  class="costumbutton1"> My Pages </a>
      <a id = "GFG" href = "<?php echo $logout ?>" class="costumbutton1"> Logout </a>
-     <a id = "GFG" href = "<?php echo $setting_link ?>" class="costumbutton1"> &#9881 </a> 
     </div>
   </div>
 
