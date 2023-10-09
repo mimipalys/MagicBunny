@@ -80,7 +80,7 @@
                 </select>
                 <br>
                 <input type="checkbox" id="privacy" name="privacy" value="gdpr">
-                <label for="privacy"> I accept the privacy and policy</label><br>
+                <label for="privacy"> I accept the privacy and policy<a href="#"> Click here to veiw GDPR</a></label><br>
                 <br>
                 <input type="submit" name="register" value="Register">
             </form>
@@ -115,7 +115,7 @@
                 <input type="text" id="address" name="address">
                 <br>
                 <input type="checkbox" id="privacy" name="privacy" value="gdpr">
-                <label for="privacy"> I accept the privacy and policy</label><br>
+                <label for="privacy"> I accept the privacy and policy <a href="#"> Click here to veiw GDPR</a> </label><br>
                 <br>
                 <input type="submit" name="register" value="Register">
             </form>
