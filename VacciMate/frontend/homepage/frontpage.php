@@ -65,15 +65,15 @@ echo $baseDir;
     <?php
     echo '<a id="GFG" href="' . $influenza_link . '" class="newscolumns">
    
-    <h2>Some exiting news on the progress of the new influenza vaccine</h2>
-    <p>Some cool text introduction to the subject here</p>
+    <h2>Revolutionizing Healthcare: A Breakthrough Journey in Influenza Vaccine Development</h2>
+    <p>Explore the future of immunity: Unraveling groundbreaking advancements in our latest influenza vaccine research..</p>
     <img src="' . $influenza_image . '" alt="test_pic"> </a>';
     ?>
    
   
    <?php
     echo '<a id="GFG" href="' . $kenya_link . '" class="newscolumns">
-    <h2>Traveling to Kenya this winter?</h2>
+    <h2>Traveling to Kenya? Stay Informed!</h2>
     <p>Get all the information you need about vaccines needed in the area!</p>
     <img src="' . $kenya_image . '" alt="test_pic"> </a>';
     ?>
