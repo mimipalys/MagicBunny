@@ -45,11 +45,20 @@ $register_patient = $protocol . $host . '/processing/patient_registration.php';
 $register_caregiver = $protocol . $host . '/processing/healthcareprovider_registration.php';
 
 
-// Header
+// Header - FRONT PAGE
 $header = $_SERVER['DOCUMENT_ROOT'] . '/frontend/elements/header/header.php';
 $header_logged_in_patient = $_SERVER['DOCUMENT_ROOT'] . '/frontend/elements/header/header_logged_in_patient.php';
 $header_logged_in_caregiver = $_SERVER['DOCUMENT_ROOT'] . '/frontend/elements/header/header_logged_in_caregiver.php';
 
-$styles_doc = $protocol . $host . '/frontend/borderstyle.css';
+// Header - MY PAGE PATIENT
+$header_my_page_patient = $_SERVER['DOCUMENT_ROOT'] . '/frontend/elements/header/my_page_header_patient.php';
+$header_my_page_caregiver = $_SERVER['DOCUMENT_ROOT'] . '/frontend/elements/header/my_page_header_caregiver.php';
 
+
+// Footer
+$footer = $_SERVER['DOCUMENT_ROOT'] . '/frontend/elements/footer/footer.php';
+
+
+$styles_doc = $protocol . $host . '/frontend/borderstyle.css';
+$footer_style = $protocol . $host . '/frontend/elements/footer/footer.css';
 ?>

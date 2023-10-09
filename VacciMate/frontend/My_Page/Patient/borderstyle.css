@@ -62,6 +62,7 @@ body {
 }
 
 
+
 /* styles of the vaccinename buttons that are clickable to view the description*/
 .show-description-button {
   text-align: center;
@@ -152,13 +153,10 @@ body {
 /* clickable link in topheader*/
 .costumbutton1, .costumbutton1_choosen{
 text-align: center;
-top: -10px;
-right: -10px;
-position:relative;
 float: left;
 border: none;
 padding: auto;
-font-size: 25px;
+font-size: 20px;
 cursor: pointer;
 border-radius: 10px;
 margin: auto; /* Add some spacing between buttons */
@@ -166,7 +164,7 @@ margin: auto; /* Add some spacing between buttons */
 
 .costumbutton1_choosen {
   background-color: white;
-  cursor: pointer;
+  cursor: default;
 }
 
 /* clickable link in secound header*/
@@ -223,3 +221,56 @@ img{
   text-decoration: none; 
   color : black;
 }
+
+/* Containers for the "register vaccine" tab in the caregivers my page */
+.registervaccinecontainer {
+  max-width: 600px;
+  margin: 50px auto; /* Add margin to the top to move it down */
+  padding: 50px;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center; /* Center align the container */
+}
+
+.register-vaccine-title {
+  text-align: center;
+}
+
+.register-vaccine-label {
+  font-weight: bold;
+}
+
+.register-vaccine-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.register-vaccine-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.register-vaccine-button:hover {
+  background-color: #0056b3;
+}
+
+/* styles of the privacy policy*/
+.privacy_policy{
+  align-items: center;
+  background-color: #ffb38a;
+  margin: auto;
+  padding: 1rem 1rem;
+  text-align: left;
+  margin: 20px ; 
+  width:990px;
+  Height: 500px;
+  float: left;
+}
+

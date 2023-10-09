@@ -1,8 +1,6 @@
-<!DOCTYPE html>
-<html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="footer.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $footer_style ?>">
     <title><?php echo $pageTitle; ?></title>
 </head>
 
@@ -14,4 +12,6 @@
     <p>&copy; 2023 Vacimate. All rights reserved.</p>
     </footer>
     </div>
-</html>
+
+
+    

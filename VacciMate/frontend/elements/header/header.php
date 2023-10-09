@@ -1,16 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-
-<head>
-
-  <link rel="stylesheet" type="text/css" href= "<?php echo $styles_doc ?>">
-
-  <title>
-          Using display: flex and 
-          justify-content: space-between
-  </title>
-</head> -->
-
 <body>
 
  <header>

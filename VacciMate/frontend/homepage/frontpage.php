@@ -25,6 +25,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 
 
 
+
 ?>
 
 <main>
@@ -56,4 +57,8 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
  </main>
 
  </body>
+
+ <?php 
+ include $footer;
+ ?>
 </html>

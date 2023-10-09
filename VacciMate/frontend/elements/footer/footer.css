@@ -1,7 +1,6 @@
-
 #GFG2 {
     text-decoration: none;
-    color : black;
+    color: black;
 }
 
 .vaccimateLogo2 {
@@ -12,9 +11,25 @@
     padding: auto;
     font-size: 30px;
     margin-right: 80px;
-    margin-left: 80px; /* Add some spacing between buttons */
+    margin-left: 80px;
     font-size: 40px;
     color: black;
     font-family: Copperplate;
     cursor: pointer;
+}
+
+.footwrap {
+    position: relative;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 20px;
+    text-align: center;
+}
+
+.footwrap p {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    margin: 0;
 }

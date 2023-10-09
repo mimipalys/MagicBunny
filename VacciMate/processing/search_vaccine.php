@@ -323,6 +323,10 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
         ?>
     </section>
 </body>
+
+<?php 
+ include $footer;
+ ?>
 </html>
 
 

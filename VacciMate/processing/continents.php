@@ -27,7 +27,6 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 }
 
 
-
 ?>
     
     <!-- Travel Destinations Section -->
@@ -90,4 +89,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
         </ul>
     </section>
 </body>
+<?php 
+ include $footer;
+ ?>
 </html>
