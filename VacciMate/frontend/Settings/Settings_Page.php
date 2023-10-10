@@ -55,6 +55,13 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
         <label for="saved_note"> I want to reccive emails on my saved vaccines once a month </label><br> <br>
         <input type="submit" value="Save">
     </form>
+    <?php
+
+ if (isset($_GET['changed'])) {
+  echo "Notification settings changed!";
+  }
+  ?>
+</fieldset>
 
     <!-- DELETE ACCOUNT -->
 
@@ -112,12 +119,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 
 <?php } ?>
 
-<?php
 
- if (isset($_GET['changed'])) {
-  echo "Notification settings changed!";
-}
-?>
 
 </div>
 

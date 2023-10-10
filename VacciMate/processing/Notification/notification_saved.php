@@ -31,8 +31,7 @@ VaccineArray,
 `Lname`, 
 `MailAddress`, 
 `PhoneNumber`, 
-`NotificationsEmail`,
-`NotificationsPhone`
+`NotificationsSaved`,
 FROM (
 SELECT PatientID, GROUP_CONCAT(VaccineName) AS VaccineArray
 FROM SavedVaccine
@@ -49,7 +48,7 @@ $result = $db->query($all_saved_for_all);
 // for ever row (id with saved): 
 while ($row = mysqli_fetch_assoc($result)) {
     // all that has same name add to list. 
-    if ($row['NotificationsEmail'] == 1) {
+    if ($row['NotificationsSaved'] == 1) {
         
         $mailAdressToSendTo = 'VacciMate@gmail.com' ; 
         //$mailAdressToSendTo = 'erika-lindberg97@hotmail.com' ; 
@@ -66,7 +65,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
             // Implode the array with ', ' again and add ' and ' before the last part
             $modified_string = implode(', ', $parts) . ' and ' . $last_part;
-            $body_vaccine = 'ITTTT WOOORKs!!!!Hi ' . $row['Fname'] . ' ' .  $row['Lname'] . '! <br> <br> You have saved vaccines on your account. Your saved vaccines are: ' .  $modified_string . '!<br> Please consider to book appointments for theese vaccine.' ;
+            $body_vaccine = 'Hi ' . $row['Fname'] . ' ' .  $row['Lname'] . '! <br> <br> You have saved vaccines on your account. Your saved vaccines are: ' .  $modified_string . '!<br> Please consider to book appointments for theese vaccine.' ;
         } 
 
         else {

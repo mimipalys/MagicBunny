@@ -32,8 +32,7 @@ FROM (
         `AdministrationDate`, 
         `MailAddress`, 
         `PhoneNumber`, 
-        `NotificationsEmail`,
-        `NotificationsPhone`,
+        `NotificationsRefill`,
         `MinimumGap`,
         `MaximumGap`,
         `VaccineName`
@@ -41,7 +40,7 @@ FROM (
     JOIN `VaccineDose` ON Patient.PatientID = VaccineDose.PatientID
     JOIN `VaccineSchedule` ON VaccineDose.VaccineID = VaccineSchedule.VaccineID
     JOIN `Vaccine` ON VaccineDose.VaccineID = Vaccine.VaccineID
-    WHERE NotificationsEmail = 1 OR NotificationsPhone = 1
+    WHERE NotificationsRefill = 1
 ) AS subquery
 WHERE DATE_ADD(AdministrationDate, INTERVAL MinimumGap DAY) = DATE_ADD('2022-01-01', INTERVAL 30 DAY)";
 // use row below for real implementation!!
@@ -49,10 +48,10 @@ WHERE DATE_ADD(AdministrationDate, INTERVAL MinimumGap DAY) = DATE_ADD('2022-01-
 
 $result = $db->query($sql_specific_rows);
 
-// For each row in specific query if NotificationsEmail= 1 --> send email to MailAddress if NotificationsPhone = 1 --> send text to phone PhoneNumber
+// For each row in specific query if NotificationsRefill= 1 --> send email to MailAddress if NotificationsRefill = 1 --> send text to phone PhoneNumber
 // Assuming you have executed your SQL query and fetched the results into $result.
 while ($row = mysqli_fetch_assoc($result)) {
-    if ($row['NotificationsEmail'] == 1) {
+    if ($row['NotificationsRefill'] == 1) {
         $mailAdressToSendTo = 'VacciMate@gmail.com' ; 
         //$mailAdressToSendTo = 'erika-lindberg97@hotmail.com' ; 
         //$mailAdressToSendTo = $row['MailAddress'] ; //the mail of the person that is supposed to get email (from DB)
@@ -82,12 +81,6 @@ while ($row = mysqli_fetch_assoc($result)) {
         catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
-    }
-
-    if ($row['NotificationsPhone'] == 1) {
-        // echo "HI Phone"; 
-        // Send a text message to $row['PhoneNumber']
-        // You would need to use a text messaging service or API for this
     }
 }
 

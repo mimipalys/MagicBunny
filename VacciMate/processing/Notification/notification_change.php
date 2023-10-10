@@ -24,13 +24,13 @@ if (!isset($_SESSION['user_id'])) {
 // get session id
 $patientID = $_SESSION['user_id'];
 $refill_note = $_POST['refill_note'];
-$save_note = $_POST['save_note'];
+$saved_note = $_POST['saved_note'];
 
 echo "$email_note"; 
 
-$sqlID = "UPDATE Patient SET NotificationsEmail = ?, NotificationsPhone = ? WHERE PatientID = ?";
+$sqlID = "UPDATE Patient SET NotificationsSaved = ?, NotificationsRefill = ? WHERE PatientID = ?";
 $stmtID = $db->prepare($sqlID);
-$stmtID->bind_param("ssi", $save_note, $refill_note, $patientID);
+$stmtID->bind_param("ssi", $saved_note, $refill_note, $patientID);
 $stmtID->execute();
 
   // Redirecting to the settingspage with a key value pair changed=1 OBS a GET method maybe better to use POST
