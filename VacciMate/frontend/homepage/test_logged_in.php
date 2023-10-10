@@ -1,30 +1,9 @@
-<!DOCTYPE html>
-<html>
-
-<?php include('../links.php'); ?>
-<head>
-  <link rel="stylesheet" type="text/css" href="<?php echo $styles_doc ?>">
-
-  <title>
-          Using display: flex and 
-          justify-content: space-between
-  </title>
-</head>
-
 <?php 
+include('../links.php');
 session_start();
 
 //include correct header
-if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
-  include $header_logged_in_patient;
-} elseif (isset($_SESSION['user_id']) and $_SESSION['role'] == "caregiver") {
-  include $header_logged_in_caregiver;
-} else {
-  include $header;
-}
-
-
-
+include $header_logged_in_patient;
 
 ?>
 
@@ -57,8 +36,4 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
  </main>
 
  </body>
-
- <?php 
- include $footer;
- ?>
 </html>

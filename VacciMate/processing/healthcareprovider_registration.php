@@ -31,10 +31,10 @@ $stmt = $db->prepare($sql);
 $stmt->bind_param("isssi", $username, $fname, $lname, $hashed_password, $clinicID);
     
 if ($stmt->execute()) {
-    echo "Registration successful. <a href='index.php'>Login here</a>";
+    echo "Registration successful. <a href=$login_link >Login here</a>";
 } else {
     echo "Registration failed. Error: " . $db->error;
-}    
+}  
 
 $stmt->close();
 ?>

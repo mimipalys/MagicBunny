@@ -58,8 +58,8 @@
         <div id="administratorForm" style="display:none;">
             <!-- Administrator Form Elements -->
             <h2>Administrator</h2>
-            <form action="http://localhost/MagicBunny/VacciMate/processing/healthcareprovider_registration.php" method="POST">
-                <label for="ID">ID:</label>
+            <form action= "<?php echo $register_caregiver; ?>" method="POST">
+                <label for="Employee ID">ID:</label>
                 <input type="int" id="ID" name="ID" required>
                 <br>
                 <label for="password">Password:</label>
@@ -72,12 +72,14 @@
                 <input type="text" id="lname" name="lname" required>
                 <br>
                 <label for="clinicID">Clinic:</label>
-                <select id="options" name="options">
-                    <option value="option1">akademiska sjukhuset</option>
-                    <option value="option2">Ersta sjukhus</option>
-                    <option value="option3">Skånes universitetssjukhus Malmö</option>
-                    <option value="option4">Gothenburg Health</option>
+                <select id="clinicID" name="clinicID">
+                    <option value="1">Stadsvårdkliniken</option>
+                    <option value="2">Hälsocentralen</option>
+                    <option value="3">Eklundskliniken</option>
+                    <option value="4">Björnskliniken</option>
+                    <option value="5">Cedar Vårdcentral</option>
                 </select>
+
                 <br>
                 <input type="checkbox" id="privacy" name="privacy" value="gdpr">
                 <label for="privacy"> I accept the privacy and policy<a href="#"> Click here to veiw GDPR</a></label><br>
@@ -89,8 +91,8 @@
         <div id="clientForm">
             <!-- Client Form Elements -->
             <h2>Client</h2>
-            <form action="http://localhost/MagicBunny/VacciMate/processing/patient_registration.php" method="POST">
-                <label for="ID">ID:</label>
+            <form action="<?php echo $register_patient; ?>" method="POST">
+                <label for="ID">Social Security Number:</label>
                 <input type="int" id="ID" name="ID" required>
                 <br>
                 <label for="password">Password:</label>

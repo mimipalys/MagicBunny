@@ -25,6 +25,12 @@ $stmt->bind_param("s", $patientID);
 
 if ($stmt->execute()) {
     echo "Your account has been successfully deleted!";
+    unset($_SESSION['user_id']);
+    unset($_SESSION['username']);
+    unset($_SESSION['role']);
+    // Destroy the session
+    session_destroy();
+    header("Location: ../frontend/homepage/frontpage.php");
 } else {
     echo "There was an issue deleting your account. Please try again or contact VacciMate customer support.";
 }

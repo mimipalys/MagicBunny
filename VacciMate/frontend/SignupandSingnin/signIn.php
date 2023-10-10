@@ -40,9 +40,9 @@ include('/Applications/XAMPP/xamppfiles/htdocs/MagicBunny/VacciMate/frontend/ele
         <h1>Login</h1>
         <div id="administratorForm" style="display:none;">
             <h2>Administrator</h2>
-        <form action="../../processing/login.php" method="POST">
+        <form action="../../processing/login_caregiver.php" method="POST">
             <div id="k">
-            <label for="loginUsername">Username:</label>
+            <label for="loginUsername">Employee ID:</label>
             <input type="text" id="loginUsername" name="ID" required>
             </div>
             <div id="k">
@@ -60,7 +60,7 @@ include('/Applications/XAMPP/xamppfiles/htdocs/MagicBunny/VacciMate/frontend/ele
             <h2>Client</h2>
             <form action="../../processing/login.php" method="POST">
                 <div id="k">
-                    <label for="loginUsername">Personnumer:</label>
+                    <label for="loginUsername">Social Security Number:</label>
                     <input type="text" id="loginUsername" name="ID" required>
                 </div>
                 <div id="k">
