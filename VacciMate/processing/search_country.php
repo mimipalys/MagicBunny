@@ -6,8 +6,8 @@
 
 
 <head>
-    <link rel="stylesheet" type="text/css" href="http://localhost:8888/frontend/borderstyle.css">
-    <link rel="stylesheet" type="text/css" href="http://localhost:8888/processing/country_page.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $styles_doc ?>">
+    <link rel="stylesheet" type="text/css" href="http://localhost/processing/country_page.css">
     <title>
           Using display: flex and 
           justify-content: space-between
@@ -15,30 +15,20 @@
 </head>
 
 <body>
-<header>
-  <div class= "topheader">
-    <?php
-     echo '<a id="GFG" class="vaccimateLogo" href="' . $homepage_link . '">&#128137 VacciMate</a>';
-    ?>
-    
-    <div class= "rightpart_topheader">
-    <?php
-     echo '<a id="GFG" href="' . $login_link . '" class="costumbutton1">Login</a>';
-     echo '<a id="GFG" href="' . $register_link . '"  class="costumbutton1">Register</a>';
-     echo '<a id="GFG" href="' . $setting_link . '" class="costumbutton1">&#9881</a>';
-    ?>
-    </div>
-  </div>
-  
-  <div class= "bottomheader">
-  <?php
-    echo '<a id="GFG" href="' . $travel_link . '" class="costumbutton2">Travel information</a>';
-    echo '<a id="GFG" href="' . $search_link . '"  class="costumbutton2">Search Vaccine</a>';
-    echo '<a id="GFG" href="' . $aboutUs_link . '"  class="costumbutton2">About Us</a>';
-  ?>
-  </div>
+<?php 
+session_start();
 
- </header>
+//include correct header
+if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
+  include $header_logged_in_patient;
+} elseif (isset($_SESSION['user_id']) and $_SESSION['role'] == "caregiver") {
+  include $header_logged_in_caregiver;
+} else {
+  include $header;
+}
+
+
+?>
 
     
     
@@ -95,7 +85,7 @@
                 // Loop through the target words and highlight them in the description
                 foreach ($targetWords as $word) {
                     // Create a link to the search_vaccine page with the search_query parameter
-                    $vaccineLink = "http://localhost:8888/processing/search_vaccine.php?search_query=" . urlencode($word);
+                    $vaccineLink = "http://localhost/processing/search_vaccine.php?search_query=" . urlencode($word);
                     // Perform a case-insensitive search and replace with the link
                     $description = preg_replace(
                         "/\b" . preg_quote($word, '/') . "\b/i",
@@ -117,4 +107,7 @@
         ?>
     </section>
 </body>
+<?php 
+ include $footer;
+ ?>
 </html>
