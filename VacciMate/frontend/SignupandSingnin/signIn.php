@@ -22,10 +22,20 @@
 </head>
 
 <body>
-<?php
-$pageTitle = 'SignIn Page';
-include('/Applications/XAMPP/xamppfiles/htdocs/MagicBunny/VacciMate/frontend/elements/header/header.php'); ?>
+<?php 
+session_start();
 
+//include correct header
+if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
+  include $header_logged_in_patient;
+} elseif (isset($_SESSION['user_id']) and $_SESSION['role'] == "caregiver") {
+  include $header_logged_in_caregiver;
+} else {
+  include $header;
+}
+
+
+?>
 <main>
 
 
@@ -70,7 +80,7 @@ include('/Applications/XAMPP/xamppfiles/htdocs/MagicBunny/VacciMate/frontend/ele
                 <div id="submit" >
                     <input type="submit" name="login" value="Login">
                 </div>
-                <a href="#">forgot password</a>
+                <a href="#">Forget password</a>
             </form>
         </div>
 
@@ -83,11 +93,8 @@ include('/Applications/XAMPP/xamppfiles/htdocs/MagicBunny/VacciMate/frontend/ele
 
 </main>
 
-<?php
-$pageTitle = 'SignIn Page';
-include('/Applications/XAMPP/xamppfiles/htdocs/MagicBunny/VacciMate/frontend/elements/footer/footer.php'); ?>
-
 </body>
-
-
+<?php 
+ include $footer;
+ ?>
 </html>

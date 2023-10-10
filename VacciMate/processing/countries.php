@@ -4,39 +4,28 @@
 include('../frontend/links.php');
 ?>
 <head>
-    <link rel="stylesheet" type="text/css" href="http://localhost:8888/frontend/borderstyle.css">
-    <link rel="stylesheet" type="text/css" href="http://localhost:8888/processing/country_page.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $styles_doc ?>">
+    <link rel="stylesheet" type="text/css" href="http://localhost/processing/country_page.css">
     <title>
         Using display: flex and
         justify-content: space-between
     </title>
 </head>
 
-<body>
-    <header>
-        <div class="topheader">
-            <?php
-            echo '<a id="GFG" class="vaccimateLogo" href="' . $homepage_link . '">&#128137 VacciMate</a>';
-            ?>
+<?php 
+session_start();
 
-            <div class="rightpart_topheader">
-                <?php
-                echo '<a id="GFG" href="' . $login_link . '" class="costumbutton1">Login</a>';
-                echo '<a id="GFG" href="' . $register_link . '" class="costumbutton1">Register</a>';
-                echo '<a id="GFG" href="' . $setting_link . '" class="costumbutton1">&#9881</a>';
-                ?>
-            </div>
-        </div>
+//include correct header
+if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
+  include $header_logged_in_patient;
+} elseif (isset($_SESSION['user_id']) and $_SESSION['role'] == "caregiver") {
+  include $header_logged_in_caregiver;
+} else {
+  include $header;
+}
 
-        <div class="bottomheader">
-            <?php
-            echo '<a id="GFG" href="' . $travel_link . '" class="costumbutton2">Travel information</a>';
-            echo '<a id="GFG" href="' . $search_link . '" class="costumbutton2">Search Vaccine</a>';
-            echo '<a id="GFG" href="' . $aboutUs_link . '" class="costumbutton2">About Us</a>';
-            ?>
-        </div>
 
-    </header>
+?>
 
     <!-- Countries Section -->
     <section>
@@ -114,5 +103,8 @@ include('../frontend/links.php');
         $link->close();
         ?>
     </section>
-</body>
+    </body>
+<?php 
+ include $footer;
+ ?>
 </html>
