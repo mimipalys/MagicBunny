@@ -1,4 +1,5 @@
 <?php
+chdir(dirname(__FILE__));
 
 require 'SMTP.php';
 require 'PHPMailer.php';
@@ -65,7 +66,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
             // Implode the array with ', ' again and add ' and ' before the last part
             $modified_string = implode(', ', $parts) . ' and ' . $last_part;
-            $body_vaccine = 'Hi ' . $row['Fname'] . ' ' .  $row['Lname'] . '! <br> <br> You have saved vaccines on your account. Your saved vaccines are: ' .  $modified_string . '!<br> Please consider to book appointments for theese vaccine.' ;
+            $body_vaccine = 'ITTTT WOOORKs!!!!Hi ' . $row['Fname'] . ' ' .  $row['Lname'] . '! <br> <br> You have saved vaccines on your account. Your saved vaccines are: ' .  $modified_string . '!<br> Please consider to book appointments for theese vaccine.' ;
         } 
 
         else {

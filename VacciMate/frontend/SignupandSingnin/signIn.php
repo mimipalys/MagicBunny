@@ -77,8 +77,9 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                     <label for="loginPassword">Password:</label>
                     <input type="password" id="loginPassword" name="password" required>
                 </div>
-                <div id="submit" >
+                <div id="formbtn" >
                     <input type="submit" name="login" value="Login">
+                    <button onclick="showPopup()">Forgot password</button>
                 </div>
                 <a href="#">Forget password</a>
             </form>
