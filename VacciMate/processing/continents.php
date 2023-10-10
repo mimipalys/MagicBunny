@@ -5,8 +5,8 @@
 ?>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="http://localhost:8888/frontend/borderstyle.css">
-    <link rel="stylesheet" type="text/css" href="http://localhost:8888/processing/continent_page.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo $styles_doc ?>">
+    <link rel="stylesheet" type="text/css" href="http://localhost/processing/continent_page.css">
     <title>
           Using display: flex and 
           justify-content: space-between
@@ -14,7 +14,6 @@
 </head>
 
 <?php 
-include('../links.php');
 session_start();
 
 //include correct header
