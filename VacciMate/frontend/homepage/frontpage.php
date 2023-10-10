@@ -56,6 +56,36 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 
  </main>
 
+      <!-- Cookie popup  -->
+    <div id="cookiePopup" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background-color: #666666; color: white; text-align: center; padding: 10px;">
+        <p>We use cookies to improve your browsing experience. Click "Accept" to agree.</p>
+        <button id="acceptCookieButton">Accept</button>
+    </div>
+
+    <script>
+        // JavaScript code to display the popup and handle user consent
+        document.addEventListener("DOMContentLoaded", function () {
+            var cookiePopup = document.getElementById("cookiePopup");
+            var acceptCookieButton = document.getElementById("acceptCookieButton");
+
+            // Check if cookies have already been accepted
+            var hasAcceptedCookie = localStorage.getItem("cookieAccepted");
+
+            // If cookies have not been accepted yet, display the popup
+            if (!hasAcceptedCookie) {
+                cookiePopup.style.display = "block";
+            }
+
+            // Handle user click on the Accept button
+            acceptCookieButton.addEventListener("click", function () {
+                // Hide the popup
+                cookiePopup.style.display = "none";
+
+                // Record user consent in local storage
+                localStorage.setItem("cookieAccepted", "true");
+            });
+        });
+    </script>
  </body>
 
  <?php 
