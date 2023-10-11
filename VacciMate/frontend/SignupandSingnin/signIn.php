@@ -130,10 +130,11 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                 <button onclick="resetPassword()">Reset Password</button>
                 </div>
             </div>
-            <div class="formbtn">
+        </div>
+
+        <div class="formbtn">
             <button onclick="showAdministratorForm()">Administrator</button>
             <button onclick="showClientForm()">Client</button>
-            </div>
         </div>
 
         
