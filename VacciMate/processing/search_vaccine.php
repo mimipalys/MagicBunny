@@ -209,10 +209,17 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 
         if (isset($_GET['search_query'])) {
 
-            // Build the SQL query for search query
-            $searchQuery = $_GET['search_query'];
-            $sql = "SELECT VaccineID, VaccineName, Description, RelatedDisease FROM Vaccine WHERE VaccineName LIKE '%$searchQuery%'";
+            // get the search query from the form
+            $searchQuery = "%" . $_GET['search_query'] . "%"; 
 
+            // Build the SQL query for search query
+            $sql = "SELECT VaccineID, VaccineName, Description, RelatedDisease FROM Vaccine WHERE VaccineName LIKE ?";
+
+            $stmt = $link->prepare($sql);
+            $stmt->bind_param("s", $searchQuery);
+            $result = $stmt->execute();
+            $result = $stmt->get_result();            
+            $stmt->close();
             // Create button that takes you back
             echo '<div  class = "show-all-button">';
             echo '<a id = "GFG" href = "http://localhost:8888/processing/search_vaccine.php" class="show-all-button"> Show all vaccines</a>';
@@ -221,13 +228,15 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
         }   else {
             // Build the SQL query for all vaccines in DB
             $sql = "SELECT VaccineID, VaccineName, Description, RelatedDisease FROM Vaccine";
+            $result = $link->query($sql);
         }
-        $result = $link->query($sql);
+    
 
       
         // check if session
         if (isset($_SESSION['user_id'])) {
             // If session: extract vaccine information about patient
+            //Build sql query
             $patientID = $_SESSION['user_id'];
             $sql2 = "SELECT DISTINCT
             V.VaccineName
@@ -235,20 +244,29 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
             Vaccine V
             JOIN 
             VaccineDose AS VD ON V.VaccineID = VD.VaccineID
-            WHERE VD.PatientID = $patientID";
-            //Build sql query
-            $result2 = $link->query($sql2);
+            WHERE VD.PatientID = ?";
+            $stmt = $link->prepare($sql2);
+            $stmt->bind_param("s", $patientID);
+            $result2 = $stmt->execute();
+            $result2 = $stmt->get_result();            
         
             // create list of all the users vaccines, used to check if they are vaccinated of not
             $Vaccine_list_patient = array();
             while($row2 = $result2 ->fetch_assoc()){
                 array_push($Vaccine_list_patient, $row2['VaccineName']);   
             }
+            $stmt->close();
 
             //create a list of all the patients saved vaccines
             $Saved_vaccine_list = array();
-            $sql_find_saved = "SELECT VaccineID FROM SavedVaccine WHERE PatientID = $patientID";
-            $result_saved = $link->query($sql_find_saved);
+
+            //Build sql query
+            $sql_find_saved = "SELECT VaccineID FROM SavedVaccine WHERE PatientID = ?";
+            $stmt = $link->prepare($sql_find_saved);
+            $stmt->bind_param("s", $patientID);
+            $result_saved = $stmt->execute();
+            $result_saved = $stmt->get_result();  
+            $stmt->close();  
             while($row_saved = $result_saved ->fetch_assoc()){
                 array_push($Saved_vaccine_list, $row_saved['VaccineID']);   
             }
@@ -293,8 +311,13 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                         //If the button is clicked add the infomration in the database 
 
                         if(isset($_POST[$row['VaccineID']])) { 
-                            $sql_save = "INSERT INTO SavedVaccine (PatientID, VaccineID) VALUES ($patientID, {$row['VaccineID']})";
-                            $result_save = $link->query($sql_save);
+                            $VacID = $row['VaccineID'];
+                            $sql_save = "INSERT INTO SavedVaccine (PatientID, VaccineID) VALUES (?, ?)";
+                            $stmt = $link->prepare($sql_save);
+                            $stmt->bind_param("si", $patientID, $VacID);
+                            $result_save = $stmt->execute();
+                            $result_save = $stmt->get_result();
+                            $stmt->close();   
                         }
 
 
