@@ -36,7 +36,7 @@ include('../../links.php');
 </div>
 
   <!-- Add the feedback button -->
-  <p><a href="../../Feedback/feedback.html" class="feedback-button">Feedback</a><p>
+  <p><a href="../../Feedback/feedback.html" class="custom-feedback-button">Feedback</a><p>
 
 <script>
   $(document).ready(function() {
