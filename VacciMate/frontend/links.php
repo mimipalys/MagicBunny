@@ -62,4 +62,7 @@ $footer = $_SERVER['DOCUMENT_ROOT'] . '/frontend/elements/footer/footer.php';
 
 $styles_doc = $protocol . $host . '/frontend/borderstyle.css';
 $footer_style = $protocol . $host . '/frontend/elements/footer/footer.css';
+
+//link to get_notification_settings.php
+$get_not_link = $protocol . $host . '/processing/Notification/get_notification_settings.php';
 ?>
