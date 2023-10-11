@@ -1,43 +1,93 @@
 <?php
-// Database connection details
+// Database connection parameters
 $dbHost = 'localhost';
 $dbUsername = 'root';
 $dbPassword = 'root';
 $dbName = 'VacciMate';
 
+// Create a database connection
+$connection = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 
-// Create a connection to the database
-$conn = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
-
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($connection->connect_error) {
+    die("Connection failed: " . $connection->connect_error);
 }
 
-// Function to fetch data from the database
-function fetchDataFromDatabase($conn) {
-    $data = array();
+// Fetch data from the 'statistics' table
+$query = "SELECT vaccineID, value FROM vaccinedose";
+$result = $connection->query($query);
 
-    // Replace 'your_table' with the name of your table and define the SQL query
-    $sql = "SELECT * FROM ";
-    $result = $conn->query($sql);
+// Initialize arrays to store data
+$categories = array();
+$values = array();
 
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $data[] = $row;
-        }
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $categories[] = $row['vaccineID'];
+        $values[] = $row['vaccinedose'];
     }
-
-    return $data;
 }
 
-// Fetch data from the database
-$dataset = fetchDataFromDatabase($conn);
-
-// Close the database connection
-$conn->close();
-
-// Return the dataset as JSON
-header('Content-Type: application/json');
-echo json_encode($dataset);
+$connection->close();
 ?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div style="width: 80%;">
+        <canvas id="lineChart"></canvas>
+    </div>
+    <div style="width: 80%;">
+        <canvas id="pieChart"></canvas>
+    </div>
+
+    <script>
+        // Data fetched from the database
+        var categories = <?php echo json_encode($categories); ?>;
+        var values = <?php echo json_encode($values); ?>;
+
+        // Line chart
+        var lineCtx = document.getElementById("lineChart").getContext("2d");
+        var lineChart = new Chart(lineCtx, {
+            type: "line",
+            data: {
+                labels: categories,
+                datasets: [{
+                    label: "Line Chart",
+                    data: values,
+                    fill: false,
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    borderWidth: 2,
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+            },
+        });
+
+        // Pie chart
+        var pieCtx = document.getElementById("pieChart").getContext("2d");
+        var pieChart = new Chart(pieCtx, {
+            type: "pie",
+            data: {
+                labels: categories,
+                datasets: [{
+                    data: values,
+                    backgroundColor: ["red", "blue", "green", "orange", "purple"],
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+            },
+        });
+    </script>
+</body>
+
+</html>
