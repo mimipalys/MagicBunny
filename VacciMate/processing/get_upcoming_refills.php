@@ -4,8 +4,6 @@
 // If it is anything but 0, there should be an upcoming vaccine dose
 
 session_start();
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 // Database connection details
 $dbHost = 'localhost';
 $dbUsername = 'root';
@@ -21,8 +19,8 @@ if ($db->connect_error) {
 }
 
 // Check if the user is logged in; if not, redirect to the signIn.php page
-if (!isset($_SESSION['user_id'])) {
-    header("Location: signIn.php");
+if (!isset($_SESSION['user_id'])or $_SESSION['role'] != "patient") {
+    header("Location: $login_link");
     exit;
 }
 

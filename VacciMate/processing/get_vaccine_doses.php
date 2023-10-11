@@ -16,8 +16,8 @@ if ($db->connect_error) {
 }
 
 // Check if the user is logged in; if not, redirect to the signIn.php page
-if (!isset($_SESSION['user_id'])) {
-    header("Location: index.php");
+if (!isset($_SESSION['user_id'])or $_SESSION['role'] != "patient") {
+    header("Location: $login_link");
     exit;
 }
 

@@ -59,6 +59,16 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
             <label for="loginPassword">Password:</label>
             <input type="password" id="loginPassword" name="password" required>
             </div>
+                <label for="clinicID">Clinic:</label>
+                <select id="clinicID" name="clinicID">
+                    <option value="1">Stadsvårdkliniken</option>
+                    <option value="2">Hälsocentralen</option>
+                    <option value="3">Eklundskliniken</option>
+                    <option value="4">Björnskliniken</option>
+                    <option value="5">Cedar Vårdcentral</option>
+                </select>
+            <br>
+            <br>
             <div id="submit" >
             <input type="submit" name="login" value="Login">
             </div>

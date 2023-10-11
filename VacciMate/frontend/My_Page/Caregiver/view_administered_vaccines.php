@@ -46,8 +46,8 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
           $.each(response, function(index, administered_dose) {
             // create list item for each administered dose
             var adminDoseItem = '<li class="refill-info">';
-            adminDoseItem += '<h4> Dose ID' + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp'+ 'Vaccine' + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp ' + 'Dose number' + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + ' Administration date' + '</h4>';
-            adminDoseItem += '<p>' +  administered_dose['DoseID'] + ' &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp'+ administered_dose['VaccineName'] + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + administered_dose['DoseNumber'] + '  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + administered_dose['AdminDate'] + '</p>';
+            adminDoseItem += '<h4> Dose ID' + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp'+ 'Vaccine' + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp ' + 'Dose number' + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + ' Administration date' + '</h4>';
+            adminDoseItem += '<p>' +  administered_dose['DoseID'] + ' &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp'+ administered_dose['VaccineName'] + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + administered_dose['DoseNumber'] + '  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + administered_dose['AdminDate'] + '</p>';
             adminDoseItem += '</li>';
 
             vaccine_list.append(adminDoseItem);

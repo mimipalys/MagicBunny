@@ -6,7 +6,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="<?php echo $styles_doc ?>">
-    <link rel="stylesheet" type="text/css" href="http://localhost/processing/continent_page.css">
+    <link rel="stylesheet" type="text/css" href="continent_page.css">
     <title>
           Using display: flex and 
           justify-content: space-between

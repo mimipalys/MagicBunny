@@ -16,9 +16,12 @@ if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 }
 
+include('../frontend/links.php');
+
+
 // Check if the user is logged in; if not, redirect to the signIn.php page
 if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver") {
-    header("Location: signIn.php");
+    header("Location: $login_link");
     exit;
 }
 
