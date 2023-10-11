@@ -45,7 +45,6 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
     <img src="' . $influenza_image . '" alt="test_pic"> </a>';
     ?>
    
-  
    <?php
     echo '<a id="GFG" href="' . $kenya_link . '" class="newscolumns">
     <h2>Traveling to Kenya? Stay Informed!</h2>

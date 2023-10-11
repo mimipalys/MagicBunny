@@ -17,6 +17,7 @@
 
 <body>
 
+<!-- NOTIFICATIONS -->
 
 <?php 
  session_start();
@@ -83,7 +84,7 @@ $stmt->close();
  <h1> Settings </h1>
  
  <div class = "bodydiv">
-   <fieldset>
+   <fieldset id="GFG">
    <legend> Notifications: </legend>
 
     <form id = "update" action="../../processing/Notification/notification_change.php" method="POST">
@@ -98,21 +99,21 @@ $stmt->close();
     </form>
     
     <?php
+    if (isset($_GET['changed'])) {
+    echo "Your notification settings has been changed!";
+    }
+    ?>
 
- if (isset($_GET['changed'])) {
-  echo "Your notification settings has been changed!";
-  }
-  ?>
 </fieldset>
 
-    <!-- DELETE ACCOUNT -->
+<!-- DELETE ACCOUNT -->
 
-<fieldset>
-<legend>Delete account:</legend>
+<fieldset >
+<legend>Delete account: </legend>
 <?php 
 if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
   ?>
-  <body>
+  <body id="GFG">
   <button id="deleteBtn">Delete Account</button>
   <div id="confirmationMessage" style="display: none;">
       <p>Are you sure you want to delete your account?</p>
@@ -159,12 +160,12 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
           confirmationMessage.style.display = "none";
       });
   </script>
+  </div>
 </body>
 
 <?php } ?>
-    </fieldset>
 
-
+</fieldset>
 </div>
 
 </div>
