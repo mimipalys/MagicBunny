@@ -1,6 +1,10 @@
 <?php
+// Frontend for viewing your vaccine history
+// Display vaccine doses and refills when the corresponding button is pressed
+// Have an if-statement to check the user's role
 session_start();
 
+// Check if the user is logged in; if not, redirect to the signIn.php page
 if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "patient") {
   header("Location: ../../SignupandSingnin/signIn.php");
   exit;

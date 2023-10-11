@@ -35,8 +35,6 @@ include('../../links.php');
   </ul>
 </div>
 
-  <!-- Add the feedback button -->
-  <p><a href="../../Feedback/feedback.html" class="custom-feedback-button">Feedback</a><p>
 
 <script>
   $(document).ready(function() {
@@ -64,9 +62,12 @@ include('../../links.php');
             vaccineItem += '<h3>' + vaccine['VaccineName'] + '</h3>';
             vaccineItem += '<h4> Dose Number' + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp ' + 'Administration Date' + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + 'Dose Expiration Date</h4>';
             vaccineItem += '<p> &nbsp &nbsp &nbsp' + vaccine['DoseNumber'] + '  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + vaccine['AdministrationDate'] + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + vaccine['DoseExpirationDate'] + '</p>';
-            vaccineItem += '</li>';
-
+            
+            // Add a "Feedback" button dynamically for each vaccine
+            vaccineItem += '<a href="../../Feedback/feedback.html" class="custom-feedback-button">Feedback</a>';
+            
             // Append the list item to the unordered list
+            vaccineItem += '</li>';
             vaccineList.append(vaccineItem);
           });
 
@@ -138,3 +139,4 @@ include('../../links.php');
 </body>
 
 </html>
+
