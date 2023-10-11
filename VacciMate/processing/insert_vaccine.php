@@ -17,6 +17,14 @@ if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 }
 
+include('../frontend/links.php');
+
+// Check if the user is logged in; if not, redirect to the signIn.php page
+if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver") {
+    header("Location: $login_link");
+    exit;
+}
+
 // fetch data from post method
 $doseID = $_POST["doseID"];
 $patientID = $_POST["patientID"];
