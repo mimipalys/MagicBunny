@@ -113,7 +113,27 @@ body {
 .upcoming_refill_container .vaccine-info {
   margin-bottom: 10px;
   font-size: 16px;
+} 
+
+/* Add these styles to your CSS */
+.feedback-button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
+
+.custom-feedback-button:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}
+
+/* You can further customize the button by adjusting the padding, colors, and other styles to match your design. */
+
+
 
 /* styles for the container (.vaccinerecord) */
 .vaccinerecord {

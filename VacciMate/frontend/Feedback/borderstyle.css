@@ -1,277 +1,67 @@
-/* CSS styles */
-/* styles of the whole body of the page*/
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the body */
 body {
-    background-color: #ffd7b5;
-    overflow-x: scroll;
-    width: 100%;
-  }
-  
-  .topheader {
-    align-items: center;
-    background-color: #ffb38a;
-    padding: 1rem 1rem;
+    font-family: Arial, sans-serif;
+    background-color: #8d3030;
     text-align: center;
-    width: 100%;
-    Height: 10px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .rightpart_topheader{
-    align-items: center;
-    margin: auto;
-    margin-right: 50px;
-    text-align: center;
-    width: 40%;
-    Height: 10px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .bottomheader{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffffff;
-    margin: auto;
-    padding: 1rem 1rem;
-    text-align: center;
-    width: 100%;
-    Height: 40px;
-  }
-  
-  /* styles of the news pops*/
-  .newscolumns, .newscolumns_Wide, .Body_fullscreen{
-    align-items: center;
-    background-color: #ffb38a;
-    margin: auto;
-    padding: 1rem 1rem;
-    text-align: center;
-    margin: 20px ; 
-    width: 400px;
-    Height: 500px;
-    float: left;
-  }
-  
-  .newscolumns_Wide{
-    width: 1100px;
-  }
-  
-  .Body_fullscreen{
-    width: 990px;
-  }
-  
-  
-  
-  /* styles of the vaccinename buttons that are clickable to view the description*/
-  .show-description-button {
-    text-align: center;
-    border: none;
-    padding: auto;
-    font-size: 20px;
-    cursor: pointer;
-    border-radius: 10px;
-    margin: auto; /* Add some spacing between buttons */
-    display: block
-  }
-  
-  
-  /* styles of the vaccine descriptions in seach vaccine*/
-  
-  .vaccine_description {
-    display: none;
-    align-items: center;
-    background-color: #ffffff;
-    margin: auto;
-    padding: 1rem 1rem;
-    text-align: center;
-    margin: 20px ; 
-    width: 700px;
-    Height: auto;
-    border-radius:20px;
-  }
-  
-  .upcoming_refill_container {
-    background-color: #ffb38a;
-    padding: 20px;
-    text-align: left;
-    margin: 20px;
-    width: 36%; /* Adjust the width as needed */
-    float: right;
-  }
-  
-  .upcoming_refill_container h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .upcoming_refill_container .refill-list {
-    list-style: none;
+    margin: 0;
     padding: 0;
-  }
-  
-  .upcoming_refill_container .vaccine-info {
-    margin-bottom: 10px;
-    font-size: 16px;
-  }
-  
-  /* styles for the container (.vaccinerecord) */
-  .vaccinerecord {
-    background-color: #ffb38a;
-    margin: auto;
-    padding: 20px;
-    text-align: left;
-    margin: 20px;
-    width: 50%;
-    height: auto; /* Adjust height to "auto" to accommodate dynamic content */
-    float: left;
-  }
-  
-  /* styles for list items within the container */
-  .vaccinerecord ul {
-    list-style-type: none; /* no list bullets */
-    padding: 0;
-    margin: auto;
-  }
-  
-  .vaccinerecord ul li {
-    background-color: #fff; /* White background color for list items */
-    padding: 10px; /* Adjust spacing and padding automatically */
-    border: 1px solid #ffb38a; /* Add a border around list items */
-    margin-bottom: 10px; /* Add margin between list items */
-    border-radius: 20px; /* Add rounded corners to list items */
-    overflow: hidden; /* Ensure content doesn't overflow rounded corners */
-  }
-  
-  /* the parts of the body (not the top or bottum headers)*/
-  .bodydiv {
-    display: flex;
-    justify-content: space-between;
-    width: 99%;
-  }
-  
-  /* clickable link in topheader*/
-  .costumbutton1, .costumbutton1_choosen{
-  text-align: center;
-  float: left;
-  border: none;
-  padding: auto;
-  font-size: 20px;
-  cursor: pointer;
-  border-radius: 10px;
-  margin: auto; /* Add some spacing between buttons */
-  }
-  
-  .costumbutton1_choosen {
-    background-color: white;
-    cursor: default;
-  }
-  
-  /* clickable link in secound header*/
-  .costumbutton2, .costumbutton2_choosen {
-  text-align: center;
-  float: left;
-  border: none;
-  padding: auto;
-  font-size: 40px;
-  cursor: pointer;
-  border-radius: 10px;
-  margin: auto; 
-  }
-  
-  /* Use on the button where you are currently */
-  .costumbutton2_choosen {
-    background-color: #ffd7b5;
-    cursor: default;
-  }
-  
-  /* The logo fonts and size etc. This we might want to change! put oute own logo here maybe*/
-  .vaccimateLogo {
-    text-align: center;
-    float: left;
-    border: none;
-    padding: auto;
-    font-size: 30px;
-    margin-right: 80px; 
-    margin-left: 80px; /* Add some spacing between buttons */
-    font-size: 40px; 
-    color: black; 
-    font-family: Copperplate;
-    cursor: pointer;
-  }
-  
-  /* Image size*/
-  img{
-    max-height: 50%;
-  } 
-  
-  /* Change button style on hover */
-  .costumbutton1:hover {
-    border-style: outset;
-  }
-  .costumbutton2:hover {
-    border-style: outset;
-  }
-  .newscolumns:hover {
-    border-style: outset;
-  }
-  
-  /* Hyperlink decorations of*/
-  #GFG {
-    text-decoration: none; 
-    color : black;
-  }
-  
-  /* Containers for the "register vaccine" tab in the caregivers my page */
-  .registervaccinecontainer {
-    max-width: 600px;
-    margin: 50px auto; /* Add margin to the top to move it down */
-    padding: 50px;
+}
+
+/* Style the header */
+h1 {
+    font-size: 35px;
+    margin: 20px 0;
+}
+
+/* Style the form container */
+form {
     background-color: #fff;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
     border-radius: 10px;
-    text-align: center; /* Center align the container */
-  }
-  
-  .register-vaccine-title {
-    text-align: center;
-  }
-  
-  .register-vaccine-label {
+}
+
+/* Style form labels */
+label {
+    display: block;
     font-weight: bold;
-  }
-  
-  .register-vaccine-input {
+    margin-top: 10px;
+}
+
+/* Style form radio buttons */
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Style form text area for additional effects */
+textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  
-  .register-vaccine-button {
+}
+
+/* Style the submit button */
+input[type="submit"] {
     background-color: #007bff;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .register-vaccine-button:hover {
+    margin-top: 10px;
+}
+
+/* Style the submit button on hover */
+input[type="submit"]:hover {
     background-color: #0056b3;
-  }
-  
-  /* styles of the privacy policy*/
-  .privacy_policy{
-    align-items: center;
-    background-color: #ffb38a;
-    margin: auto;
-    padding: 1rem 1rem;
-    text-align: left;
-    margin: 20px ; 
-    width:990px;
-    Height: 500px;
-    float: left;
-  }
-  
-  
+}

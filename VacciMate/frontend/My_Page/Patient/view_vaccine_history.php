@@ -35,8 +35,8 @@ include('../../links.php');
   </ul>
 </div>
 
-<!-- Feedback button: -->
-<a href="../Feedback/feedback.php" class="feedback-button">Give Feedback</a>
+  <!-- Add the feedback button -->
+  <a href="../../Feedback/feedback.html" class="feedback-button">Feedback</a>
 
 <script>
   $(document).ready(function() {
