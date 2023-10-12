@@ -67,4 +67,5 @@ $footer_style = $protocol . $host . '/frontend/elements/footer/footer.css';
 
 //link to get_notification_settings.php
 $get_not_link = $protocol . $host . '/processing/Notification/get_notification_settings.php';
+
 ?>
