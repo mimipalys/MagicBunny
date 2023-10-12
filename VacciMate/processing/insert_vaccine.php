@@ -35,9 +35,7 @@ function test_input($data) {
 
 // fetch data from post method
 $doseID = test_input($_POST["doseID"]);
-echo $_POST["patientID"];
 $patientID = test_input($_POST["patientID"]);
-echo $patientID;
 $healthcareProviderID = test_input($_POST["healthcareProviderID"]);
 $vaccineName =  test_input($_POST["vaccine"]);
 $doseNumber = test_input($_POST["doseNumber"]);

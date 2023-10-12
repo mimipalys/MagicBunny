@@ -28,9 +28,8 @@ function test_input($data) {
     return $data;
   }
 
-echo $_POST['ID'];
+
 $username = test_input($_POST['ID']);
-echo $username ;
 $password = test_input($_POST['password']);
 $fname = test_input($_POST['fname']);
 $lname = test_input($_POST['lname']);
