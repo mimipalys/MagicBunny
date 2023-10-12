@@ -1,20 +1,31 @@
-<body>
- <header>
-  <div class= "topheader">
-    <a id = "GFG" class="vaccimateLogo" href = "<?php echo $homepage_link ?>"> &#128137 VacciMate </a> 
-    <div class= "rightpart_topheader">
-     <a id = "GFG" href = "<?php echo $my_page_caregiver ?>"  class="costumbutton1"> My Pages </a>
-     <a id = "GFG" href = "<?php echo $logout ?>" class="costumbutton1"> Logout </a>
+<header>
+    <div class= "topheader">
+        <div class="vaccimateLogo">
+            <?php
+            echo ' <a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img . '" alt="test_pic"> </a>';
+            ?>
+        </div>
+        <nav class="navy">
+
+            <?php
+            echo '<a  href="' . $my_page_caregiver . '" class="costumbutton1">My Pages</a>';
+            echo '<a  href="' . $aboutUs_link . '"  class="costumbutton1">About Us</a>';
+            echo '<a href="' . $travel_link . '" class="costumbutton1">Travel Information</a>';
+            echo '<a  href="' . $search_link . '"  class="costumbutton1">Vaccine Information</a>';
+            echo '<a  href="' . $logout . '"  class="costumbutton1">Logout</a>';
+            ?>
+        </nav>
     </div>
-  </div>
 
-  <div class= "bottomheader">
-  <?php
-    echo '<a id="GFG" href="' . $travel_link . '" class="costumbutton2">Travel Information</a>';
-    echo '<a id="GFG" href="' . $search_link . '"  class="costumbutton2">Vaccine Information</a>';
-    echo '<a id="GFG" href="' . $aboutUs_link . '"  class="costumbutton2">About Us</a>';
-  ?> 
-  </div>
+    <div class="bottomheader">
+        <?php
+        echo '<h1>VacciMate</h1>
+        <br>
+        <p>A new, and improved Way of tracking vaccines </p>';
+        echo ' <a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img1177 . '" alt="test_pic"> </a>';
+        ?>
+    </div>
 
- </header>
 
+
+</header>

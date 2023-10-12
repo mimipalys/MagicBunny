@@ -20,14 +20,15 @@ include('../../links.php');
 <head>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="borderstyle.css">
+  <link rel="stylesheet" type="text/css" href="../../borderstyle.css">
+    <link rel="stylesheet" type="text/css" href="mypages_patient.css">
   <title>
     Using display: flex and justify-content: space-between
   </title>
 </head>
 
 <?php include $header_my_page_patient; ?>
-
+<main>
 <div class="vaccinerecord">
   <h1>Vaccine Dose Information</h1>
   <ul class="vaccine-list">
@@ -134,9 +135,11 @@ include('../../links.php');
   });
 
 </script>
-
+</main>
 <!-- Display upcoming vaccine doses to the right in a box -->
 </body>
-
+<?php
+include $footer;
+?>
 </html>
 

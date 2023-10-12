@@ -23,7 +23,7 @@ include('../frontend/links.php');
 </head>
 
 <?php include $header_my_page_patient; ?>
-
+<main>
   <style>
         .vaccine_description1 {
                 display: block;
@@ -37,8 +37,15 @@ include('../frontend/links.php');
                 Height: auto;
                 border-radius:20px;
                 }
+      footer{
+          margin-top: 30%;
+      }
     </style>
+</main>
+</body>
 </html>
+
+
 
 
 <?php
@@ -135,4 +142,9 @@ echo '</section>';
 //remove doses if they have taken them
 
 
+?>
+
+
+<?php
+include $footer;
 ?>

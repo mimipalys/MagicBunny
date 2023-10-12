@@ -178,16 +178,17 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 
 
 <link rel="stylesheet" type="text/css" href="http://localhost:8888/processing/search_vaccine_page.css">
-<header>
-    <section class="search_vaccine_page">   
+
+    <section class="search_vaccine_page">
         <div  class = "search-form">
             <form action="search_vaccine.php" method="GET">
             <input class="search_vaccine" type="text" name="search_query" placeholder="Vaccine Name or Disease..." >
             <input class = "search-form" type="submit" value="Search">
             </form>
         </div>
-        <h1 class = "Vaccine_title">Vaccine Information</h1>   
-        <p class = "vaccine_text"> Search for Vaccine or disease to find information or click vaccine name to read description</p>    
+        <h1 class = "Vaccine_title">Vaccine Information</h1>
+        <p class = "vaccine_text"> Search for Vaccine or disease to find information or click vaccine name to read description</p>
+    </section>
 
 
         <?php

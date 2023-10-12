@@ -17,7 +17,8 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
 
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="borderstyle.css">
+    <link rel="stylesheet" type="text/css" href="mypages_caregiver.css">
+    <link rel="stylesheet" type="text/css" href="../../borderstyle.css">
     <title>Register Vaccine Dose</title>
 </head>
 
@@ -78,3 +79,7 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
 </div>
 
 </body>
+</html>
+<?php
+include $footer;
+?>

@@ -5,8 +5,8 @@
 <html>
 
 <head>
-
-  <link rel="stylesheet" type="text/css" href="borderstyle.css">
+    <link rel="stylesheet" type="text/css" href="../../borderstyle.css">
+  <link rel="stylesheet" type="text/css" href="mypages_caregiver.css">
   <title>
           Using display: flex and 
           justify-content: space-between

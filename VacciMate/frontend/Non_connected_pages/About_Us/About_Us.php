@@ -35,7 +35,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
    <div class = "newscolumns_Wide">
      <h2> Our Goal </h2>
      <p> Our motivation is to improve world health one vaccine dose at the time. By offering easy access to all your vaccine history and sending reminders on upcoming doses we want to minimize unnessisarry sickness due to forgotten vaccine doses. At the same time we want to make sure your money and time will not be spend on taking a vaccine twice when its not needed, you can easyly check your what vaccines you have already taken when logged in. </p>
-     <img src="https://live.staticflickr.com/784/40450902634_4f1de0dd24_b.jpg" alt="test_pic">
+     <img id="About_us_img" src="https://live.staticflickr.com/784/40450902634_4f1de0dd24_b.jpg" alt="test_pic">
    </div>
    <div class = "newscolumns">
      <h2> Contact Us </h2>

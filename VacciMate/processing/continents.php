@@ -88,7 +88,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
         </ul>
     </section>
 </body>
-<?php 
- include $footer;
- ?>
+<?php
+include $footer;
+?>
 </html>

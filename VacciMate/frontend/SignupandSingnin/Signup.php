@@ -5,6 +5,7 @@
 ?>
 <head>
     <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="../borderstyle.css">
     <title>SignIn</title>
 
     <script>
