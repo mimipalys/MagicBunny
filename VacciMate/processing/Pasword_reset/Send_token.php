@@ -1,4 +1,5 @@
 <?php
+
 chdir(dirname(__FILE__));
 
 require 'SMTP.php';
@@ -21,7 +22,7 @@ $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 }
-
+echo "success!!"; 
 
 $Mail = $_POST['email'];
 
