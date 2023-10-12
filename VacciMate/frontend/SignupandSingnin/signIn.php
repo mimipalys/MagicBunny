@@ -30,19 +30,45 @@
         popup.style.display = "none";
     }
 
+    function closePopup_message() {
+        var popup_message = document.getElementById("popup_message");
+        popup_message.style.display = "none";
+    }
+    
+
     function resetPassword() {
         var email = document.getElementById('email_to_send').value;
+        var popup_message = document.getElementById("popup_message");
+        popup_message.style.display = "Block";
 
-        if (!email) {
-            console.error('Email address is required.');
-            return;
-        }
+    //     if (!email) {
+    //         console.error('Email address is required.');
+    //         document.getElementById('resetButton').disabled = false;
 
-        // Call your AJAX function to reset the password here
-        // ...
+    //     return;
+    //     }
 
-        // Close the popup after processing the password reset
-        closePopup();
+    //     // Call your AJAX function to reset the password here
+    //     $.ajax({
+    //     url: 'http://localhost:8888/processing/Pasword_reset/Send_token.php', // Replace with the correct path to your PHP script
+    //     method: 'POST', // Use POST or GET based on your script's requirements
+    //     data: {
+    //         email: email // Pass the email data to the PHP script
+    //     },
+    //     success: function(response) {
+    //         // Handle the response from the PHP script here
+    //         // This could be a success message or any other data returned by the script
+    //         console.log(response);
+    //     },
+    //     error: function(xhr, status, error) {
+    //         // Handle errors here
+    //         console.error('AJAX Error: ' + status + ' - ' + error);
+    //     }
+    // });
+
+        // // Close the popup after processing the password reset
+        // closePopup();
+
     }
 </script>
 
@@ -127,12 +153,23 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                 <h2>Forgot Password</h2>
                 <p>Enter your email address to reset your password:</p>
                 <input id="email_to_send" type="email" placeholder="Email">
-                <button onclick="resetPassword()">Reset Password</button>
+                <button id="resetButton" onclick="resetPassword()">Reset Password</button>
                 </div>
             </div>
         </div>
 
         <div class="formbtn">
+
+            <div id="popup_message" class="popup">
+                <div class="popup-content">
+                <span class="close" onclick="closePopup_message();closePopup();">&times;</span>
+                <h2>Forgot Password?</h2>
+                <p>Go to you email and follow the provided link to reset you password</p>
+                </div>
+            </div>
+
+            <div class="formbtn">
+
             <button onclick="showAdministratorForm()">Administrator</button>
             <button onclick="showClientForm()">Client</button>
         </div>
@@ -149,6 +186,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
  ?>
 
 <style>
+
 /* Style the popup container */
 .popup {
     display: none;
