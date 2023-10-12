@@ -9,7 +9,7 @@
 
                 <?php
                 echo '<a  href="' . $homepage_link . '"  class="costumbutton1">Home</a>';
-                echo '<a href="' . $savedvaccine_link . '" class="costumbutton1">My Doses and Refills</a>';
+                echo '<a href="' . $my_page . '" class="costumbutton1">My Doses and Refills</a>';
                 echo '<a  href="' . $savedvaccine_link . '"  class="costumbutton1">Saved Vaccines</a>';
                 echo '<a  href="' . $logout . '"  class="costumbutton1">Logout</a>';
                 ?>

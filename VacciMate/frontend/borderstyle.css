@@ -198,12 +198,15 @@ section:hover{
 }
 
 .upcoming_refill_container {
-  background-color: #ffb38a;
+  background-color: #ffffff;
   padding: 20px;
   text-align: left;
   margin: 20px;
-  width: 36%; /* Adjust the width as needed */
-  float: right;
+  width: 100%; /* Adjust the width as needed */
+  float: none;
+  height: auto;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .upcoming_refill_container h1 {
@@ -223,15 +226,17 @@ section:hover{
 
 /* styles for the container (.vaccinerecord) */
 .vaccinerecord {
-  background-color: #ffb38a;
+  background-color: #ffffff;
   margin: auto;
   padding: 20px;
   text-align: left;
   margin: 20px;
-  width: 50%;
-  height: auto; /* Adjust height to "auto" to accommodate dynamic content */
-  float: left;
+  width: 90%;
+  height: auto; /* Set a fixed height or adjust as needed */
+  float: none;
+  border-radius: 20px;
 }
+
 
 /* styles for list items within the container */
 .vaccinerecord ul {
@@ -241,9 +246,9 @@ section:hover{
 }
 
 .vaccinerecord ul li {
-  background-color: #fff; /* White background color for list items */
+  background-color: #f3f3f3; /* White background color for list items */
   padding: 10px; /* Adjust spacing and padding automatically */
-  border: 1px solid #ffb38a; /* Add a border around list items */
+  border: 1px solid #ffffff; /* Add a border around list items */
   margin-bottom: 10px; /* Add margin between list items */
   border-radius: 20px; /* Add rounded corners to list items */
   overflow: hidden; /* Ensure content doesn't overflow rounded corners */
@@ -263,8 +268,6 @@ font-size: 20px;
 cursor: pointer;
 
 }
-
-
 
 .costumbutton1_choosen {
   background-color: white;
@@ -303,8 +306,6 @@ margin: auto;
 .vaccimateLogo img{
   width: 100%;
 }
-
-
 
 /* Change button style on hover */
 
@@ -348,14 +349,17 @@ margin: auto;
 }
 
 .register-vaccine-button {
-  background-color: color(display-p3 0.7355 0.1801 0.2237);
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 25px;
+    background-color: color(display-p3 0.7355 0.1801 0.2237);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 25px;
+    text-decoration: none;
+    margin-bottom: 20px; /* Adjust the margin-bottom value as needed */
 }
+
 
 .register-vaccine-button:hover {
   background-color: color(display-p3 0.61 0.198 0.23);

@@ -62,15 +62,17 @@ include('../../links.php');
             var vaccineItem = '<li class="vaccine-info">';
             vaccineItem += '<h3>' + vaccine['VaccineName'] + '</h3>';
             vaccineItem += '<h4> Dose Number' + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp ' + 'Administration Date' + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + 'Dose Expiration Date</h4>';
-            vaccineItem += '<p> &nbsp &nbsp &nbsp' + vaccine['DoseNumber'] + '  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + vaccine['AdministrationDate'] + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + vaccine['DoseExpirationDate'] + '</p>';
+            vaccineItem += '<p> &nbsp &nbsp &nbsp' + vaccine['DoseNumber'] + '  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + vaccine['AdministrationDate'] + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + vaccine['DoseExpirationDate'] + '</p>' ;
             
             // Add a "Feedback" button dynamically for each vaccine
-            vaccineItem += '<a href="../../Feedback/feedback.html" class="custom-feedback-button">Feedback</a>';
-            
+            vaccineItem += '<a href="../../Feedback/feedback.html" class="register-vaccine-button"> Report side effects</a>';
             // Append the list item to the unordered list
+            vaccineItem += '</br>';
             vaccineItem += '</li>';
             vaccineList.append(vaccineItem);
           });
+
+          
 
           // Append the unordered list to the container
           vaccineContainer.append(vaccineList);
