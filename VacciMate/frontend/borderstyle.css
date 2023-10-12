@@ -237,6 +237,10 @@ section:hover{
   border-radius: 20px;
 }
 
+.vaccinerecord:hover {
+  box-shadow: none;
+}
+
 
 /* styles for list items within the container */
 .vaccinerecord ul {
@@ -330,6 +334,10 @@ margin: auto;
   background-color: #fff;
   border-radius: 10px;
   text-align: center; /* Center align the container */
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .register-vaccine-title {

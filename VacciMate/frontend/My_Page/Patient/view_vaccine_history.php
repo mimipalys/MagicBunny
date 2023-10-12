@@ -72,7 +72,7 @@ include('../../links.php');
             vaccineList.append(vaccineItem);
           });
 
-          
+        
 
           // Append the unordered list to the container
           vaccineContainer.append(vaccineList);
@@ -140,6 +140,7 @@ include('../../links.php');
 </main>
 <!-- Display upcoming vaccine doses to the right in a box -->
 </body>
+
 <?php
 include $footer;
 ?>

@@ -37,15 +37,20 @@ include('../frontend/links.php');
                 Height: auto;
                 border-radius:20px;
                 }
+                
+                .vaccine_description1:hover {
+  box-shadow: none;
+}
+
+                
       footer{
           margin-top: 30%;
       }
+      
     </style>
 </main>
 </body>
 </html>
-
-
 
 
 <?php
@@ -123,7 +128,7 @@ while($row = $saved_vaccines->fetch_assoc()){
 
     //add unsave vaccine button
     echo '<form action="savedvaccine.php" method="post">';
-    echo '<input type="submit" name='.$row['VaccineID'].' class="button" value="Unsave this vaccine" />';
+    echo '<input type="submit" name='.$row['VaccineID'].' class="register-vaccine-button" value="Unsave this vaccine" />';
     echo '</form>';
 
     //If the button is clicked delete the vaccine from saved vaccines. 

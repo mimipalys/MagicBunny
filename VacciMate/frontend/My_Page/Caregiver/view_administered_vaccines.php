@@ -23,6 +23,7 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
 </head>
 
 <?php include $header_my_page_caregiver; ?>
+<main>
 
 <div class="administered_doses_container">
     <h1>Administered Doses</h1>
@@ -77,7 +78,7 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
   <p> 09:00 - 15:00 </p>
 
 </div>
-
+</main>
 </body>
 </html>
 <?php
