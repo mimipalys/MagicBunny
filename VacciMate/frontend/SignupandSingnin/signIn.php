@@ -4,6 +4,7 @@
   include('../links.php');
 ?>
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="login.css">
     <link rel="stylesheet" type="text/css" href="../borderstyle.css">
     <title>SignIn</title>
@@ -31,19 +32,54 @@
         popup.style.display = "none";
     }
 
+    function closePopup_message() {
+        var popup_message = document.getElementById("popup_message");
+        popup_message.style.display = "none";
+    }
+    
+
     function resetPassword() {
         var email = document.getElementById('email_to_send').value;
-
         if (!email) {
-            console.error('Email address is required.');
-            return;
+            //console.error('Email address is required.');
+            //document.getElementById('resetButton').disabled = false;
+            var error_message = document.getElementById("error-message");
+            error_message.style.display = "Block";
+        return;
         }
 
-        // Call your AJAX function to reset the password here
-        // ...
+        
 
-        // Close the popup after processing the password reset
-        closePopup();
+        // Call your AJAX function to reset the password here
+        $.ajax({
+        url: 'http://localhost:8888/processing/Pasword_reset/Send_token.php', // Replace with the correct path to your PHP script
+        method: 'POST', // Use POST or GET based on your script's requirements
+        data: {
+            email: email // Pass the email data to the PHP script
+        },
+        success: function(response) {
+            // Handle the response from the PHP script here
+            // This could be a success message or any other data returned by the script
+            var err_message = document.getElementById('message_of_pop');
+
+            // Update the content of the paragraph
+            err_message.textContent = response;
+
+            alert('Request successful: ' + response);
+
+            
+        },
+
+        error: function(xhr, status, error) {
+            // Handle errors here
+            console.error('AJAX Error: ' + status + ' - ' + error);
+        }
+    });
+
+    
+        var popup_message = document.getElementById("popup_message");
+        popup_message.style.display = "Block";
+
     }
 </script>
 
@@ -127,13 +163,25 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                 <span class="close" onclick="closePopup()">&times;</span>
                 <h2>Forgot Password</h2>
                 <p>Enter your email address to reset your password:</p>
-                <input id="email_to_send" type="email" placeholder="Email">
-                <button onclick="resetPassword()">Reset Password</button>
+                <p id="error-message" class= "error-paragraph">Error! you must enter your email adress!</p>
+                <input id="email_to_send" type="email" placeholder="Email" name="email">
+                <button id="resetButton" onclick="resetPassword()">Reset Password</button>
                 </div>
             </div>
         </div>
 
         <div class="formbtn">
+
+            <div id="popup_message" class="popup">
+                <div class="popup-content">
+                <span class="close" onclick="closePopup_message();closePopup();">&times;</span>
+                <h2>Forgot Password?</h2>
+                <p id = "message_of_pop">Go to you email and follow the provided link to reset you password</p>
+                </div>
+            </div>
+
+        <div class="formbtn">
+
             <button onclick="showAdministratorForm()">Administrator</button>
             <button onclick="showClientForm()">Client</button>
         </div>
@@ -150,8 +198,19 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
  ?>
 
 <style>
+
 /* Style the popup container */
 .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.error-paragraph{
     display: none;
     position: fixed;
     top: 0;

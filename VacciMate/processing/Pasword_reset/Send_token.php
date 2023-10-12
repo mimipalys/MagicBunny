@@ -1,4 +1,5 @@
 <?php
+
 chdir(dirname(__FILE__));
 
 require 'SMTP.php';
@@ -22,37 +23,65 @@ if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 }
 
+header('Content-Type: text/plain');
+
 
 $Mail = $_POST['email'];
 
-// generate a token. 
-$token = random_bytes(32); 
+// Generate a token.
+$token = bin2hex(random_bytes(32)); // Use bin2hex to convert binary data to a hex string.
 
-// put token in database. 
+// Prepare the SQL statement using a parameterized query to prevent SQL injection.
 $inserting_token = "UPDATE Patient
-SET Token = $token, TokenTime = NOW() + INTERVAL 1 HOUR
-WHERE `MailAddress` = $Mail";
+SET Token = ?, TokenTime = NOW() + INTERVAL 1 HOUR
+WHERE MailAddress = ?";
 
-$resultinsert = $db->query($inserting_token);
+$stmt = $db->prepare($inserting_token);
+
+if ($stmt) {
+    // Bind the parameters to the placeholders.
+    $stmt->bind_param("ss", $token, $Mail);
+
+    // Execute the query.
+    $stmt->execute(); 
+
+    if ($stmt->affected_rows > 0) {
+        // Rows were affected, indicating a successful update.
+        echo "Token updated successfully.";
+    } else {
+        // No rows were affected, indicating that there was no matching MailAddress in the database.
+        echo "No matching MailAddress found.";
+    }
+
+    // Close the statement.
+    $stmt->close();
+
+} else {
+    echo "Error preparing the statement: " . $db->error;
+}
 
 
-// get the email corresponding to the current session ID 
-$emailadress = "SELECT 
-`Fname`, 
-`Lname`, 
-`MailAddress`, 
-`Token`
-FROM Patient
-WHERE `MailAddress` = $Mail";
+//get the email corresponding to the current session ID 
 
-$result = $db->query($emailadress);
+$emailQuery = "SELECT Fname, Lname, MailAddress, Token FROM Patient WHERE MailAddress = ?";
+$stmt = $db->prepare($emailQuery);
 
-// for ever row (id with saved): 
-while ($row = mysqli_fetch_assoc($result)) {
-    // all that has same name add to list. 
+if ($stmt) {
+    // Bind the parameter to the placeholder.
+    $stmt->bind_param("s", $Mail);
+
+    // Execute the prepared statement.
+    $stmt->execute();
+
+    // Bind the results to variables.
+    $stmt->bind_result($Fname, $Lname, $MailAddress, $Token);
+
+    // Fetch and process the results.
+    while ($stmt->fetch()) {
+        // all that has same name add to list. 
         //$mailAdressToSendTo = 'VacciMate@gmail.com' ; 
         //$mailAdressToSendTo = 'erika-lindberg97@hotmail.com' ; 
-        $mailAdressToSendTo = $row['MailAddress'] ; //the mail of the person that is supposed to get email (from DB)
+        $mailAdressToSendTo = $Mail ; //the mail of the person that is supposed to get email (from DB)
         $mail = new PHPMailer(true); 
 
         try {
@@ -70,7 +99,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     
             $mail->isHTML(true);  
             $mail->Subject = 'VacciMate: Reset of password';
-            $mail->Body    = 'Follow this link to reset you password, it will be valid for 1h. http://localhost:8888/processing/Pasword_reset/reset_PW.php?changed=' . $row['Token'] . '!'; 
+            $mail->Body = 'Follow this link to reset you password, it will be valid for 1h. http://localhost:8888/processing/Pasword_reset/reset_PW.php?token=' . $Token . '&mail=' . $Mail . ' '; 
             // $mail->AltBody = 'Body in plain text for non-HTML mail clients';
             $mail->send();
             echo "Mail has been sent successfully according to schedule!";
@@ -80,6 +109,8 @@ while ($row = mysqli_fetch_assoc($result)) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
     }
+    $stmt->close();
+}
 
 
 ?>

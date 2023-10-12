@@ -114,11 +114,11 @@ while($row = $saved_vaccines->fetch_assoc()){
     //Prints out the Name of the saved vaccine
     echo '<section class="vaccine_description1">';
     $VaccineName = $row['VaccineName'];
-    echo $VaccineName;
+    echo '<p>'.$VaccineName. "<br><br>".'</p>';
 
     //Creates a link to search vaccine page with the vaccine name as search query
     $vaccineLink = "http://localhost:8888/processing/search_vaccine.php?search_query=" . urlencode($VaccineName);
-    echo "<a href='$vaccineLink' class='highlight-link'>Click here to read more about this vaccine</a>";
+    echo "<a href='$vaccineLink'>Click here to read more about this vaccine</a>";
       
 
     //add unsave vaccine button

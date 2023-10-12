@@ -27,6 +27,14 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver") {
 
 $employeID = $_SESSION['user_id'];
 
+// Sanitize and validate input data
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+
 $sql = "SELECT vd.DoseID, v.VaccineName, vs.DoseNumber, vd.AdministrationDate
 FROM VaccineDose vd
 JOIN Vaccine v ON vd.VaccineID = v.VaccineID
@@ -46,10 +54,10 @@ $results = array();
 
 while ($stmt->fetch()) {
     $results[] = array(
-        "DoseID" => $doseID,
-        "VaccineName" => $vaccineName,
-        "DoseNumber" => $doseNumber,
-        "AdminDate" => $adminDate
+        "DoseID" => test_input($doseID),
+        "VaccineName" => test_input($vaccineName),
+        "DoseNumber" => test_input($doseNumber),
+        "AdminDate" => test_input($adminDate)
     );
 }
 
