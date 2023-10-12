@@ -9,6 +9,7 @@
 <head>
 
   <link rel="stylesheet" type="text/css" href="../frontend/borderstyle.css">
+  <link rel="stylesheet" type="text/css" href="search_vaccine.css">
   <link rel="stylesheet" type="text/css" href="http://localhost:8888/processing/search_vaccine_page.css">
   <title>
           Using display: flex and 
@@ -27,155 +28,12 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
   include $header;
 }
 
-
-
 ?>
 </html>
 
 
 <!DOCTYPE html>
 <html>
-<style>
-        .Vaccine_title {
-            text-align: center;
-            font-size: 30px;
-            color: #333;
-            margin-top: 50px;
-        }
-        
-        /* Styles for the destination description */
-        .vaccine_text {
-            text-align: center;
-            font-size: 30px;
-            color: #666;
-            margin-top: 10px;
-            word-wrap: break-word; /* Allow automatic line wrapping */
-        }
-
-        .search-form {
-        text-align: center;
-        margin-top: 20px;
-        }
-
-        .search-form input[type="text"] {
-        padding: 10px;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        font-size: 16px;
-        }
-
-        .search-form input[type="submit"] {
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        padding: 10px 20px;
-        cursor: pointer;
-        font-size: 16px;
-        }
-
-        /* Style for the description initially hidden */
-        .search_vaccine {
-            text-align: center;
-            font-size: 20px; 
-            border-radius:20px;
-            border: none;
-            padding: auto;
-        }
-        .vaccinerecord1 {
-            background-color: #ffb38a;
-            margin: auto;
-            padding: 20px;
-            text-align: left;
-            margin: 20px;
-            width: 100%;
-            height: auto; /* Adjust height to "auto" to accommodate dynamic content */
-            float: left;
-        }
-        div.parent {
-	        text-align: center;
-	    }
-        ul { 
-	        display: inline-block; 
-	        text-align: left; 
-	    }
-
-
-        .list_of_vaccine {
-            text-align: center;
-            font-size: 20px; 
-        }
-        /* Style for the button */
-        .show-description-button1 {
-            cursor: pointer;
-        }
-
-        /* Style for the checkbox */
-        .show-description-checkbox {
-            display: none;
-        }
-
-        /* When the checkbox is checked, show the hidden description */
-        .show-description-checkbox:checked + .vaccine_description1 {
-            display: block;
-            text-align: left;
-            align-items: right;
-        }
-
-        .show-all-button {
-            text-align: center;
-            cursor: pointer;
-            border: groove;
-            padding: auto;
-            align-items: right;
-            font-size: 20px;
-            cursor: pointer;
-            border-radius: 10px;
-            margin: auto; /* Add some spacing between buttons */
-            display: block
-        }
-        /* styles of the vaccinename buttons that are clickable to view the description*/
-        .show-description-button {
-        text-align: left;
-        border: none;
-        padding: auto;
-        align-items: right;
-        font-size: 20px;
-        cursor: pointer;
-        border-radius: 10px;
-        margin: auto; /* Add some spacing between buttons */
-        display: block
-        }
-    
-
-        /* styles of the vaccine descriptions in seach vaccine*/
-
-        .vaccine_description1 {
-        display: none;
-        align-items: center;
-        background-color: #ffffff;
-        margin: auto;
-        padding: 1rem 1rem;
-        text-align: right;
-        margin: 20px ; 
-        width: 700px;
-        Height: auto;
-        border-radius:20px;
-        }
-
-        .save_vaccine_button input[type="submit"] {
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        padding: 10px 20px;
-        cursor: pointer;
-        font-size: 16px;   
-
-        }
-</style>
-
-
 
 <link rel="stylesheet" type="text/css" href="http://localhost:8888/processing/search_vaccine_page.css">
 <header>
@@ -229,8 +87,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
             // Build the SQL query for all vaccines in DB
             $sql = "SELECT VaccineID, VaccineName, Description, RelatedDisease FROM Vaccine";
             $result = $link->query($sql);
-        }
-    
+        }    
 
       
         // check if session
@@ -270,9 +127,6 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
             while($row_saved = $result_saved ->fetch_assoc()){
                 array_push($Saved_vaccine_list, $row_saved['VaccineID']);   
             }
-
-            echo '<div class=parent>';
-                echo '<ul>';
                 echo '<section class = vaccinerecord1>';
                     // create everything that is shown on the page for each vaccine
                     while($row = $result->fetch_assoc()) {
@@ -336,9 +190,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                         echo '</div>';
                     }
                 }
-            echo '</section>';
-            echo '</ul>';
-        echo '</div>';
+            
 
         // Close the database connection
         $link->close();
