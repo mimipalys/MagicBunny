@@ -14,6 +14,7 @@
             <a id="GFG" href="<?php echo $view_administered_vaccines ?>" class="costumbutton2"> Administration
                 History
             </a>
+            <a id="GFG" href="<?php echo $statistics ?>"  class="costumbutton2"> View side effect statistics </a>
             <a id = "GFG" href = "<?php echo $setting_link ?>" class="costumbutton2"> &#9881 </a> 
         </div>
     </header>
