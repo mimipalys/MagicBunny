@@ -28,7 +28,6 @@ function test_input($data) {
     return $data;
   }
 
-
 $username = test_input($_POST['ID']);
 $password = test_input($_POST['password']);
 $fname = test_input($_POST['fname']);
