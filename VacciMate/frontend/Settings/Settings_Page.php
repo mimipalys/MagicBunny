@@ -3,7 +3,7 @@
 
 <?php
   include('../links.php');
-  
+  session_start();
 ?>
 
 <head>
@@ -13,6 +13,7 @@
           justify-content: space-between
   </title>
 </head>
+
 <!-- NOTIFICATIONS -->
 
 <?php //include correct header
@@ -48,8 +49,6 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
      exit;
  }
  
-
-
 $patientID = $_SESSION['user_id'];
 
 // Variables for notifications
@@ -78,7 +77,7 @@ $stmt->fetch();
 $stmt->close();
 ?>
 
- <body>
+<body>
 
  <h1> Settings </h1>
  
@@ -171,7 +170,6 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 
 </div>
 
-</body>
 </main>
 
 </body>
@@ -179,4 +177,5 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 <?php 
  include $footer;
  ?>
+
 </html>
