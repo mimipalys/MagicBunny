@@ -376,13 +376,13 @@ margin: auto;
 /* styles of the privacy policy*/
 .privacy_policy{
   align-items: center;
-  background-color: #ffb38a;
+  background-color: #fff;
   margin: auto;
   padding: 1rem 1rem;
   text-align: left;
   margin: 20px ; 
-  width:990px;
-  Height: 500px;
+  width:1000px;
+  Height: 1600px;
   float: left;
 }
 
