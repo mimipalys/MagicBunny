@@ -15,6 +15,16 @@
 </head>
 <!-- NOTIFICATIONS -->
 
+<?php //include correct header
+if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
+  include $header_my_page_patient;
+} elseif (isset($_SESSION['user_id']) and $_SESSION['role'] == "caregiver") {
+  include $header_my_page_caregiver;
+} else {
+  include $header;
+}
+?>
+
 <?php 
  session_start();
 
@@ -38,14 +48,7 @@
      exit;
  }
  
-//include correct header
-if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
-  include $header_my_page_patient;
-} elseif (isset($_SESSION['user_id']) and $_SESSION['role'] == "caregiver") {
-  include $header_my_page_caregiver;
-} else {
-  include $header;
-}
+
 
 $patientID = $_SESSION['user_id'];
 
