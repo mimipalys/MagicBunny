@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< Updated upstream
+=======
+
+<?php
+  include('../links.php');
+?>
+
+>>>>>>> Stashed changes
 <head>
     <meta charset="UTF-8">
     <title>Settings</title>
