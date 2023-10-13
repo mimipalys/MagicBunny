@@ -113,6 +113,7 @@ display: block
 /* styles of the vaccine descriptions in seach vaccine*/
 
 .vaccine_description1 {
+flex: left;
 display: none;
 align-items: right;
 background-color: #ffffff;
