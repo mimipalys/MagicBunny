@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -14,9 +13,6 @@
           justify-content: space-between
   </title>
 </head>
-
-<body>
-
 <!-- NOTIFICATIONS -->
 
 <?php 
@@ -83,6 +79,7 @@ $stmt->close();
 
  <h1> Settings </h1>
  
+ <main>
  <div class = "bodydiv">
    <fieldset id="GFG">
    <legend> Notifications: </legend>
@@ -108,8 +105,8 @@ $stmt->close();
 
 <!-- DELETE ACCOUNT -->
 
-<fieldset >
-<legend>Delete account: </legend>
+<fieldset>
+<legend> Delete account: </legend>
 <?php 
 if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
   ?>
@@ -161,6 +158,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
       });
   </script>
   </div>
+
 </body>
 
 <?php } ?>
@@ -171,10 +169,9 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 </div>
 
 </body>
+</main>
 
 </body>
-
-
 
 <?php 
  include $footer;

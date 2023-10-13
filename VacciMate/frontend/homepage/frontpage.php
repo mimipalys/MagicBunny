@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 
-<?php include('../links.php'); ?>
+<?php 
+include('../links.php'); ?>
 <head>
   <link rel="stylesheet" type="text/css" href="../borderstyle.css">
 
@@ -10,6 +11,7 @@
           justify-content: space-between
   </title>
 </head>
+<body>
 
 <?php 
 session_start();
@@ -22,9 +24,6 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 } else {
   include $header;
 }
-
-
-
 
 ?>
 
@@ -46,7 +45,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
     <img src="' . $influenza_image . '" alt="test_pic">
     <h3>Revolutionizing Healthcare: A Breakthrough Journey in Influenza Vaccine Development</h3>
     <p>Embark on a transformative journey in healthcare with our groundbreaking strides in Influenza Vaccine Development. Witness a paradigm shift in immunity as we unveil the latest advancements in our research. Delving deep into the science, our dedicated team of experts is at the forefront of revolutionizing influenza prevention. This breakthrough promises not only heightened effectiveness but also a potential leap in public health outcomes. By exploring the frontiers of vaccine innovation, we aim to redefine the way we approach seasonal influenza, providing a stronger defense against this persistent global health challenge. Join us in this remarkable venture towards a healthier and more resilient future.</p>
-    <a  href="' . $TBE_link . '">Click here to know more</a>
+    <a  href="' . $influenza_link . '">Click here to know more</a>
     ';
     ?>
      </section>
@@ -57,7 +56,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
     <img src="' . $kenya_image . '" alt="test_pic">
     <h3>Traveling to Kenya? Stay Informed!</h3>
     <p>Embarking on a journey requires meticulous planning. Prioritize essential vaccinations and guard against Malaria. Secure comprehensive travel insurance for peace of mind. Stay updated on COVID-19 guidelines and know nearby healthcare options. Exercise caution in high altitudes and stay aware of local safety. Respect customs for a richer experience. Consult professionals for the latest information. Familiarize yourself with nearby healthcare facilities; they serve as a valuable resource in case of any unexpected health concerns. If your itinerary includes high-altitude destinations, it\'s crucial to exercise caution to prevent altitude sickness. Stay attuned to local safety advisories for a secure and worry-free experience. Safe travels!</p>
-    <a  href="' . $TBE_link . '">Click here to go to the travel page</a>
+    <a  href="' . $kenya_link . '">Click here to go to the travel page</a>
     ';
     ?>
      </section>

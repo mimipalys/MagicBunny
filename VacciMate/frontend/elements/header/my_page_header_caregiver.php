@@ -16,7 +16,6 @@
             </nav>
         </div>
 
-<<<<<<< Updated upstream
         <div class="bottomheader">
             <?php
             echo '<h1>VacciMate</h1>
@@ -26,7 +25,5 @@
             ?>
         </div>
      
-=======
->>>>>>> Stashed changes
 
     </header>

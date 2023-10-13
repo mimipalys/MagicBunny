@@ -334,10 +334,10 @@ margin: auto;
   background-color: #fff;
   border-radius: 10px;
   text-align: center; /* Center align the container */
-  position: absolute;
-  top: 65%;
+  /* position: absolute;
+  top: 75%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
 
 .register-vaccine-title {
@@ -366,7 +366,8 @@ margin: auto;
     margin-top: 25px;
     text-decoration: none;
     margin-bottom: 20px; /* Adjust the margin-bottom value as needed */
-}
+    height: 50%;
+  }
 
 
 .register-vaccine-button:hover {

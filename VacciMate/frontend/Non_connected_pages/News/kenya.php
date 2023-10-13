@@ -12,35 +12,24 @@
   </title>
 </head>
 
-<body>
-<header>
-  <div class= "topheader">
-    <?php
-     echo '<a id="GFG" class="vaccimateLogo" href="' . $homepage_link . '">&#128137 VacciMate</a>';
-    ?>
-    
-    <div class= "rightpart_topheader">
-    <?php
-     echo '<a id="GFG" href="' . $login_link . '" class="costumbutton1">Login</a>';
-     echo '<a id="GFG" href="' . $register_link . '"  class="costumbutton1">Register</a>';
-     echo '<a id="GFG" href="' . $setting_link . '" class="costumbutton1">&#9881</a>';
-    ?>
-    </div>
-  </div>
-  
-  <div class= "bottomheader">
-  <?php
-    echo '<a id="GFG" href="' . $travel_link . '" class="costumbutton2">Travel information</a>';
-    echo '<a id="GFG" href="' . $search_link . '"  class="costumbutton2">Search Vaccine</a>';
-    echo '<a id="GFG" href="' . $aboutUs_link . '"  class="costumbutton2">About Us</a>';
-  ?>
-  </div>
+<?php 
+session_start();
 
- </header>
+//include correct header
+if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
+  include $header_logged_in_patient;
+} elseif (isset($_SESSION['user_id']) and $_SESSION['role'] == "caregiver") {
+  include $header_logged_in_caregiver;
+} else {
+  include $header;
+}
+
+?>
+
  <body>
  <h1> Vacation</h1>
  <div class = "bodydiv">
-   <div class = "Body_fullscreen">
+   <div class = "newscolumns_Wide">
    <h2> Traveling to Kenya? These are the vaccines you need! </h2>
      <h4>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Felis donec et odio pellentesque diam volutpat. Vulputate dignissim suspendisse in est. In mollis nunc sed id semper risus in. Tortor at auctor urna nunc id cursus metus. Ultricies mi eget mauris pharetra et ultrices neque ornare aenean. Non nisi est sit amet facilisis magna etiam tempor orci. Massa enim nec dui nunc mattis enim ut tellus elementum. Vehicula ipsum a arcu cursus vitae congue mauris. Arcu odio ut sem nulla pharetra diam sit. Ultrices vitae auctor eu augue ut lectus. At augue eget arcu dictum varius duis. 
@@ -56,3 +45,7 @@
 
 </body>
 </html>
+
+<?php 
+ include $footer;
+ ?>
