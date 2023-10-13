@@ -15,6 +15,9 @@ $setting_link = $protocol . $host . '/frontend/Settings/Settings_Page.php';
 $my_page = $protocol . $host . '/frontend/My_Page/Patient/view_vaccine_history.php';
 $logout = $protocol . $host . '/processing/logout.php';
 $my_page_caregiver = $protocol . $host . '/frontend/My_Page/Caregiver/register_vaccine.php';
+$logo_img = '/images/VacciMate.png';
+$logo_img2 = '/images/vacci.png';
+$logo_img1177 = '/images/1177.png';
 
 
 //Secound header
@@ -22,6 +25,8 @@ $travel_link = $protocol . $host . '/processing/continents.php';
 $search_link = $protocol . $host . '/processing/search_vaccine.php'; 
 $aboutUs_link = $protocol . $host . '/frontend/Non_connected_pages/About_Us/About_Us.php';
 $view_administered_vaccines = $protocol . $host . '/frontend/My_Page/Caregiver/view_administered_vaccines.php';
+$statistics = $protocol . $host . '/frontend/My_Page/Caregiver/caregiver_statistics_search.php';
+
 
 //my page links 
 $savedvaccine_link = $protocol . $host . '/processing/savedvaccine.php'; 
@@ -62,4 +67,8 @@ $footer = $_SERVER['DOCUMENT_ROOT'] . '/frontend/elements/footer/footer.php';
 
 $styles_doc = $protocol . $host . '/frontend/borderstyle.css';
 $footer_style = $protocol . $host . '/frontend/elements/footer/footer.css';
+
+//link to get_notification_settings.php
+$get_not_link = $protocol . $host . '/processing/Notification/get_notification_settings.php';
+
 ?>

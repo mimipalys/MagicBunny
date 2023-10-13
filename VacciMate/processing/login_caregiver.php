@@ -19,10 +19,11 @@ if ($db->connect_error) {
 
 $username = $_POST['ID'];
 $password = $_POST['password'];
+$clinicID = $_POST['clinicID'];
 
-$sql = "SELECT HealthcareProviderID, Fname, Lname, Password FROM HealthcareProvider WHERE HealthcareProviderID=?";
+$sql = "SELECT HealthcareProviderID, Fname, Lname, Password FROM HealthcareProvider WHERE HealthcareProviderID=? AND VaccineClinicID=?";
 $stmt = $db->prepare($sql);
-$stmt->bind_param("i", $username);
+$stmt->bind_param("ii", $username, $clinicID);
 $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();

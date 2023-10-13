@@ -1,4 +1,5 @@
 <?php
+chdir(dirname(__FILE__));
 
 require 'SMTP.php';
 require 'PHPMailer.php';
@@ -30,8 +31,7 @@ VaccineArray,
 `Lname`, 
 `MailAddress`, 
 `PhoneNumber`, 
-`NotificationsEmail`,
-`NotificationsPhone`
+`NotificationsSaved`,
 FROM (
 SELECT PatientID, GROUP_CONCAT(VaccineName) AS VaccineArray
 FROM SavedVaccine
@@ -48,7 +48,7 @@ $result = $db->query($all_saved_for_all);
 // for ever row (id with saved): 
 while ($row = mysqli_fetch_assoc($result)) {
     // all that has same name add to list. 
-    if ($row['NotificationsEmail'] == 1) {
+    if ($row['NotificationsSaved'] == 1) {
         
         $mailAdressToSendTo = 'VacciMate@gmail.com' ; 
         //$mailAdressToSendTo = 'erika-lindberg97@hotmail.com' ; 

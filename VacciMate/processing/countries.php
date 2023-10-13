@@ -5,7 +5,7 @@ include('../frontend/links.php');
 ?>
 <head>
     <link rel="stylesheet" type="text/css" href="<?php echo $styles_doc ?>">
-    <link rel="stylesheet" type="text/css" href="http://localhost/processing/country_page.css">
+    <link rel="stylesheet" type="text/css" href="country_page.css">
     <title>
         Using display: flex and
         justify-content: space-between
@@ -29,6 +29,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 
     <!-- Countries Section -->
     <section>
+        <a href="continents.php" style='font-size:50px; font-family: Zapf Dingbats;'>&#8592;</a>
         <h1>Countries</h1>
         <?php
         // Database connection parameters
@@ -104,7 +105,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
         ?>
     </section>
     </body>
-<?php 
- include $footer;
- ?>
+<?php
+include $footer;
+?>
 </html>

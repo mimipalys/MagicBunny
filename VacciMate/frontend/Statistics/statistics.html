@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div style="width: 80%;">
+        <canvas id="lineChart"></canvas>
+    </div>
+    <div style="width: 80%;">
+        <canvas id="pieChart"></canvas>
+    </div>
+
+    <script>
+        // Sample dataset
+        var dataset = {
+            labels: ["Category A", "Category B", "Category C", "Category D", "Category E"],
+            lineData: [30, 10, 25, 40, 15],
+            pieData: [15, 30, 25, 20, 10],
+        };
+
+        // Line chart
+        var lineCtx = document.getElementById("lineChart").getContext("2d");
+        var lineChart = new Chart(lineCtx, {
+            type: "line",
+            data: {
+                labels: dataset.labels,
+                datasets: [{
+                    label: "Line Chart",
+                    data: dataset.lineData,
+                    fill: false,
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    borderWidth: 2,
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+            },
+        });
+
+        // Pie chart
+        var pieCtx = document.getElementById("pieChart").getContext("2d");
+        var pieChart = new Chart(pieCtx, {
+            type: "pie",
+            data: {
+                labels: dataset.labels,
+                datasets: [{
+                    data: dataset.pieData,
+                    backgroundColor: ["red", "blue", "green", "orange", "purple"],
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+            },
+        });
+    </script>
+</body>
+
+</html>

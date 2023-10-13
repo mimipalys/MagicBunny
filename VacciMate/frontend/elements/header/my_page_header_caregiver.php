@@ -1,19 +1,32 @@
-<body>
-    <header>
-    <div class= "topheader">
-    <a id = "GFG" class="vaccimateLogo" href = "<?php echo $homepage_link ?>"> &#128137 VacciMate </a> 
-    <div class= "rightpart_topheader">
-     <a id = "GFG" href = "<?php echo $my_page_caregiver; ?>" class="costumbutton1"> My Pages </a>
-     <a id = "GFG" href = "<?php echo $logout; ?>"  class="costumbutton1"> Logout </a>
-    </div>
-  </div>
+ <header>
+        <div class= "topheader">
+            <div class="vaccimateLogo">
+                <?php
+                echo ' <a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img . '" alt="test_pic"> </a>';
+                ?>
+            </div>
+            <nav class="navy">
 
-        <div class="bottomheader">
-            <a id="GFG" href="<?php echo $homepage_link ?>" class="costumbutton2"> Home </a>
-            <a id="GFG" href="<?php echo $my_page_caregiver ?>"  class="costumbutton2"> Register Vaccine Dose </a>
-            <a id="GFG" href="<?php echo $view_administered_vaccines ?>" class="costumbutton2"> Administration
-                History
-            </a>
-            <a id = "GFG" href = "<?php echo $setting_link ?>" class="costumbutton2"> &#9881 </a> 
+                <?php
+                echo '<a  href="' . $homepage_link . '"  class="costumbutton1">Home</a>';
+                echo '<a href="' . $my_page_caregiver . '" class="costumbutton1">Register Vaccine Dose</a>';
+                echo '<a  href="' . $view_administered_vaccines . '"  class="costumbutton1">Administration History</a>';
+                echo '<a  href="' . $logout . '"  class="costumbutton1">Logout</a>';
+                ?>
+            </nav>
         </div>
+
+<<<<<<< Updated upstream
+        <div class="bottomheader">
+            <?php
+            echo '<h1>VacciMate</h1>
+        <br>
+        <p>A new, and improved Way of tracking vaccines </p>';
+            echo ' <a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img1177 . '" alt="test_pic"> </a>';
+            ?>
+        </div>
+     
+=======
+>>>>>>> Stashed changes
+
     </header>

@@ -9,6 +9,7 @@
 <head>
 
   <link rel="stylesheet" type="text/css" href="../frontend/borderstyle.css">
+  <link rel="stylesheet" type="text/css" href="search_vaccine.css">
   <link rel="stylesheet" type="text/css" href="http://localhost:8888/processing/search_vaccine_page.css">
   <title>
           Using display: flex and 
@@ -27,167 +28,25 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
   include $header;
 }
 
-
-
 ?>
 </html>
 
 
 <!DOCTYPE html>
 <html>
-<style>
-        .Vaccine_title {
-            text-align: center;
-            font-size: 30px;
-            color: #333;
-            margin-top: 50px;
-        }
-        
-        /* Styles for the destination description */
-        .vaccine_text {
-            text-align: center;
-            font-size: 30px;
-            color: #666;
-            margin-top: 10px;
-            word-wrap: break-word; /* Allow automatic line wrapping */
-        }
-
-        .search-form {
-        text-align: center;
-        margin-top: 20px;
-        }
-
-        .search-form input[type="text"] {
-        padding: 10px;
-        border: 2px solid #ccc;
-        border-radius: 4px;
-        font-size: 16px;
-        }
-
-        .search-form input[type="submit"] {
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        padding: 10px 20px;
-        cursor: pointer;
-        font-size: 16px;
-        }
-
-        /* Style for the description initially hidden */
-        .search_vaccine {
-            text-align: center;
-            font-size: 20px; 
-            border-radius:20px;
-            border: none;
-            padding: auto;
-        }
-        .vaccinerecord1 {
-            background-color: #ffb38a;
-            margin: auto;
-            padding: 20px;
-            text-align: left;
-            margin: 20px;
-            width: 100%;
-            height: auto; /* Adjust height to "auto" to accommodate dynamic content */
-            float: left;
-        }
-        div.parent {
-	        text-align: center;
-	    }
-        ul { 
-	        display: inline-block; 
-	        text-align: left; 
-	    }
-
-
-        .list_of_vaccine {
-            text-align: center;
-            font-size: 20px; 
-        }
-        /* Style for the button */
-        .show-description-button1 {
-            cursor: pointer;
-        }
-
-        /* Style for the checkbox */
-        .show-description-checkbox {
-            display: none;
-        }
-
-        /* When the checkbox is checked, show the hidden description */
-        .show-description-checkbox:checked + .vaccine_description1 {
-            display: block;
-            text-align: left;
-            align-items: right;
-        }
-
-        .show-all-button {
-            text-align: center;
-            cursor: pointer;
-            border: groove;
-            padding: auto;
-            align-items: right;
-            font-size: 20px;
-            cursor: pointer;
-            border-radius: 10px;
-            margin: auto; /* Add some spacing between buttons */
-            display: block
-        }
-        /* styles of the vaccinename buttons that are clickable to view the description*/
-        .show-description-button {
-        text-align: left;
-        border: none;
-        padding: auto;
-        align-items: right;
-        font-size: 20px;
-        cursor: pointer;
-        border-radius: 10px;
-        margin: auto; /* Add some spacing between buttons */
-        display: block
-        }
-    
-
-        /* styles of the vaccine descriptions in seach vaccine*/
-
-        .vaccine_description1 {
-        display: none;
-        align-items: center;
-        background-color: #ffffff;
-        margin: auto;
-        padding: 1rem 1rem;
-        text-align: right;
-        margin: 20px ; 
-        width: 700px;
-        Height: auto;
-        border-radius:20px;
-        }
-
-        .save_vaccine_button input[type="submit"] {
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        padding: 10px 20px;
-        cursor: pointer;
-        font-size: 16px;   
-
-        }
-</style>
-
-
 
 <link rel="stylesheet" type="text/css" href="http://localhost:8888/processing/search_vaccine_page.css">
-<header>
-    <section class="search_vaccine_page">   
+
+    <section class="search_vaccine_page">
         <div  class = "search-form">
             <form action="search_vaccine.php" method="GET">
             <input class="search_vaccine" type="text" name="search_query" placeholder="Vaccine Name or Disease..." >
             <input class = "search-form" type="submit" value="Search">
             </form>
         </div>
-        <h1 class = "Vaccine_title">Vaccine Information</h1>   
-        <p class = "vaccine_text"> Search for Vaccine or disease to find information or click vaccine name to read description</p>    
+        <h1 class = "Vaccine_title">Vaccine Information</h1>
+        <p class = "vaccine_text"> Search for Vaccine or disease to find information or click vaccine name to read description</p>
+    </section>
 
 
         <?php
@@ -209,10 +68,17 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 
         if (isset($_GET['search_query'])) {
 
-            // Build the SQL query for search query
-            $searchQuery = $_GET['search_query'];
-            $sql = "SELECT VaccineID, VaccineName, Description, RelatedDisease FROM Vaccine WHERE VaccineName LIKE '%$searchQuery%'";
+            // get the search query from the form
+            $searchQuery = "%" . $_GET['search_query'] . "%"; 
 
+            // Build the SQL query for search query
+            $sql = "SELECT VaccineID, VaccineName, Description, RelatedDisease FROM Vaccine WHERE VaccineName LIKE ?";
+
+            $stmt = $link->prepare($sql);
+            $stmt->bind_param("s", $searchQuery);
+            $result = $stmt->execute();
+            $result = $stmt->get_result();            
+            $stmt->close();
             // Create button that takes you back
             echo '<div  class = "show-all-button">';
             echo '<a id = "GFG" href = "http://localhost:8888/processing/search_vaccine.php" class="show-all-button"> Show all vaccines</a>';
@@ -221,13 +87,14 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
         }   else {
             // Build the SQL query for all vaccines in DB
             $sql = "SELECT VaccineID, VaccineName, Description, RelatedDisease FROM Vaccine";
-        }
-        $result = $link->query($sql);
+            $result = $link->query($sql);
+        }    
 
       
         // check if session
-        if (isset($_SESSION['user_id'])) {
+        if (isset($_SESSION['user_id']) && $_SESSION['role'] != "caregiver" ) {
             // If session: extract vaccine information about patient
+            //Build sql query
             $patientID = $_SESSION['user_id'];
             $sql2 = "SELECT DISTINCT
             V.VaccineName
@@ -235,26 +102,32 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
             Vaccine V
             JOIN 
             VaccineDose AS VD ON V.VaccineID = VD.VaccineID
-            WHERE VD.PatientID = $patientID";
-            //Build sql query
-            $result2 = $link->query($sql2);
+            WHERE VD.PatientID = ?";
+            $stmt = $link->prepare($sql2);
+            $stmt->bind_param("s", $patientID);
+            $result2 = $stmt->execute();
+            $result2 = $stmt->get_result();            
         
             // create list of all the users vaccines, used to check if they are vaccinated of not
             $Vaccine_list_patient = array();
             while($row2 = $result2 ->fetch_assoc()){
                 array_push($Vaccine_list_patient, $row2['VaccineName']);   
             }
+            $stmt->close();
 
             //create a list of all the patients saved vaccines
             $Saved_vaccine_list = array();
-            $sql_find_saved = "SELECT VaccineID FROM SavedVaccine WHERE PatientID = $patientID";
-            $result_saved = $link->query($sql_find_saved);
+
+            //Build sql query
+            $sql_find_saved = "SELECT VaccineID FROM SavedVaccine WHERE PatientID = ?";
+            $stmt = $link->prepare($sql_find_saved);
+            $stmt->bind_param("s", $patientID);
+            $result_saved = $stmt->execute();
+            $result_saved = $stmt->get_result();  
+            $stmt->close();  
             while($row_saved = $result_saved ->fetch_assoc()){
                 array_push($Saved_vaccine_list, $row_saved['VaccineID']);   
             }
-
-            echo '<div class=parent>';
-                echo '<ul>';
                 echo '<section class = vaccinerecord1>';
                     // create everything that is shown on the page for each vaccine
                     while($row = $result->fetch_assoc()) {
@@ -293,8 +166,13 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                         //If the button is clicked add the infomration in the database 
 
                         if(isset($_POST[$row['VaccineID']])) { 
-                            $sql_save = "INSERT INTO SavedVaccine (PatientID, VaccineID) VALUES ($patientID, {$row['VaccineID']})";
-                            $result_save = $link->query($sql_save);
+                            $VacID = $row['VaccineID'];
+                            $sql_save = "INSERT INTO SavedVaccine (PatientID, VaccineID) VALUES (?, ?)";
+                            $stmt = $link->prepare($sql_save);
+                            $stmt->bind_param("si", $patientID, $VacID);
+                            $result_save = $stmt->execute();
+                            $result_save = $stmt->get_result();
+                            $stmt->close();   
                         }
 
 
@@ -313,9 +191,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                         echo '</div>';
                     }
                 }
-            echo '</section>';
-            echo '</ul>';
-        echo '</div>';
+            
 
         // Close the database connection
         $link->close();

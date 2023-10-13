@@ -6,7 +6,7 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="<?php echo $styles_doc ?>">
-    <link rel="stylesheet" type="text/css" href="http://localhost/processing/continent_page.css">
+    <link rel="stylesheet" type="text/css" href="continent_page.css">
     <title>
           Using display: flex and 
           justify-content: space-between
@@ -88,7 +88,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
         </ul>
     </section>
 </body>
-<?php 
- include $footer;
- ?>
+<?php
+include $footer;
+?>
 </html>

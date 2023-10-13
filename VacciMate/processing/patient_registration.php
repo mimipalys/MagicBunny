@@ -20,16 +20,27 @@ if ($db->connect_error) {
 
 // REGISTER
 
-$username = $_POST['ID'];
-$password = $_POST['password'];
-$fname = $_POST['fname'];
-$lname = $_POST['lname'];
-$dateOfBirth = $_POST['bday'];
-$mailAddress = $_POST['mail'];
-$phoneNumber = $_POST['phone'];
-$address = $_POST['address'];
+// Sanitize and validate input data
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+
+
+$username = test_input($_POST['ID']);
+$password = test_input($_POST['password']);
+$fname = test_input($_POST['fname']);
+$lname = test_input($_POST['lname']);
+$dateOfBirth = test_input($_POST['bday']);
+$mailAddress = test_input($_POST['mail']);
+$phoneNumber = test_input($_POST['phone']);
+$address = test_input($_POST['address']);
 
 // Input validation
+
+
 
 if (!filter_var($mailAddress, FILTER_VALIDATE_EMAIL, FILTER_FLAG_EMAIL_UNICODE)) {
     echo "Invalid e-mail adress. Please try again";

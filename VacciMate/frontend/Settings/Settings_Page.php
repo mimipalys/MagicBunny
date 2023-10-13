@@ -4,10 +4,6 @@
 
 <?php
   include('../links.php');
-  //if (!isset($_SESSION['user_id'])) {
-  //header("Location: $login_link?changed=1");
-  //exit;
-  //}
   
 ?>
 
@@ -21,19 +17,66 @@
 
 <body>
 
+<!-- NOTIFICATIONS -->
 
 <?php 
-session_start();
+ session_start();
 
+ // Database connection details
+ $dbHost = 'localhost';
+ $dbUsername = 'root';
+ $dbPassword = 'root';
+ $dbName = 'VacciMate';
+ 
+ // Create a database connection
+ $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+ 
+ // Check the connection
+ if ($db->connect_error) {
+     die("Connection failed: " . $db->connect_error);
+ }
+ 
+ // Check if the user is logged in; if not, redirect to the signIn.php page
+ if (!isset($_SESSION['user_id'])or $_SESSION['role'] != "patient") {
+     header("Location: $login_link");
+     exit;
+ }
+ 
 //include correct header
 if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
-  include $header_logged_in_patient;
+  include $header_my_page_patient;
 } elseif (isset($_SESSION['user_id']) and $_SESSION['role'] == "caregiver") {
-  include $header_logged_in_caregiver;
+  include $header_my_page_caregiver;
 } else {
   include $header;
 }
 
+$patientID = $_SESSION['user_id'];
+
+// Variables for notifications
+$refill_check;
+$saved_check;
+
+// Prepare SQL statement
+$sql = "SELECT
+    NotificationsSaved, 
+    NotificationsRefill
+FROM
+    Patient
+WHERE
+    PatientID = ?"; 
+
+$stmt = $db->prepare($sql);
+$stmt->bind_param("s", $patientID);
+$stmt->execute();
+
+$stmt->bind_result($saved_check, $refill_check );
+
+// Fetch the data
+$stmt->fetch();
+
+// Close the statement
+$stmt->close();
 ?>
 
  <body>
@@ -41,27 +84,36 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
  <h1> Settings </h1>
  
  <div class = "bodydiv">
-   <fieldset>
-   <legend>Notifications:</legend>
-     
+   <fieldset id="GFG">
+   <legend> Notifications: </legend>
 
-     <form action="../../processing/Notification/notification_change.php" method="POST">
-
+    <form id = "update" action="../../processing/Notification/notification_change.php" method="POST">
         <input type="hidden" name="refill_note" value="0">
-        <input type="checkbox" name="refill_note" value="1">
-        <label for="refill_note"> I want to reccive emails on upcoming vaccine doses </label><br> <br>
-        <input type="hidden" name="saved_note" value="0">
-        <input type="checkbox" name="saved_note" value="1">
-        <label for="saved_note"> I want to reccive emails on my saved vaccines once a month </label><br> <br>
+        <input type="checkbox" name="refill_note" value="1" <?php if ($refill_check == 1) echo 'checked'; ?>>
+        <label for="refill_note"> I want to receive emails on upcoming vaccine doses </label><br><br>
+        <input type="hidden" name="saved_note" value="0" >
+        <input type="checkbox" name="saved_note" value="1" <?php if($saved_check == 1) echo 'checked'; ?>>
+        <label for="saved_note"> I want to receive emails on my saved vaccines once a month </label><br><br>
+
         <input type="submit" value="Save">
     </form>
+    
+    <?php
+    if (isset($_GET['changed'])) {
+    echo "Your notification settings has been changed!";
+    }
+    ?>
 
-    <!-- DELETE ACCOUNT -->
+</fieldset>
 
-<?php //include correct header
+<!-- DELETE ACCOUNT -->
+
+<fieldset >
+<legend>Delete account: </legend>
+<?php 
 if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
   ?>
-  <body>
+  <body id="GFG">
   <button id="deleteBtn">Delete Account</button>
   <div id="confirmationMessage" style="display: none;">
       <p>Are you sure you want to delete your account?</p>
@@ -108,17 +160,12 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
           confirmationMessage.style.display = "none";
       });
   </script>
+  </div>
 </body>
 
 <?php } ?>
 
-<?php
-
- if (isset($_GET['changed'])) {
-  echo "Notification settings changed!";
-}
-?>
-
+</fieldset>
 </div>
 
 </div>

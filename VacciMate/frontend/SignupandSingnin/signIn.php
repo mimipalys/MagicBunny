@@ -4,7 +4,9 @@
   include('../links.php');
 ?>
 <head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="login.css">
+    <link rel="stylesheet" type="text/css" href="../borderstyle.css">
     <title>SignIn</title>
 
     <script>
@@ -18,6 +20,68 @@
             document.getElementById('clientForm').style.display = 'block';
         }
     </script>
+
+<script>
+    function showPopup() {
+        var popup = document.getElementById("popup");
+        popup.style.display = "block";
+    }
+
+    function closePopup() {
+        var popup = document.getElementById("popup");
+        popup.style.display = "none";
+    }
+
+    function closePopup_message() {
+        var popup_message = document.getElementById("popup_message");
+        popup_message.style.display = "none";
+    }
+    
+
+    function resetPassword() {
+        var email = document.getElementById('email_to_send').value;
+        if (!email) {
+            //console.error('Email address is required.');
+            //document.getElementById('resetButton').disabled = false;
+            var error_message = document.getElementById("error-message");
+            error_message.style.display = "Block";
+        return;
+        }
+
+        
+
+        // Call your AJAX function to reset the password here
+        $.ajax({
+        url: 'http://localhost:8888/processing/Pasword_reset/Send_token.php', // Replace with the correct path to your PHP script
+        method: 'POST', // Use POST or GET based on your script's requirements
+        data: {
+            email: email // Pass the email data to the PHP script
+        },
+        success: function(response) {
+            // Handle the response from the PHP script here
+            // This could be a success message or any other data returned by the script
+            var err_message = document.getElementById('message_of_pop');
+
+            // Update the content of the paragraph
+            err_message.textContent = response;
+
+            alert('Request successful: ' + response);
+
+            
+        },
+
+        error: function(xhr, status, error) {
+            // Handle errors here
+            console.error('AJAX Error: ' + status + ' - ' + error);
+        }
+    });
+
+    
+        var popup_message = document.getElementById("popup_message");
+        popup_message.style.display = "Block";
+
+    }
+</script>
 
 </head>
 
@@ -59,11 +123,22 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
             <label for="loginPassword">Password:</label>
             <input type="password" id="loginPassword" name="password" required>
             </div>
+                <label for="clinicID">Clinic:</label>
+                <select id="clinicID" name="clinicID">
+                    <option value="1">Stadsvårdkliniken</option>
+                    <option value="2">Hälsocentralen</option>
+                    <option value="3">Eklundskliniken</option>
+                    <option value="4">Björnskliniken</option>
+                    <option value="5">Cedar Vårdcentral</option>
+                </select>
+            <br>
+            <br>
             <div id="submit" >
             <input type="submit" name="login" value="Login">
+            <button onclick="showPopup()">Forgot password</button>
             </div>
-            <a href="#">forgot password</a>
         </form>
+
         </div>
 
         <div id="clientForm">
@@ -77,17 +152,41 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                     <label for="loginPassword">Password:</label>
                     <input type="password" id="loginPassword" name="password" required>
                 </div>
-                <div id="submit" >
+                <div id="formbtn" >
                     <input type="submit" name="login" value="Login">
+                    <button onclick="showPopup()">Forgot password</button>
                 </div>
-                <a href="#">Forget password</a>
             </form>
+
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                <span class="close" onclick="closePopup()">&times;</span>
+                <h2>Forgot Password</h2>
+                <p>Enter your email address to reset your password:</p>
+                <p id="error-message" class= "error-paragraph">Error! you must enter your email adress!</p>
+                <input id="email_to_send" type="email" placeholder="Email" name="email">
+                <button id="resetButton" onclick="resetPassword()">Reset Password</button>
+                </div>
+            </div>
         </div>
 
         <div class="formbtn">
+
+            <div id="popup_message" class="popup">
+                <div class="popup-content">
+                <span class="close" onclick="closePopup_message();closePopup();">&times;</span>
+                <h2>Forgot Password?</h2>
+                <p id = "message_of_pop">Go to you email and follow the provided link to reset you password</p>
+                </div>
+            </div>
+
+        <div class="formbtn">
+
             <button onclick="showAdministratorForm()">Administrator</button>
             <button onclick="showClientForm()">Client</button>
         </div>
+
+        
 
     </div>
 
@@ -97,4 +196,58 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 <?php 
  include $footer;
  ?>
+
+<style>
+
+/* Style the popup container */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.error-paragraph{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+/* Style the popup content */
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Style the close button (x) */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Center the popup content vertically and horizontally */
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+</style>
+
 </html>

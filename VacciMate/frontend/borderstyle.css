@@ -1,20 +1,40 @@
 /* CSS styles */
 /* styles of the whole body of the page*/
 body {
-  background-color: #ffd7b5;
+  background-color: #f3f3f3;
   overflow-x: scroll;
   width: 100%;
 }
 
+header{
+  margin-right: 15px;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+header nav a{
+  text-decoration: none;
+  margin-right: 5px;
+  color: black ;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px;
+}
+header nav a:hover{
+  background-color: rgb(198, 25, 51);
+  border-radius: 10px;
+  color: white;
+  transition: 0.2s ease-in;
+
+}
+
 .topheader {
   align-items: center;
-  background-color: #ffb38a;
   padding: 1rem 1rem;
   text-align: center;
-  width: 100%;
   Height: 10px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 25px;
 }
 
 .rightpart_topheader{
@@ -29,21 +49,51 @@ body {
 }
 
 .bottomheader{
-  display: flex;
+  display: inline-block;
   justify-content: space-between;
   align-items: center;
-  background-color: #ffffff;
-  margin: auto;
-  padding: 1rem 1rem;
+  background-color: white;
+  padding: 2% 0 2% 0;
   text-align: center;
-  width: 100%;
-  Height: 40px;
+  border-radius: 10px;
+  margin-left: 1.5%;
+  margin-right: 1.5%;
+  width: 97%;
+}
+
+.bottomheader h1{
+  margin-top: 30px;
+  background: none;
+  display: inline-block;
+  margin-left: 25px;
+  color: #302c43 ;
+  margin-bottom: 0px;
+  float: left;
+  font-family: "Zapf Dingbats";
+  font-size: 50px;
+}
+
+.bottomheader p{
+  background: none;
+  display: inline-block;
+  margin-left: 15px;
+  color: #999;
+  margin-top: 70px;
+  margin-left: -16.5%;
+  float: left;
+}
+
+.bottomheader img{
+  width: 300px;
+  float: right;
+  margin-top: -10px;
+  margin-right: -25px;
 }
 
 /* styles of the news pops*/
 .newscolumns, .newscolumns_Wide, .Body_fullscreen{
   align-items: center;
-  background-color: #ffb38a;
+  background-color: white;
   margin: auto;
   padding: 1rem 1rem;
   text-align: center;
@@ -51,16 +101,72 @@ body {
   width: 400px;
   Height: 500px;
   float: left;
+  border-radius: 10px;
 }
 
 .newscolumns_Wide{
   width: 1100px;
 }
 
-.Body_fullscreen{
-  width: 990px;
+#About_us_img{
+  width: 500px;
 }
 
+.Body_fullscreen{
+  display: flex;
+  justify-content: space-between;
+}
+section{
+
+  order: 1;
+  background-color: white;
+  border-radius: 10px;
+  margin-right: 1.5%;
+  margin-left: 1.5%;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+
+}
+
+section img{
+  margin: 10px;
+  margin-top: 18px;
+  margin-left: 18px;
+  width: 400px;
+
+}
+
+section h3{
+  background: none;
+  margin: 10px;
+  text-align: center;
+
+}
+section p{
+  background: none;
+  margin: 10px;
+  color: #999;
+  text-align: justify;
+
+}
+section a{
+  background: none;
+  text-decoration: none;
+  font-weight: bold;
+  font-style: italic;
+  margin: 10px;
+  color: black;
+  font-size: 15px;
+
+}
+section a:hover{
+  color: rgb(198, 25, 51);
+
+}
+section:hover{
+  box-shadow: 3px 1px 19px black;
+
+}
 
 
 /* styles of the vaccinename buttons that are clickable to view the description*/
@@ -92,12 +198,15 @@ body {
 }
 
 .upcoming_refill_container {
-  background-color: #ffb38a;
+  background-color: #ffffff;
   padding: 20px;
   text-align: left;
   margin: 20px;
-  width: 36%; /* Adjust the width as needed */
-  float: right;
+  width: 100%; /* Adjust the width as needed */
+  float: none;
+  height: auto;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .upcoming_refill_container h1 {
@@ -117,15 +226,21 @@ body {
 
 /* styles for the container (.vaccinerecord) */
 .vaccinerecord {
-  background-color: #ffb38a;
+  background-color: #ffffff;
   margin: auto;
   padding: 20px;
   text-align: left;
   margin: 20px;
-  width: 50%;
-  height: auto; /* Adjust height to "auto" to accommodate dynamic content */
-  float: left;
+  width: 90%;
+  height: auto; /* Set a fixed height or adjust as needed */
+  float: none;
+  border-radius: 20px;
 }
+
+.vaccinerecord:hover {
+  box-shadow: none;
+}
+
 
 /* styles for list items within the container */
 .vaccinerecord ul {
@@ -135,9 +250,9 @@ body {
 }
 
 .vaccinerecord ul li {
-  background-color: #fff; /* White background color for list items */
+  background-color: #f3f3f3; /* White background color for list items */
   padding: 10px; /* Adjust spacing and padding automatically */
-  border: 1px solid #ffb38a; /* Add a border around list items */
+  border: 1px solid #ffffff; /* Add a border around list items */
   margin-bottom: 10px; /* Add margin between list items */
   border-radius: 20px; /* Add rounded corners to list items */
   overflow: hidden; /* Ensure content doesn't overflow rounded corners */
@@ -152,14 +267,10 @@ body {
 
 /* clickable link in topheader*/
 .costumbutton1, .costumbutton1_choosen{
-text-align: center;
-float: left;
-border: none;
-padding: auto;
+
 font-size: 20px;
 cursor: pointer;
-border-radius: 10px;
-margin: auto; /* Add some spacing between buttons */
+
 }
 
 .costumbutton1_choosen {
@@ -190,25 +301,18 @@ margin: auto;
   text-align: center;
   float: left;
   border: none;
-  padding: auto;
-  font-size: 30px;
-  margin-right: 80px; 
-  margin-left: 80px; /* Add some spacing between buttons */
-  font-size: 40px; 
-  color: black; 
-  font-family: Copperplate;
+  color: black;
   cursor: pointer;
+  width: 25%;
+
 }
 
-/* Image size*/
-img{
-  max-height: 50%;
-} 
+.vaccimateLogo img{
+  width: 100%;
+}
 
 /* Change button style on hover */
-.costumbutton1:hover {
-  border-style: outset;
-}
+
 .costumbutton2:hover {
   border-style: outset;
 }
@@ -230,6 +334,10 @@ img{
   background-color: #fff;
   border-radius: 10px;
   text-align: center; /* Center align the container */
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .register-vaccine-title {
@@ -249,16 +357,20 @@ img{
 }
 
 .register-vaccine-button {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    background-color: color(display-p3 0.7355 0.1801 0.2237);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 25px;
+    text-decoration: none;
+    margin-bottom: 20px; /* Adjust the margin-bottom value as needed */
 }
 
+
 .register-vaccine-button:hover {
-  background-color: #0056b3;
+  background-color: color(display-p3 0.61 0.198 0.23);
 }
 
 /* styles of the privacy policy*/
@@ -274,3 +386,6 @@ img{
   float: left;
 }
 
+.footwrap img{
+  width: 25%;
+}

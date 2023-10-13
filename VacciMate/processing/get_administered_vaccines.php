@@ -16,13 +16,24 @@ if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 }
 
+include('../frontend/links.php');
+
+
 // Check if the user is logged in; if not, redirect to the signIn.php page
 if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver") {
-    header("Location: signIn.php");
+    header("Location: $login_link");
     exit;
 }
 
 $employeID = $_SESSION['user_id'];
+
+// Sanitize and validate input data
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
 
 $sql = "SELECT vd.DoseID, v.VaccineName, vs.DoseNumber, vd.AdministrationDate
 FROM VaccineDose vd
@@ -43,10 +54,10 @@ $results = array();
 
 while ($stmt->fetch()) {
     $results[] = array(
-        "DoseID" => $doseID,
-        "VaccineName" => $vaccineName,
-        "DoseNumber" => $doseNumber,
-        "AdminDate" => $adminDate
+        "DoseID" => test_input($doseID),
+        "VaccineName" => test_input($vaccineName),
+        "DoseNumber" => test_input($doseNumber),
+        "AdminDate" => test_input($adminDate)
     );
 }
 

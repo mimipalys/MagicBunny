@@ -1,0 +1,2 @@
+0 8 1 * * /opt/anaconda3/bin/wget wget -q -O /dev/null http://localhost:8888/processing/Notification/notification_saved.php
+0 8 * * * /opt/anaconda3/bin/wget wget -q -O /dev/null http://localhost:8888/processing/Notification/notification_send.php 

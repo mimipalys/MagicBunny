@@ -1,0 +1,66 @@
+main {
+  margin-bottom: 10px;
+  display: grid;
+  grid-template-columns: 60% 30%; /* Adjust column widths as needed */
+  gap: 0px; /* Adjust the gap between columns */
+}
+
+footer {
+  margin-top: 40%;
+}
+
+.administered_doses_container {
+  background-color: #ffffff;
+  padding: 20px;
+  text-align: left;
+  margin: 20px;
+  width: 90%; /* Set width to 100% for responsiveness */
+  float: none;
+  border-radius: 20px;
+}
+
+
+
+.administered_doses_container ul li {
+  background-color: #f5f5f5;
+  padding: 10px;
+  border: 0px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.administered_doses_container h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.administered_doses_container .refill-list {
+  list-style: none;
+  padding: 0;
+}
+
+.administered_doses_container .vaccine-info {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.contact-box {
+  width: 100%; /* Set width to 100% for responsiveness */
+  height: 20%;
+  padding: 40px;
+  margin: 20px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  float: none;
+  text-align: left;
+}
+
+.contact-box h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.contact-box p {
+  margin: 0 0 10px 0;
+}
