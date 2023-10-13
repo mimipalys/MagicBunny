@@ -92,7 +92,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 
       
         // check if session
-        if (isset($_SESSION['user_id'])) {
+        if (isset($_SESSION['user_id']) && $_SESSION['role'] != "caregiver" ) {
             // If session: extract vaccine information about patient
             //Build sql query
             $patientID = $_SESSION['user_id'];

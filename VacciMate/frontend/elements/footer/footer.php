@@ -7,7 +7,7 @@
 <footer>
     <div class="footwrap">
         <?php
-        echo ' <a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img . '" alt="test_pic"> </a>';
+        echo ' <a id="GFG"  href="#top"> <img src="' . $logo_img . '" alt="test_pic"> </a>';
         ?>
     <p>&copy; 2023 VacciMate. All rights reserved.</p>
     </footer>
