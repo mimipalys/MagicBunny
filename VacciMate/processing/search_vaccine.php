@@ -10,7 +10,7 @@
 
   <link rel="stylesheet" type="text/css" href="../frontend/borderstyle.css">
   <link rel="stylesheet" type="text/css" href="search_vaccine.css">
-  <link rel="stylesheet" type="text/css" href="http://localhost:8888/processing/search_vaccine_page.css">
+  <!-- <link rel="stylesheet" type="text/css" href="http://localhost:8888/processing/search_vaccine_page.css"> -->
   <title>
           Using display: flex and 
           justify-content: space-between
