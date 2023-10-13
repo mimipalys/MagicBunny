@@ -50,7 +50,7 @@ if ($stmt) {
         echo "Token updated successfully.";
     } else {
         // No rows were affected, indicating that there was no matching MailAddress in the database.
-        echo "No matching MailAddress found.";
+        echo "No matching Mail Address found.";
     }
 
     // Close the statement.

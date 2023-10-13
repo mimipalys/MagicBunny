@@ -60,12 +60,12 @@
         success: function(response) {
             // Handle the response from the PHP script here
             // This could be a success message or any other data returned by the script
-            var err_message = document.getElementById('message_of_pop');
+            // var err_message = document.getElementById('message_of_pop');
 
             // Update the content of the paragraph
-            err_message.textContent = response;
+            // err_message.textContent = response;
 
-            alert('Request successful: ' + response);
+            // alert('Request successful: ' + response);
 
             
         },
@@ -176,7 +176,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                 <div class="popup-content">
                 <span class="close" onclick="closePopup_message();closePopup();">&times;</span>
                 <h2>Forgot Password?</h2>
-                <p id = "message_of_pop">Go to you email and follow the provided link to reset you password</p>
+                <p id = "message_of_pop"> If an existing email was provided a link to reset you password will have been end to your email</p>
                 </div>
             </div>
 
