@@ -334,10 +334,10 @@ margin: auto;
   background-color: #fff;
   border-radius: 10px;
   text-align: center; /* Center align the container */
-  position: absolute;
-  top: 65%;
+  /* position: absolute;
+  top: 75%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
 }
 
 .register-vaccine-title {
@@ -366,8 +366,8 @@ margin: auto;
     margin-top: 25px;
     text-decoration: none;
     margin-bottom: 20px; /* Adjust the margin-bottom value as needed */
-}
-
+    height: auto;
+  }
 
 .register-vaccine-button:hover {
   background-color: color(display-p3 0.61 0.198 0.23);
@@ -376,13 +376,13 @@ margin: auto;
 /* styles of the privacy policy*/
 .privacy_policy{
   align-items: center;
-  background-color: #ffb38a;
+  background-color: #fff;
   margin: auto;
   padding: 1rem 1rem;
   text-align: left;
   margin: 20px ; 
-  width:990px;
-  Height: 500px;
+  width:1000px;
+  Height: 1600px;
   float: left;
 }
 

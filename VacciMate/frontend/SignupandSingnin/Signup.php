@@ -72,7 +72,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 
                 <br>
                 <input type="checkbox" id="privacy" name="privacy" value="gdpr">
-                <label for="privacy"> I accept the privacy and policy<a href="#"> Click here to veiw GDPR</a></label><br>
+                <label for="privacy"> I accept the privacy and policy <a href="http://localhost:8888/frontend/Non_connected_pages/About_Us/privacy_policy.php"style="color: black; font-weight: bold; text-decoration: none;"> Click here to view Privacy Policy</a> </label><br>
                 <br>
                 <input type="submit" name="register" value="Register">
             </form>

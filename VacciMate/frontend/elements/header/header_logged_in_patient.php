@@ -22,7 +22,7 @@
          echo '<h1>VacciMate</h1>
         <br>
         <p>A new, and improved Way of tracking vaccines </p>';
-         echo ' <a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img1177 . '" alt="test_pic"> </a>';
+        //  echo ' <a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img1177 . '" alt="test_pic"> </a>';
          ?>
      </div>
 

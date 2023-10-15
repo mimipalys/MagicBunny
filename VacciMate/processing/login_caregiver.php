@@ -21,7 +21,7 @@ $username = $_POST['ID'];
 $password = $_POST['password'];
 $clinicID = $_POST['clinicID'];
 
-$sql = "SELECT HealthcareProviderID, Fname, Lname, Password FROM HealthcareProvider WHERE HealthcareProviderID=? AND VaccineClinicID=?";
+$sql = "SELECT HealthcareProviderID, Fname, Lname, VaccineClinicID, Password FROM HealthcareProvider WHERE HealthcareProviderID=? AND VaccineClinicID=?";
 $stmt = $db->prepare($sql);
 $stmt->bind_param("ii", $username, $clinicID);
 $stmt->execute();
@@ -33,6 +33,7 @@ if ($user && password_verify($password, $user['Password'])) {
     $_SESSION['username'] = $user['Fname'];
     // logged in as caregiver
     $_SESSION['role'] = 'caregiver';
+    $_SESSION['clinic'] = $user['VaccineClinicID'];
 
     header("Location: ../frontend/homepage/frontpage.php");
     echo "succesful signIn.php";

@@ -12,34 +12,22 @@
   </title>
 </head>
 
-<body>
-<header>
-  <div class= "topheader">
-    <?php
-     echo '<a id="GFG" class="vaccimateLogo" href="' . $homepage_link . '">&#128137 VacciMate</a>';
-    ?>
-    
-    <div class= "rightpart_topheader">
-    <?php
-     echo '<a id="GFG" href="' . $login_link . '" class="costumbutton1">Login</a>';
-     echo '<a id="GFG" href="' . $register_link . '"  class="costumbutton1">Register</a>';
-     echo '<a id="GFG" href="' . $setting_link . '" class="costumbutton1">&#9881</a>';
-    ?>
-    </div>
-  </div>
-  
-  <div class= "bottomheader">
-  <?php
-    echo '<a id="GFG" href="' . $travel_link . '" class="costumbutton2">Travel information</a>';
-    echo '<a id="GFG" href="' . $search_link . '"  class="costumbutton2">Search Vaccine</a>';
-    echo '<a id="GFG" href="' . $aboutUs_link . '"  class="costumbutton2">About Us</a>';
-  ?>
-  </div>
+<?php 
+session_start();
 
- </header>
+//include correct header
+if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
+  include $header_logged_in_patient;
+} elseif (isset($_SESSION['user_id']) and $_SESSION['role'] == "caregiver") {
+  include $header_logged_in_caregiver;
+} else {
+  include $header;
+}
+
+?>
  <body>
  <div class = "bodydiv">
-   <div class = "Body_fullscreen">
+   <div class = "newscolumns_Wide">
      <h1> Did you remember to take your TBE - vaccine? </h1>
      <h4> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu risus quis varius quam. Dolor sit amet consectetur adipiscing. Non consectetur a erat nam at lectus urna duis convallis. Leo vel fringilla est ullamcorper eget nulla. Fringilla phasellus faucibus scelerisque eleifend donec. Ut tortor pretium viverra suspendisse potenti nullam ac tortor. Aliquam id diam maecenas ultricies mi eget mauris. Pulvinar pellentesque habitant morbi tristique senectus et. Euismod lacinia at quis risus sed. In nisl nisi scelerisque eu ultrices vitae. Id nibh tortor id aliquet lectus proin nibh nisl. Sed turpis tincidunt id aliquet risus feugiat in. Fermentum et sollicitudin ac orci. Sapien faucibus et molestie ac. Nullam non nisi est sit. Odio ut enim blandit volutpat maecenas. Duis ultricies lacus sed turpis tincidunt. Quis auctor elit sed vulputate mi sit amet mauris commodo.
      </h4>
@@ -55,3 +43,7 @@ Quam quisque id diam vel quam elementum. Tristique senectus et netus et malesuad
 
 </body>
 </html>
+
+<?php 
+ include $footer;
+ ?>

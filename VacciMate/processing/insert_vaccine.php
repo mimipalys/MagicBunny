@@ -41,6 +41,9 @@ $vaccineName =  test_input($_POST["vaccine"]);
 $doseNumber = test_input($_POST["doseNumber"]);
 $adminDate = test_input($_POST["administrationDate"]);
 
+// get clinic id
+$clinic = $_SESSION['clinic'];
+
 // get vaccineID of given vaccineName
 $sql = "SELECT VaccineID FROM Vaccine WHERE VaccineName = ?";
 $stmt = $db->prepare($sql);
@@ -62,14 +65,14 @@ $stmt->fetch();
 $stmt->close();
 
 
-$sql = "INSERT INTO VaccineDose(DoseID, PatientID, HealthcareProviderID, VaccineID, DoseNumber, AdministrationDate)
-VALUES (?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO VaccineDose(DoseID, PatientID, HealthcareProviderID, VaccineClinicID, VaccineID, DoseNumber, AdministrationDate)
+VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 // DoseID should be scanned by caregiver, PatientID input, HealthcareproviderID is automatically input,
 // VaccineID might also be automatically input when scanned, and dose number + admin date has to be input 
 
 $stmt = $db->prepare($sql);
-$stmt->bind_param("isiiss", $doseID, $patientID, $healthcareProviderID, $vaccineID, $doseNumber, $adminDate);
+$stmt->bind_param("isiiiss", $doseID, $patientID, $healthcareProviderID, $clinic, $vaccineID, $doseNumber, $adminDate);
 
 
 if ($stmt->execute()) {

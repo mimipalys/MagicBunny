@@ -149,8 +149,10 @@ while ($row_statistics = $result_statics -> fetch_assoc()){
     $text = $row_statistics['additional_effects'];
     array_push($written_stat, $text);
     foreach ($questions as $questionnr => $question){
-      $number = (int)$row_statistics[$questionnr];
-      $statistics[$question] += $number;
+      if (isset($row_statistics[$questionnr])){
+        $number = (int)$row_statistics[$questionnr];
+        $statistics[$question] += $number;
+      }
     }
 
   }
@@ -230,4 +232,5 @@ echo '</div>';
     updateChart();
 </script>
 </html>
+
 

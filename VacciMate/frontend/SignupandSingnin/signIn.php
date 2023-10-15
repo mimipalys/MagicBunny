@@ -36,15 +36,18 @@
         var popup_message = document.getElementById("popup_message");
         popup_message.style.display = "none";
     }
+    function showParagraph() {
+    var paragraph = document.getElementById("myParagraph");
+    paragraph.style.display = "block"; // Set the display property to "block" to make it visible
+}
+
     
 
     function resetPassword() {
         var email = document.getElementById('email_to_send').value;
         if (!email) {
-            //console.error('Email address is required.');
-            //document.getElementById('resetButton').disabled = false;
-            var error_message = document.getElementById("error-message");
-            error_message.style.display = "Block";
+            var paragraph = document.getElementById("myParagraph");
+            paragraph.style.display = "block"; 
         return;
         }
 
@@ -60,12 +63,12 @@
         success: function(response) {
             // Handle the response from the PHP script here
             // This could be a success message or any other data returned by the script
-            var err_message = document.getElementById('message_of_pop');
+            // var err_message = document.getElementById('message_of_pop');
 
             // Update the content of the paragraph
-            err_message.textContent = response;
+            // err_message.textContent = response;
 
-            alert('Request successful: ' + response);
+            // alert('Request successful: ' + response);
 
             
         },
@@ -163,9 +166,9 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                 <span class="close" onclick="closePopup()">&times;</span>
                 <h2>Forgot Password</h2>
                 <p>Enter your email address to reset your password:</p>
-                <p id="error-message" class= "error-paragraph">Error! you must enter your email adress!</p>
                 <input id="email_to_send" type="email" placeholder="Email" name="email">
-                <button id="resetButton" onclick="resetPassword()">Reset Password</button>
+                <p id="myParagraph" style="display: none; color: red;">Please enter the email adress connected to your account</p>
+                <button class= "linkLogin" id="resetButton" onclick="resetPassword()">Reset Password</button>
                 </div>
             </div>
         </div>
@@ -176,7 +179,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                 <div class="popup-content">
                 <span class="close" onclick="closePopup_message();closePopup();">&times;</span>
                 <h2>Forgot Password?</h2>
-                <p id = "message_of_pop">Go to you email and follow the provided link to reset you password</p>
+                <p id = "message_of_pop"> If an existing email was provided, a link to reset you password will have been end to your email</p>
                 </div>
             </div>
 
@@ -199,6 +202,25 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 
 <style>
 
+
+.linkLogin{
+    background-color: rgb(198, 25, 51);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 25px;
+    text-decoration: none;
+    margin-bottom: 20px; /* Adjust the margin-bottom value as needed */
+}
+
+.linkLogin:hover {
+  /*background-color: rgb(198, 25, 51);  Button background color on hover */
+  border: 2px solid #0056b3; /* Border color on hover 
+  /*color: white; Text color on hover */
+  background-color: rgb(198, 25, 51);
+}
 /* Style the popup container */
 .popup {
     display: none;
