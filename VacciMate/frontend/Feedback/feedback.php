@@ -22,6 +22,27 @@
   $conn = new mysqli($servername, $username, $password, $dbname);
 
   $VaccineName = $_POST['Vaccine'];
+  $sql = "SELECT VaccineID FROM Vaccine WHERE VaccineName = ?";
+  $stmt = $conn->prepare($sql);
+
+// Bind the parameter
+  $stmt->bind_param("s", $VaccineName);
+
+  // Execute the statement
+  if ($stmt->execute()) {
+      // Bind the result
+      $stmt->bind_result($VaccineID);
+
+      // Fetch the result
+      $stmt->fetch();
+      
+      // $VaccineID now contains the value
+
+      $stmt->close();
+  } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+  }
+
 
   // Check connection
   if ($conn->connect_error) {
@@ -30,7 +51,7 @@
   ?>
 
   <form action="submit_feedback.php" method="POST">
-  <input type="hidden" name="VaccineID" value="<?php echo isset($_SESSION['VaccineID']) ? $_SESSION['VaccineID'] : ''; ?>">
+  <input type="hidden" name="VaccineID" value="<?php echo $VaccineID; ?>">
   
     <label for="question1">1. Did you experience any side effects after vaccination?</label>
     <input type="radio" name="question1" value="Yes"> Yes
