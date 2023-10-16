@@ -5,7 +5,7 @@
 ?>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="<?php echo $styles_doc ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo $continents_style ?>">
     <link rel="stylesheet" type="text/css" href="continent_page.css">
     <title>
           Using display: flex and 
@@ -24,7 +24,6 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 } else {
   include $header;
 }
-
 
 ?>
     
@@ -67,7 +66,6 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
             "https://d19lgisewk9l6l.cloudfront.net/assetbank/Twelve_Apostles_Great_Ocean_Road_Victoria_Australia_29943.jpg",
         ];
         
-
         // Loop through the results and display continents as clickable links
         if ($result->num_rows > 0) {
             $index = 0;

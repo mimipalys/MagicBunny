@@ -66,6 +66,7 @@ $footer = $_SERVER['DOCUMENT_ROOT'] . '/frontend/elements/footer/footer.php';
 
 
 $styles_doc = $protocol . $host . '/frontend/feedback.css';
+$continents_style = $protocol . $host . '/frontend/borderstyle.css';
 $footer_style = $protocol . $host . '/frontend/elements/footer/footer.css';
 
 //link to get_notification_settings.php
