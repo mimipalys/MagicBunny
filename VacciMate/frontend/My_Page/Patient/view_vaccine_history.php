@@ -65,8 +65,9 @@ include('../../links.php');
             vaccineItem += '<p> &nbsp &nbsp &nbsp' + vaccine['DoseNumber'] + '  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + vaccine['AdministrationDate'] + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + vaccine['DoseExpirationDate'] + '</p>' ;
             
             // Assuming vaccineItem is the container element
-            vaccineItem += '<form action="../../Feedback/feedback.php" method="post" class="register-vaccine-form">';
-            vaccineItem += '<button class="register-vaccine-button" onclick="Feedback(event)">Report Side Effect</button>';
+            vaccineItem += '<form action="../../Feedback/feedback.php" method="post"> <input type="hidden" name="Vaccine" value="' + vaccine['VaccineName'] + '"> <input type="submit" class="register-vaccine-form" value="Report side effect"/></form>';
+            //vaccineItem += '<form action="../../Feedback/feedback.php" method="post" class="register-vaccine-form">';
+            //vaccineItem += '<button class="register-vaccine-button" onclick="Feedback(event)">Report Side Effect</button>';
     
             vaccineItem += '</li>';
             vaccineList.append(vaccineItem);  
