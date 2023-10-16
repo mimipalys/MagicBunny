@@ -100,7 +100,11 @@ foreach ($chartTypeOptions as $type => $label) {
 echo '</select>';
 echo '</form>';
 
-
+if (isset($_POST['selectedView'])) {
+  $selected_vaccine = $_POST['selectedView'];
+} else {
+  $selected_vaccine = '1';
+}
 
 if (isset($_POST['selectedType'])) {
   $graph_type = $_POST['selectedType'];
@@ -165,7 +169,6 @@ $written_stat = array();
 //creates statistics
 while ($row_statistics = $result_statics -> fetch_assoc()){
   if (isset($_POST['selectedView']) && $_POST['selectedView'] == $row_statistics['VaccineID']) {
-    $VaccineIDshow = $row_statistics['VaccineID'];
     $sideeffect_nr[$row_statistics['VaccineID']] += 1;
     $text = $row_statistics['additional_effects'];
     array_push($written_stat, $text);
@@ -193,7 +196,7 @@ echo '</div>';
 </head>
   <div class = chart-container>
     <?php 
-    echo '<p> Out of the ' .$vaccines_ids[$_POST['selectedView']]. ' people that took the vaccine ' .$sideeffect_nr[$_POST['selectedView']].' people reported sideeffects <br><br> </p>';
+    echo '<p> Out of the ' .$vaccines_ids[$selected_vaccine]. ' people that took the vaccine ' .$sideeffect_nr[$selected_vaccine].' people reported sideeffects <br><br> </p>';
     ?>
     <canvas id="myChart"></canvas>
   </div>
