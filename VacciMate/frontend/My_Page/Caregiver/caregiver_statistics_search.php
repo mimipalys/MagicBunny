@@ -82,7 +82,7 @@ $selectedType = isset($_POST['selectedType']) ? $_POST['selectedType'] : 'bar'; 
 //create drop down menue to choose whichi vaccine to look at. 
 echo '<h1>View vaccine side effects statistics</h1>';
 echo '<form method="post">';
-echo '<label for="viewSelector">Select Vaccie:</label>';
+echo '<label for="viewSelector">Select Vaccine:</label>';
 echo '<select name="selectedView" id="viewSelector" onchange="this.form.submit()">';
 foreach ($Vaccine_list as $Vaccine_name => $Vaccine_ID){ 
   $selected = (isset($_POST['selectedView']) && $_POST['selectedView'] == $Vaccine_ID) ? 'selected' : '';
@@ -113,6 +113,25 @@ if (isset($_POST['selectedType'])) {
 
 $sql_statistics = "SELECT * FROM feedback";
 $result_statics = $link->query($sql_statistics);
+
+$sql_doses = "SELECT VaccineID FROM VaccineDose";
+$result_doses = $link->query($sql_doses);
+
+$sql_vaccines = "SELECT VaccineID FROM Vaccine";
+$result_vaccines = $link->query($sql_vaccines);
+
+$vaccines_ids = array();
+$sideeffect_nr = array();
+while ($row1 = $result_vaccines -> fetch_assoc()){
+  $vaccines_ids[$row1['VaccineID']] = 0;
+  $sideeffect_nr[$row1['VaccineID']] = 0;
+}
+
+while ($row2 = $result_doses -> fetch_assoc()){
+  $VacID = $row2['VaccineID'];
+  $vaccines_ids[$VacID] += 1;
+}
+
 
 $statistics = array();
 
@@ -146,6 +165,8 @@ $written_stat = array();
 //creates statistics
 while ($row_statistics = $result_statics -> fetch_assoc()){
   if (isset($_POST['selectedView']) && $_POST['selectedView'] == $row_statistics['VaccineID']) {
+    $VaccineIDshow = $row_statistics['VaccineID'];
+    $sideeffect_nr[$row_statistics['VaccineID']] += 1;
     $text = $row_statistics['additional_effects'];
     array_push($written_stat, $text);
     foreach ($questions as $questionnr => $question){
@@ -165,13 +186,15 @@ foreach ($written_stat as $texts){
   echo '<p>' .$texts. '<br><br> </p>';
 }
 echo '</div>';
-
 ?>
 <head>
     <title>Bar Chart</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
   <div class = chart-container>
+    <?php 
+    echo '<p> Out of the ' .$vaccines_ids[$_POST['selectedView']]. ' people that took the vaccine ' .$sideeffect_nr[$_POST['selectedView']].' people reported sideeffects <br><br> </p>';
+    ?>
     <canvas id="myChart"></canvas>
   </div>
 

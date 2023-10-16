@@ -127,19 +127,13 @@ while($row = $saved_vaccines->fetch_assoc()){
       
 
     //add unsave vaccine button
-    echo '<form action="savedvaccine.php" method="post">';
-    echo '<input type="submit" name='.$row['VaccineID'].' class="register-vaccine-button" value="Unsave this vaccine" />';
+    echo '<form action="delete_saved.php" method="post">';
+    echo '<input type="hidden" name ="VaccineID" value='.$row['VaccineID'].'>';
+    echo '<input type="hidden" name ="PatientID" value='.$patientID.'>';
+    echo '<input type="submit" class="register-vaccine-button" value="Unsave this vaccine" />';
     echo '</form>';
 
     //If the button is clicked delete the vaccine from saved vaccines. 
-    if(isset($_POST[$row['VaccineID']])) { 
-        $vaccineID = $row['VaccineID'];
-        $sql_delete2 = "DELETE FROM SavedVaccine WHERE PatientID = ? AND VaccineID = ?";
-        $stmt = $link->prepare($sql_delete2);
-        $stmt->bind_param("si", $patientID, $vaccineID);
-        $result_delete2 = $stmt->execute();
-        $result_delete2 = $stmt->get_result(); 
-    }
     echo '</section>';
 }
 echo '</section>';
