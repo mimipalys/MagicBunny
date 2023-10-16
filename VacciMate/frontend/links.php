@@ -65,7 +65,7 @@ $header_my_page_caregiver = $_SERVER['DOCUMENT_ROOT'] . '/frontend/elements/head
 $footer = $_SERVER['DOCUMENT_ROOT'] . '/frontend/elements/footer/footer.php';
 
 
-$styles_doc = $protocol . $host . '/frontend/borderstyle.css';
+$styles_doc = $protocol . $host . '/frontend/feedback.css';
 $footer_style = $protocol . $host . '/frontend/elements/footer/footer.css';
 
 //link to get_notification_settings.php
