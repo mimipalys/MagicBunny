@@ -1,72 +1,54 @@
 <?php
-session_start();
+session_start(); // Add this line to start the session
+
 // Database connection details
-$dbHost = 'localhost';
-$dbUsername = 'root';
-$dbPassword = 'root';
-$dbName = 'VacciMate';
+$servername = "localhost";
+$username = "root";
+$password = "root";
+$dbname = "VacciMate"; // Replace 'your_database_name' with your actual database name
 
-// Create a database connection
-$conn = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check the connection
+// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
 // Check if the form has been submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get form input values
-    $questions = array(); // Create an array to store question values
-    $bindTypes = 'iss'; // Initialize bind parameter types
-    $bindValues = array(); // Initialize bind parameter values
+    if (isset($_SESSION['VaccineID'])) {
+        $vaccineID = $_SESSION['VaccineID'];
 
-    for ($i = 1; $i <= 15; $i++) {
-        $questionName = 'question' . $i;
-        // Check if the question is set, if not, set it to NULL
-        $questions[$i - 1] = isset($_POST[$questionName]) ? $_POST[$questionName] : null;
-
-        // Update bind parameter types and values
-        $bindTypes .= 's'; // Append 's' for string
-        $bindValues[] = &$questions[$i - 1];
-    }
-    $additional_effects = $_POST['additional_effects'];
-
-    // After the user is identified or logs in:
-    if (isset($_SESSION['PatientID']) && isset($_SESSION['VaccineID'])) {
-        $PatientID = $_SESSION['PatientID'];
-        $VaccineID = $_SESSION['VaccineID'];
-    } else {
-        // You should handle the case when these values are not set properly.
-        // You can redirect the user or display an error message.
-        // For now, I'm setting them to null.
-        $PatientID = null;
-        $VaccineID = null;
-    }   
-
-    // Prepare and execute the SQL query to insert feedback data into the table
-    $sql = "INSERT INTO feedback(PatientID, VaccineID, question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13, question14, question15, additional_effects) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-
-    if ($stmt) {
-        // Bind parameters without argument unpacking
-        array_unshift($bindValues, $bindTypes);
-        call_user_func_array(array($stmt, 'bind_param'), $bindValues);
-    
-        if ($stmt->execute()) {
-            // Feedback data has been successfully inserted into the database
-            header("Location: thank_you.php"); // Redirect to a thank you page
-        } else {
-            // Handle the error if the data insertion fails
-            echo "Error executing the SQL statement: " . $stmt->error;
+        // Retrieve form input values
+        $questions = array();
+        for ($i = 1; $i <= 15; $i++) {
+            $questionName = 'question' . $i;
+            $questions[$i] = isset($_POST[$questionName]) ? ($_POST[$questionName] === 'Yes' ? 1 : 0) : 0;
         }
-        $stmt->close();
-    } else {
-        // Handle the case when the statement couldn't be prepared
-        echo "Error preparing the SQL statement: " . $conn->error;
-    }
+        $additional_effects = $_POST['additional_effects'];
 
-    // Close the database connection
-    $conn->close();
+        // Prepare and bind the SQL query
+        $stmt = $conn->prepare("INSERT INTO feedback (VaccineID, question1, question2, question3, question4, question5, question6, question7, question8, question9, question10, question11, question12, question13, question14, question15, additional_effects) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+        if (!$stmt) {
+            echo "Error during prepare: " . $conn->error;
+        } else {
+            $success = $stmt->bind_param("iiiiiiiiiiiiiiis", $vaccineID, $questions[1], $questions[2], $questions[3], $questions[4], $questions[5], $questions[6], $questions[7], $questions[8], $questions[9], $questions[10], $questions[11], $questions[12], $questions[13], $questions[14], $questions[15], $additional_effects);
+
+            if (!$success) {
+                echo "Error during binding: " . $stmt->error;
+            } else {
+                if ($stmt->execute()) {
+                    echo "New record created successfully";
+                } else {
+                    echo "Error during execution: " . $stmt->error;
+                }
+            }
+
+            $stmt->close();
+        }
+    } else {
+        echo "Vaccine ID not set in the session.";
+    }
 }
 ?>
