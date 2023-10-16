@@ -66,8 +66,8 @@ include('../../links.php');
             
             // Assuming vaccineItem is the container element
             vaccineItem += '<form action="../../Feedback/feedback.php" method="post" class="register-vaccine-form">';
-            vaccineItem += '<button onclick="Feedback(event)">Report Side Effect</button>';
-            vaccineItem += '</br>';
+            vaccineItem += '<button class="register-vaccine-button" onclick="Feedback(event)">Report Side Effect</button>';
+    
             vaccineItem += '</li>';
             vaccineList.append(vaccineItem);  
           });
