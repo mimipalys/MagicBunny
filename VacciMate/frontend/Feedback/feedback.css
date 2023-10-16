@@ -1,0 +1,98 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the body */
+body{
+    background-color: #f3f3f3;
+    overflow-x: scroll;
+    width: 100%;
+    font-family: "Zapf Dingbats";
+    text-align: center;
+}
+
+
+/* Style the header */
+h1 {
+    font-size: 40px;
+    margin: 20px 0;
+
+}
+
+/* Style the form container */
+form {
+    background-color: #fff;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 50px;
+}
+
+/* Style form labels */
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 7px;
+}
+
+/* Style form radio buttons */
+input[type="radio"] {
+    margin-top: 7px;
+    margin-right: 5px;
+}
+
+/* Style form text area for additional effects */
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+    background-color: white;
+    color: black;
+    border: 2px solid #f44336;
+    border-radius: 12px;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+/* Style the submit button on hover */
+input[type="submit"]:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Style the link to match the feedback button on thank you page */
+p a {
+    background-color: white;
+    color: black;
+    border: 2px solid #f44336;
+    border-radius: 12px;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+/* Style the the link to match the feedback button on thank you page on hover */
+p a:hover {
+    background-color: #f44336;
+    color: white;
+}

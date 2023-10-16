@@ -1,21 +1,9 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-  <link rel="stylesheet" type="text/css" href="borderstyle.css">
- 
-
-  <title>
-          Using display: flex and 
-          justify-content: space-between
-  </title>
-</head>
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="feedback.css">
   <title>Feedback Form</title>
 </head>
 
