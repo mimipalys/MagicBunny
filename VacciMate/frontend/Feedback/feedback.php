@@ -1,27 +1,35 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-  <link rel="stylesheet" type="text/css" href="feedback.css">
-
-  <title>
-          Using display: flex and 
-          justify-content: space-between
-  </title>
-</head>
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="feedback.css">
   <title>Feedback Form</title>
 </head>
 
 <body>
   <h1>Feedback Form- Side Effects Post Vaccination</h1>
 
+ <?php
+  session_start(); // Start the session
+
+  // Database connection and query to fetch the vaccine name based on the session VaccineID
+  $servername = "localhost";
+  $username = "root";
+  $password = "root";
+  $dbname = "VacciMate";
+
+  $conn = new mysqli($servername, $username, $password, $dbname);
+
+  // Check connection
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  }
+  ?>
+
   <form action="submit_feedback.php" method="POST">
+  <input type="hidden" name="VaccineID" value="<?php echo isset($_SESSION['VaccineID']) ? $_SESSION['VaccineID'] : ''; ?>">
+  
     <label for="question1">1. Did you experience any side effects after vaccination?</label>
     <input type="radio" name="question1" value="Yes"> Yes
     <input type="radio" name="question1" value="No"> No

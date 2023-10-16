@@ -19,7 +19,7 @@
 
     <p>We appreciate your feedback regarding your vaccination experience. Your input helps us improve our services.</p>
 
-    <p><a href="feedback.html">Go back to the feedback form</a></p>
+    <p><a href="feedback.php">Go back to the feedback form</a></p>
 </body>
 
 </html>
