@@ -85,7 +85,7 @@ if (isset($_GET['token']) && isset($_GET['mail']) && isset($_POST['NewPassword']
                             $stmtRemoveToken->bind_param("s", $email);
                             $stmtRemoveToken->execute(); 
                         }
-                        echo '<div id="div_message" class="pop">Password was changed succesfully <br><br><a href= ' . $login_link . '>Click ME to go to Login Page</a></div>';
+                        echo '<div id="div_message" class="pop">Password was changed succesfully <br><br><a class= "linkLogin" href= ' . $login_link . '>Go to Login Page</a></div>';
 
                     } else {
                         // Handle the case where the update failed

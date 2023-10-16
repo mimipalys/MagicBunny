@@ -64,12 +64,12 @@ include('../../links.php');
             vaccineItem += '<h4> Dose Number' + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp ' + 'Administration Date' + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + 'Dose Expiration Date</h4>';
             vaccineItem += '<p> &nbsp &nbsp &nbsp' + vaccine['DoseNumber'] + '  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + vaccine['AdministrationDate'] + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + vaccine['DoseExpirationDate'] + '</p>' ;
             
-            // Add a "Feedback" button dynamically for each vaccine
-            vaccineItem += '<a href="../../Feedback/feedback.html" class="register-vaccine-button"> Report side effects</a>';
-            // Append the list item to the unordered list
-            vaccineItem += '</br>';
+            // Assuming vaccineItem is the container element
+            vaccineItem += '<form action="../../Feedback/feedback.php" method="post" class="register-vaccine-form">';
+            vaccineItem += '<button class="register-vaccine-button" onclick="Feedback(event)">Report Side Effect</button>';
+    
             vaccineItem += '</li>';
-            vaccineList.append(vaccineItem);
+            vaccineList.append(vaccineItem);  
           });
 
         
@@ -124,7 +124,7 @@ include('../../links.php');
 
           // Append the unordered list to the container
           upcoming_refills_box.append(refillList);
-        },
+        },  
         error: function(xhr, status, error) {
           // Handle errors here
           console.error('AJAX Error: ' + status + ' - ' + error);

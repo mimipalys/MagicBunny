@@ -24,3 +24,22 @@
 .formbtn{
     margin-top: 50px;
 }
+
+.linkLogin{
+    background-color: rgb(198, 25, 51);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 25px;
+    text-decoration: none;
+    margin-bottom: 20px; /* Adjust the margin-bottom value as needed */
+}
+
+.linkLogin:hover {
+  /*background-color: rgb(198, 25, 51);  Button background color on hover */
+  border: 2px solid #0056b3; /* Border color on hover 
+  /*color: white; Text color on hover */
+  background-color: rgb(198, 25, 51);
+}
