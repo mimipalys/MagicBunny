@@ -29,11 +29,8 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 
 
 ?>
-
-    
-    
     <!-- Countries Section -->
-    <section>
+    <section class = 'vaccine_description1'>
         <h1>Countries</h1>
         <?php
         // Database connection parameters
