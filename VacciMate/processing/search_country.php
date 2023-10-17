@@ -82,7 +82,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                 // Loop through the target words and highlight them in the description
                 foreach ($targetWords as $word) {
                     // Create a link to the search_vaccine page with the search_query parameter
-                    $vaccineLink = "http://localhost/processing/search_vaccine.php?search_query=" . urlencode($word);
+                    $vaccineLink = "http://localhost:8888/processing/search_vaccine/search_vaccine.php?search_query=" . urlencode($word);
                     // Perform a case-insensitive search and replace with the link
                     $description = preg_replace(
                         "/\b" . preg_quote($word, '/') . "\b/i",
