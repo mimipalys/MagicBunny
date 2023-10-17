@@ -81,7 +81,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
             $stmt->close();
             // Create button that takes you back
             echo '<div  class = "show-all-button">';
-            echo '<a id = "GFG" href = "http://localhost:8888/processing/search_vaccine.php" class="show-all-button"> Show all vaccines</a>';
+            echo '<a id = "GFG" href = "http://localhost:8888/processing/search_vaccine/search_vaccine.php" class="show-all-button"> Show all vaccines</a>';
             echo '</div>';
 
         }   else {
@@ -179,9 +179,13 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                         // same thing as before but wihtout information about the person
                         echo '<div>';
                         echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
-                        echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox">';
+                        echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox"';
+
+                        if (isset($_GET['search_query'])) {
+                            echo 'checked="checked"';
+                        }   
+                        echo '>';
                         echo '<p class="vaccine_description1">'. "Vaccine Name: ".  $row['VaccineName']  ."<br><br>". "Related Disease: " . $row['RelatedDisease']."<br><br>". "Description: " .$row['Description'] . '</p>';
-                        
                         echo '</div>';
                     }
                 }
