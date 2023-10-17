@@ -144,8 +144,12 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                         echo '<div>';
                         //create the label for the vaccine name that is also a cliclable button
                         echo '<label for="show-description-' . $row['VaccineName'] . '" class="show-description-button">' . $row['VaccineName'] . '</label>';
-                        echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox">';
-
+                        echo '<input type="checkbox" id="show-description-' . $row['VaccineName'] . '" class="show-description-checkbox"';
+                        // Check if the current row matches the search query and set the 'checked' attribute
+                        if (isset($_GET['search_query'])) {
+                            echo 'checked="checked"';
+                        }   
+                        echo '>';
                         //Create the collapseble information box
                         echo '<section class ="vaccine_description1">';
                         echo '<p>' . "Vaccine Name: " .  $row['VaccineName']  . "<br><br>". "Related Disease: " . $row['RelatedDisease']."<br><br>". "Description: " .$row['Description'] ."<br><br>". $already_vaccinated .'</p>';
