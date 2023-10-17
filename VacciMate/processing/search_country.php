@@ -6,7 +6,7 @@
 
 
 <head>
-    <link rel="stylesheet" type="text/css" href="<?php echo $styles_doc ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo $continents_style ?>">
     <link rel="stylesheet" type="text/css" href="http://localhost/processing/country_page.css">
     <title>
           Using display: flex and 
@@ -54,7 +54,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
         }
 
         // SQL query to fetch countries and descriptions for the selected continent
-        $sql = "SELECT Name, description FROM Country WHERE Name = '$selectedCountry'";
+        $sql = "SELECT Name, description FROM Country WHERE Name LIKE '%$selectedCountry%'";
 
         // Execute the query
         $result = $link->query($sql);
