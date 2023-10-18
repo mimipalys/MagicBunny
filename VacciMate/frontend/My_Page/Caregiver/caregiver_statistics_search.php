@@ -21,7 +21,8 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
 
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="borderstyle.css">
+    <link rel="stylesheet" type="text/css" href="../../borderstyle.css">
+    <link rel="stylesheet" type="text/css" href="mypages_caregiver.css">
     <title>Register Vaccine Dose</title>
 </head>
 
@@ -34,12 +35,22 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
 
             width: 30%; /* Adjust the width as needed */
             float: right;
+            /* text-align: center; */
             background-color: #ffffff;
+            border-radius: 20px; /* Adjust the radius as per your preference */
         }
+
+        .content h2 {
+  padding: 20px; /* Add more padding as needed */
+  margin: 0; /* Remove default margin for <h1> */
+        }
+  .content p {
+  padding: 20px; /* Add more padding as needed */
+  margin: 0; /* Remove default margin for <h1> */
+}
     </style>
 
 <?php include $header_my_page_caregiver; ?>
-
 
 <?php
 //create an associative list with vaccine names and id 
@@ -182,9 +193,11 @@ while ($row_statistics = $result_statics -> fetch_assoc()){
   }
 }
 
+
+
 //shows the additional statistics
 echo '<div class = content>';
-echo '<h1> Additional side effects </h1>';
+echo '<h2> Additional side effects </h2>';
 foreach ($written_stat as $texts){
   echo '<p>' .$texts. '<br><br> </p>';
 }

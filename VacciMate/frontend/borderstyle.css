@@ -390,3 +390,22 @@ margin: auto;
 .footwrap img{
   width: 25%;
 }
+
+.contact-box {
+  width: 100%; /* Set width to 100% for responsiveness */
+  height: 50%;
+  padding: 40px;
+  margin: 20px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  float: right;
+  text-align: left;
+}
+
+
+.content {
+  border-radius: 10px; /* Adjust the radius as per your preference */
+  padding: 20px; /* Add padding for better visual appeal */
+  background-color: #f0f0f0; /* Set background color as desired */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+}
