@@ -106,7 +106,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 <main>
     <div class="bottomheader">
         <?php
-        echo '<h1>Sgin-In</h1>
+        echo '<h1>Sign-In</h1>
         <br>
         <p>Please fill out the relevant information</p>';
         // echo '<a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img3 . '" alt="test_pic"> </a>';
