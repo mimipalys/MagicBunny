@@ -30,8 +30,18 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 ?>
 
  <body>
+<main>
+ <div class="bottomheader">
+     <?php
+     echo '<h1>Privacy & Policy</h1>
+        <br>
+        <p>Read about our security measures and GDPR Compliance</p>';
+     // echo '<a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img3 . '" alt="test_pic"> </a>';
+     ?>
+ </div>
+
  <div class = "bodydiv">
-   <div class = "privacy_policy">
+   <div class = "privacy_policy" style="margin: 0 auto;">
      <h2>Privacy policy for VacciMate visitors </h2>
      <p>VacciMate knows that personal integrity is important for our customers, parterners and website visitors. The purpose of this policy is to clearly and transparently describe how we process your personal data when visiting our website, so that you can feel secure that we handle your personal data in a legal and secure manner. We process your personal data in accordance with the EU General Data Protection Regulation (GDPR). </p>
      <h3> What data do we collect?</h3>
@@ -76,8 +86,8 @@ Functionality – VacciMate uses these cookies so that we recognize you on our w
      <p>Or Email to us: vaccimate0@gmail.com</p>
    </div>
   </div>
-
- </body>
+</main>
+ <br>
 
 </body>
 <?php 
