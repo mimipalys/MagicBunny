@@ -27,6 +27,10 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
 </head>
 
     <style>
+        main{
+            margin-bottom: 20%;
+        }
+
         .chart-container {
             width: 60%; /* Adjust the width as needed */
             float: left;
@@ -50,8 +54,11 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
 }
         .stats{
             margin: 2.5%;
+            width: 160%;
         }
+
     </style>
+
 
 <?php include $header_my_page_caregiver; ?>
 
@@ -101,6 +108,7 @@ $selectedType = isset($_POST['selectedType']) ? $_POST['selectedType'] : 'bar'; 
     // echo '<a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img3 . '" alt="test_pic"> </a>';
     ?>
 </div>
+<main>
 <div class="stats">
 <?php
 //create drop down menue to choose whichi vaccine to look at. 
@@ -227,7 +235,7 @@ echo '</div>';
     <canvas id="myChart"></canvas>
   </div>
 </div>
-
+</main>
 <script>
     // JavaScript code for creating the chart
     var ctx = document.getElementById('myChart').getContext('2d');
