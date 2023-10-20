@@ -170,7 +170,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                             echo '<form action="insert_saved.php?varabel=34234" method="post">';
                             echo '<input type="hidden" name ="VaccineID" value='.$row['VaccineID'].'>';
                             echo '<input type="hidden" name ="PatientID" value='.$patientID.'>';
-                            echo '<input type="submit" class="button" value="Save this vaccine" />';
+                            echo '<input class="register-vaccine-button" type="submit" class="button" value="Save this vaccine" />';
                             echo '</form>';
                         }
                         
