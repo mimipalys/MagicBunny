@@ -29,6 +29,15 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
 
 <main>
 
+    <div class="bottomheader">
+        <?php
+        echo '<h1>Register Dose</h1>
+        <br>
+        <p>You can register your Patients vaccine dose</p>';
+        // echo '<a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img3 . '" alt="test_pic"> </a>';
+        ?>
+    </div>
+
     <div class="registervaccinecontainer">
         <h1 class="register-vaccine-title">Register Vaccine Dose</h1>
         <form action="../../../processing/insert_vaccine.php" method="post">

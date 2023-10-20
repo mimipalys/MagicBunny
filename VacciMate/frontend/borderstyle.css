@@ -10,7 +10,7 @@ body {
 header{
   margin-right: 15px;
   margin-top: 25px;
-  margin-bottom: 30px;
+
 }
 header nav a{
   text-decoration: none;
@@ -53,12 +53,16 @@ header nav a:hover{
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  padding: 2% 0 2% 0;
+  /*padding: 2% 0 2% 0;*/
   text-align: center;
   border-radius: 10px;
   margin-left: 1.5%;
   margin-right: 1.5%;
-  width: 97%;
+  width: 96%;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .bottomheader h1{
@@ -76,12 +80,9 @@ header nav a:hover{
 .bottomheader p{
   background: none;
   display: inline-block;
-  margin-left: 15px;
   color: #999;
-  margin-top: 70px;
-  margin-left: -16.5%;
-  float: left;
-  
+  margin-left: 25px;
+  margin-top: 0;
 }
 
 .bottomheader img{
@@ -174,13 +175,13 @@ section:hover{
 .show-description-button {
   text-align: center;
   border: none;
-  padding: auto;
   font-size: 20px;
   cursor: pointer;
   border-radius: 10px;
   margin: auto; /* Add some spacing between buttons */
   display: block
 }
+
 
 
 /* styles of the vaccine descriptions in seach vaccine*/
@@ -232,10 +233,11 @@ section:hover{
   padding: 20px;
   text-align: left;
   margin: 20px;
-  width: 90%;
+
   height: auto; /* Set a fixed height or adjust as needed */
   float: none;
   border-radius: 20px;
+  width: 93%;
 }
 
 .vaccinerecord:hover {
@@ -369,9 +371,26 @@ margin: auto;
     margin-bottom: 20px; /* Adjust the margin-bottom value as needed */
     height: auto;
   }
+.register-vaccine-button2 {
+  border: 1px solid rgb(198, 25, 51);
+  background-color: #fff;
+  color: rgb(198, 25, 51);
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 25px;
+  text-decoration: none;
+  margin-bottom: 20px; /* Adjust the margin-bottom value as needed */
+  height: auto;
+}
 
 .register-vaccine-button:hover {
   background-color: color(display-p3 0.61 0.198 0.23);
+}
+
+.register-vaccine-button2:hover {
+  background-color: rgb(198, 25, 51);
+  color: #fff;
 }
 
 /* styles of the privacy policy*/
@@ -402,5 +421,45 @@ margin: auto;
   text-align: left;
 }
 
+.dropdown{
+  display: inline-block;
+}
 
+/* Style for the dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  margin-left: -36px;
+}
+
+/* Style for links in the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  margin: 0;
+}
+
+/* Change color of links on hover */
+.dropdown-content a:hover {
+  background-color: rgb(198, 25, 51);
+  color: white;
+  transition: 0.2s ease-in;
+  border-radius: 0px;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.triangle {
+  font-size: 0.8em;
+  vertical-align: middle;
+  margin-left: 5px;
+}
 

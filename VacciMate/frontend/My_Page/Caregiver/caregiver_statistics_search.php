@@ -17,7 +17,7 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
 
 
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/html">
 
 <head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -48,6 +48,9 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
   padding: 20px; /* Add more padding as needed */
   margin: 0; /* Remove default margin for <h1> */
 }
+        .stats{
+            margin: 2.5%;
+        }
     </style>
 
 <?php include $header_my_page_caregiver; ?>
@@ -89,7 +92,17 @@ $chartTypeOptions = [
 
 //creates a selected variable and sets default
 $selectedType = isset($_POST['selectedType']) ? $_POST['selectedType'] : 'bar'; // Default to 'bar'
-
+?>
+<div class="bottomheader">
+    <?php
+    echo '<h1>Statistics</h1>
+        <br>
+        <p>See the reported side effects by the patient</p>';
+    // echo '<a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img3 . '" alt="test_pic"> </a>';
+    ?>
+</div>
+<div class="stats">
+<?php
 //create drop down menue to choose whichi vaccine to look at. 
 echo '<h1>View vaccine side effects statistics</h1>';
 echo '<form method="post">';
@@ -213,7 +226,7 @@ echo '</div>';
     ?>
     <canvas id="myChart"></canvas>
   </div>
-
+</div>
 
 <script>
     // JavaScript code for creating the chart
@@ -270,6 +283,10 @@ echo '</div>';
     // Initially, call the updateChart function to display the chart
     updateChart();
 </script>
+
+<?php
+include $footer;
+?>
 </html>
 
 

@@ -26,6 +26,15 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 }
 
 ?>
+
+<div class="bottomheader">
+    <?php
+    echo '<h1>Travle</h1>
+        <br>
+        <p>look at your next destination Vaccine requirments/recomendation</p>';
+    // echo '<a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img3 . '" alt="test_pic"> </a>';
+    ?>
+</div>
     
     <!-- Travel Destinations Section -->
     <section class="continent_page">

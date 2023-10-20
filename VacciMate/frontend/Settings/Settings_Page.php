@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< Updated upstream
-=======
 
 <?php
   include('../links.php');
 ?>
 
->>>>>>> Stashed changes
+
 <head>
     <meta charset="UTF-8">
     <title>Settings</title>
@@ -60,7 +58,14 @@
     }
     ?>
 
-    <h1>Settings</h1>
+    <div class="bottomheader">
+        <?php
+        echo '<h1>Settings</h1>
+        <br>
+        <p>Choose your preferences</p>';
+        // echo '<a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img3 . '" alt="test_pic"> </a>';
+        ?>
+    </div>
 
     <main>
         <div class="vaccinerecord">

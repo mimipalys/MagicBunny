@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="feedback.css">
-  <title>Feedback Form</title>
+    <link rel="stylesheet" type="text/css" href="../borderstyle.css">
+    <title>Feedback Form</title>
+
 </head>
 
 <body>
@@ -51,6 +53,7 @@
   ?>
 
   <form action="submit_feedback.php" method="POST">
+      <a href="../My_Page/Patient/view_vaccine_history.php" style='font-size:50px; font-family: Zapf Dingbats; text-decoration: none; text-align: left; color: black;'' >&#8592;</a>
   <input type="hidden" name="VaccineID" value="<?php echo $VaccineID; ?>">
   
     <label for="question1">1. Did you experience any side effects after vaccination?</label>

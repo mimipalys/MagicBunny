@@ -84,7 +84,16 @@ $stmt = $link->prepare($sql);
 $stmt->bind_param("s", $patientID);
 $saved_vaccines = $stmt->execute();
 $saved_vaccines = $stmt->get_result();
-
+?>
+<div class="bottomheader">
+    <?php
+    echo '<h1>Saved vaccines</h1>
+        <br>
+        <p>Here you can view all the saved vacines</p>';
+    // echo '<a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img3 . '" alt="test_pic"> </a>';
+    ?>
+</div>
+<?php
 // create a list for saved vacciens
 echo '<section class="vaccinerecord">';
 echo '<h1>Saved vaccines</h1>';

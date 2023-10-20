@@ -104,9 +104,16 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 
 ?>
 <main>
+    <div class="bottomheader">
+        <?php
+        echo '<h1>Sgin-In</h1>
+        <br>
+        <p>Please fill out the relevant information</p>';
+        // echo '<a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img3 . '" alt="test_pic"> </a>';
+        ?>
+    </div>
 
-
-    <div class="loginbox">
+    <div class="registervaccinecontainer">
 
       <!-- only if a GET value changed is passed with the URL-->
       <?php
@@ -114,20 +121,22 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
         echo "<br> Please login before viewing your account settings";
         }
       ?>
-        <h1>Login</h1>
         <div id="administratorForm" style="display:none;">
-            <h2>Administrator</h2>
+            <h1>Administrator</h1>
+            <br>
         <form action="../../processing/login_caregiver.php" method="POST">
             <div id="k">
-            <label for="loginUsername">Employee ID:</label>
-            <input type="text" id="loginUsername" name="ID" required>
+            <label class="register-vaccine-label" for="loginUsername">Employee ID:</label>
+            <input class="register-vaccine-input" type="text" id="loginUsername" name="ID" required>
             </div>
             <div id="k">
-            <label for="loginPassword">Password:</label>
-            <input type="password" id="loginPassword" name="password" required>
+            <label class="register-vaccine-label" for="loginPassword">Password:</label>
+            <input class="register-vaccine-input" type="password" id="loginPassword" name="password" required>
             </div>
-                <label for="clinicID">Clinic:</label>
-                <select id="clinicID" name="clinicID">
+
+
+                <label class="register-vaccine-label" for="clinicID">Clinic:</label>
+                <select class="register-vaccine-input" id="clinicID" name="clinicID">
                     <option value="1">Stadsvårdkliniken</option>
                     <option value="2">Hälsocentralen</option>
                     <option value="3">Eklundskliniken</option>
@@ -136,28 +145,30 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                 </select>
             <br>
             <br>
-            <div id="submit" >
-            <input type="submit" name="login" value="Login">
-            <button onclick="showPopup()">Forgot password</button>
+            <div>
+            <input class="register-vaccine-button" type="submit" name="login" value="Login">
+
+            <button class="register-vaccine-button" onclick="showPopup()">Forgot password</button>
             </div>
         </form>
 
         </div>
 
         <div id="clientForm">
-            <h2>Client</h2>
+            <h1>Client</h1>
+            <br>
             <form action="../../processing/login.php" method="POST">
                 <div id="k">
-                    <label for="loginUsername">Social Security Number:</label>
-                    <input type="text" id="loginUsername" name="ID" required>
+                    <label class="register-vaccine-label" for="loginUsername">Social Security Number:</label>
+                    <input class="register-vaccine-input" type="text" id="loginUsername" name="ID" required>
                 </div>
                 <div id="k">
-                    <label for="loginPassword">Password:</label>
-                    <input type="password" id="loginPassword" name="password" required>
+                    <label class="register-vaccine-label" for="loginPassword">Password:</label>
+                    <input class="register-vaccine-input" type="password" id="loginPassword" name="password" required>
                 </div>
                 <div id="formbtn" >
-                    <input type="submit" name="login" value="Login">
-                    <button onclick="showPopup()">Forgot password</button>
+                    <input class="register-vaccine-button" type="submit" name="login" value="Login">
+                    <button class="register-vaccine-button" onclick="showPopup()">Forgot password</button>
                 </div>
             </form>
 
@@ -185,8 +196,8 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 
         <div class="formbtn">
 
-            <button onclick="showAdministratorForm()">Administrator</button>
-            <button onclick="showClientForm()">Client</button>
+            <button class="register-vaccine-button2" onclick="showAdministratorForm()">Administrator</button>
+            <button class="register-vaccine-button2" onclick="showClientForm()">Client</button>
         </div>
 
         

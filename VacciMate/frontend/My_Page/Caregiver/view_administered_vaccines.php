@@ -24,7 +24,18 @@ if (!isset($_SESSION['user_id']) or $_SESSION['role'] != "caregiver" ) {
 
 <?php include $header_my_page_caregiver; ?>
 
+<div class="bottomheader">
+    <?php
+    echo '<h1>Administraions history</h1>
+        <br>
+        <p>You can view administrated Previous vaccines</p>';
+    // echo '<a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img3 . '" alt="test_pic"> </a>';
+    ?>
+</div>
+
 <main>
+
+
 
 <div class="administered_doses_container">
     <h1>Administered Doses</h1>

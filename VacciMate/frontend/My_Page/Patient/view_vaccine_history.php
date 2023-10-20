@@ -28,6 +28,15 @@ include('../../links.php');
 </head>
 
 <?php include $header_my_page_patient; ?>
+
+    <div class="bottomheader">
+        <?php
+        echo '<h1>My vaccines</h1>
+        <br>
+        <p>Here you can veiw your next vaccine dose, and information about it</p>';
+        // echo '<a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img3 . '" alt="test_pic"> </a>';
+        ?>
+    </div>
 <main>
 <div class="vaccinerecord">
   <h1>Vaccine Dose Information</h1>
@@ -65,7 +74,7 @@ include('../../links.php');
             vaccineItem += '<p> &nbsp &nbsp &nbsp' + vaccine['DoseNumber'] + '  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + vaccine['AdministrationDate'] + '&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + vaccine['DoseExpirationDate'] + '</p>' ;
             
             // Assuming vaccineItem is the container element
-            vaccineItem += '<form action="../../Feedback/feedback.php" method="post"> <input type="hidden" name="Vaccine" value="' + vaccine['VaccineName'] + '"> <input type="submit" class="register-vaccine-form" value="Report side effect"/></form>';
+            vaccineItem += '<form action="../../Feedback/feedback.php" method="post"> <input type="hidden" name="Vaccine" value="' + vaccine['VaccineName'] + '"> <input type="submit" class="register-vaccine-button" class="register-vaccine-form" value="Report side effect"/></form>';
             vaccineList.append(vaccineItem);  
           });
 

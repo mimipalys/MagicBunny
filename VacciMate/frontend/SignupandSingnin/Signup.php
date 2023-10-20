@@ -39,30 +39,40 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 ?>
 <main>
 
-    <div class="loginbox">
-        <h1>SignUp</h1>
+    <div class="bottomheader">
+        <?php
+        echo '<h1>Sign-Up</h1>
+        <br>
+        <p>Please fill out the relevant information</p>';
+        // echo '<a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img3 . '" alt="test_pic"> </a>';
+        ?>
+    </div>
+
+    <div class="registervaccinecontainer">
+
 
         <!-- User Registration Form -->
 
 
         <div id="administratorForm" style="display:none;">
             <!-- Administrator Form Elements -->
-            <h2>Administrator</h2>
+            <h1>Administrator</h1>
+            <br>
             <form action= "<?php echo $register_caregiver; ?>" method="POST">
-                <label for="Employee ID">ID:</label>
-                <input type="int" id="ID" name="ID" required>
+                <label class="register-vaccine-label" for="Employee ID">ID:</label>
+                <input class="register-vaccine-input" type="int" id="ID" name="ID" required>
                 <br>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <label class="register-vaccine-label" for="password">Password:</label>
+                <input class="register-vaccine-input" type="password" id="password" name="password" required>
                 <br>
-                <label for="fname">First Name:</label>
-                <input type="text" id="fname" name="fname" required>
+                <label class="register-vaccine-label" for="fname">First Name:</label>
+                <input class="register-vaccine-input" type="text" id="fname" name="fname" required>
                 <br>
-                <label for="lname">Last Name:</label>
-                <input type="text" id="lname" name="lname" required>
+                <label class="register-vaccine-label" for="lname">Last Name:</label>
+                <input class="register-vaccine-input" type="text" id="lname" name="lname" required>
                 <br>
-                <label for="clinicID">Clinic:</label>
-                <select id="clinicID" name="clinicID">
+                <label class="register-vaccine-label" for="clinicID">Clinic:</label>
+                <select class="register-vaccine-input" id="clinicID" name="clinicID">
                     <option value="1">Stadsvårdkliniken</option>
                     <option value="2">Hälsocentralen</option>
                     <option value="3">Eklundskliniken</option>
@@ -71,51 +81,53 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
                 </select>
 
                 <br>
-                <input type="checkbox" id="privacy" name="privacy" value="gdpr">
-                <label for="privacy"> I accept the privacy and policy <a href="http://localhost:8888/frontend/Non_connected_pages/About_Us/privacy_policy.php"style="color: black; font-weight: bold; text-decoration: none;"> Click here to view Privacy Policy</a> </label><br>
                 <br>
-                <input type="submit" name="register" value="Register">
+                <input type="checkbox" id="privacy" name="privacy" value="gdpr">
+                <label for="privacy"> I accept the privacy and policy <a style="color: rgb(198, 25, 51);" href="http://localhost:8888/frontend/Non_connected_pages/About_Us/privacy_policy.php"style="color: black; font-weight: bold; text-decoration: none;"> Click here to view Privacy Policy</a> </label><br>
+                <br>
+                <input class="register-vaccine-button" type="submit" name="register" value="Register">
             </form>
         </div>
 
         <div id="clientForm">
             <!-- Client Form Elements -->
-            <h2>Client</h2>
+            <h1>Client</h1>
+            <br>
             <form action="<?php echo $register_patient; ?>" method="POST">
-                <label for="ID">Social Security Number:</label>
-                <input type="int" id="ID" name="ID" required>
+                <label class="register-vaccine-label" for="ID">Social Security Number:</label>
+                <input class="register-vaccine-input" type="int" id="ID" name="ID" required>
                 <br>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <label class="register-vaccine-label" for="password">Password:</label>
+                <input class="register-vaccine-input" type="password" id="password" name="password" required>
                 <br>
-                <label for="fname">First Name:</label>
-                <input type="text" id="fname" name="fname" required>
+                <label class="register-vaccine-label" for="fname">First Name:</label>
+                <input class="register-vaccine-input" type="text" id="fname" name="fname" required>
                 <br>
-                <label for="lname">Last Name:</label>
-                <input type="text" id="lname" name="lname" required>
+                <label class="register-vaccine-label" for="lname">Last Name:</label>
+                <input class="register-vaccine-input" type="text" id="lname" name="lname" required>
                 <br>
-                <label for="bday">Date of Birth:</label>
-                <input type="date" id="bday" name="bday">
+                <label class="register-vaccine-label" for="bday">Date of Birth:</label>
+                <input class="register-vaccine-input" type="date" id="bday" name="bday">
                 <br>
-                <label for="mail">Email Address:</label>
-                <input type="email" id="mail" name="mail">
+                <label class="register-vaccine-label" for="mail">Email Address:</label>
+                <input class="register-vaccine-input" type="email" id="mail" name="mail">
                 <br>
-                <label for="phone">Phone Number:</label>
-                <input type="text" id="phone" name="phone">
+                <label class="register-vaccine-label" for="phone">Phone Number:</label>
+                <input class="register-vaccine-input" type="text" id="phone" name="phone">
                 <br>
-                <label for="address">Address:</label>
-                <input type="text" id="address" name="address">
+                <label class="register-vaccine-label" for="address">Address:</label>
+                <input class="register-vaccine-input" type="text" id="address" name="address">
                 <br>
                 <input type="checkbox" id="privacy" name="privacy" value="gdpr">
-                <label for="privacy"> I accept the privacy and policy <a href="http://localhost:8888/frontend/Non_connected_pages/About_Us/privacy_policy.php"style="color: black; font-weight: bold; text-decoration: none;"> Click here to view Privacy Policy</a> </label><br>
+                <label for="privacy"> I accept the privacy and policy <a style="color: rgb(198, 25, 51);" href="http://localhost:8888/frontend/Non_connected_pages/About_Us/privacy_policy.php"style="color: black; font-weight: bold; text-decoration: none;"> Click here to view Privacy Policy</a> </label><br>
                 <br>
-                <input type="submit" name="register" value="Register">
+                <input class="register-vaccine-button" type="submit" name="register" value="Register">
             </form>
         </div>
 
         <div class="formbtn">
-        <button onclick="showAdministratorForm()">Administrator</button>
-        <button onclick="showClientForm()">Client</button>
+        <button class="register-vaccine-button2" onclick="showAdministratorForm()">Administrator</button>
+        <button class="register-vaccine-button2" onclick="showClientForm()">Client</button>
         </div>
 
     </div>

@@ -29,6 +29,14 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 }
 
 ?>
+<div class="bottomheader">
+    <?php
+    echo '<h1>Vaccine Information</h1>
+        <br>
+        <p>Get to know more about each vaccine</p>';
+    // echo '<a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img3 . '" alt="test_pic"> </a>';
+    ?>
+</div>
 </html>
 
 

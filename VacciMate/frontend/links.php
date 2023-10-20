@@ -17,7 +17,7 @@ $logout = $protocol . $host . '/processing/logout.php';
 $my_page_caregiver = $protocol . $host . '/frontend/My_Page/Caregiver/register_vaccine.php';
 $logo_img = '/images/VacciMate.png';
 $logo_img2 = '/images/vacci.png';
-$logo_img1177 = '/images/1177.png';
+$logo_img3 = '/images/Mate.png';
 
 
 //Secound header

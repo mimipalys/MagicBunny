@@ -25,11 +25,17 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 }
 
 ?>
-
+<div class="bottomheader">
+    <?php
+    echo '<h1>countries</h1>
+        <br>
+        <p>Travel info</p>';
+    // echo '<a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img3 . '" alt="test_pic"> </a>';
+    ?>
+</div>
 <!-- Countries Section -->
 <section>
     <a href="continents.php" style='font-size:50px; font-family: Zapf Dingbats;'>&#8592;</a>
-    <h1>Countries</h1>
     <?php
     // Database connection parameters
     $servername = "localhost";

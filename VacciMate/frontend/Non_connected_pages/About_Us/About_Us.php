@@ -30,7 +30,14 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 
 
  <body>
- <h1> About us </h1>
+ <div class="bottomheader">
+     <?php
+     echo '<h1>About Us</h1>
+        <br>
+        <p>Our little family</p>';
+     // echo '<a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img3 . '" alt="test_pic"> </a>';
+     ?>
+ </div>
  <div class = "bodydiv">
    <div class = "newscolumns_Wide">
      <h2> Our Goal </h2>

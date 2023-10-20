@@ -28,6 +28,15 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 ?>
 
 <main>
+    <div class="bottomheader">
+        <?php
+        echo '<h1>Home Page</h1>
+        <br>
+        <p>Welcome to Vacimate</p>';
+        // echo '<a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img3 . '" alt="test_pic"> </a>';
+        ?>
+    </div>
+
  <div class="bodydiv">
      <section>
     <?php
@@ -67,7 +76,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
       <!-- Cookie popup  -->
     <div id="cookiePopup" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background-color: rgba(102,102,102,0.75); color: white; text-align: center; padding: 30px;">
         <p>We use cookies to improve your browsing experience. Click "Accept" to agree.</p>
-        <button id="acceptCookieButton">Accept</button>
+        <button class="register-vaccine-button" id="acceptCookieButton">Accept</button>
     </div>
 
     <script>
