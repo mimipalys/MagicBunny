@@ -22,6 +22,7 @@
             echo '<a  href="' . $aboutUs_link . '"  class="costumbutton1">About Us</a>';
             echo '<a href="' . $travel_link . '" class="costumbutton1">Travel Information</a>';
             echo '<a  href="' . $search_link . '"  class="costumbutton1">Vaccine Information</a>';
+            echo '<a  href="' . $setting_link . '"  class="costumbutton1">Settings</a>';
             echo '<a  href="' . $logout . '"  class="costumbutton1">Logout</a>';
             ?>
         </nav>
