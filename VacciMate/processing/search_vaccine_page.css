@@ -26,14 +26,22 @@ border-radius: 4px;
 font-size: 16px;
 }
 
+
 .search-form input[type="submit"] {
-background-color: #4CAF50;
-color: white;
-border: none;
-border-radius: 4px;
-padding: 10px 20px;
-cursor: pointer;
-font-size: 16px;
+    border: 1px solid rgb(198, 25, 51);
+    background-color: #fff;
+    color: rgb(198, 25, 51);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 25px;
+    text-decoration: none;
+    margin-bottom: 20px; /* Adjust the margin-bottom value as needed */
+    height: auto;
+}
+.search-form input[type="submit"]:hover {
+    background-color: rgb(198, 25, 51);
+    color: #fff;
 }
 
 /* Style for the description initially hidden */
@@ -126,16 +134,24 @@ Height: auto;
 border-radius:20px;
 }
 
-.save_vaccine_button input[type="submit"] {
-background-color: #4CAF50;
-color: white;
-border: none;
-border-radius: 4px;
-padding: 10px 20px;
-cursor: pointer;
-font-size: 16px;   
-
+.
+.search-form input[type="submit"] {
+    border: 1px solid rgb(198, 25, 51);
+    background-color: #fff;
+    color: rgb(198, 25, 51);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 25px;
+    text-decoration: none;
+    margin-bottom: 20px; /* Adjust the margin-bottom value as needed */
+    height: auto;
 }
+.search-form input[type="submit"]:hover {
+    background-color: rgb(198, 25, 51);
+    color: #fff;
+}
+
 
 .container {
     display: flex;

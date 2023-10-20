@@ -29,7 +29,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
 
 <div class="bottomheader">
     <?php
-    echo '<h1>Travle</h1>
+    echo '<h1>Travel</h1>
         <br>
         <p>look at your next destination Vaccine requirments/recomendation</p>';
     // echo '<a id="GFG"  href="' . $homepage_link . '"> <img src="' . $logo_img3 . '" alt="test_pic"> </a>';
@@ -41,7 +41,7 @@ if (isset($_SESSION['user_id']) and $_SESSION['role'] == "patient") {
         <!-- Search Form -->
         <form action="search_country.php" method="get" class="search-form">
             <input type="text" name="country" id="country" placeholder="Search for your destination here">
-            <input type="submit" value="Search">
+            <input class="btnform" type="submit" value="Search">
         </form>
         <h1 class="continent_title">Travel Destinations</h1>
         <p class="continent_description">Travelling abroad but unsure about possible vaccinations you may need? Simply type in the country or continent you are visiting to find out all you need to know and recommended vaccines.</p>

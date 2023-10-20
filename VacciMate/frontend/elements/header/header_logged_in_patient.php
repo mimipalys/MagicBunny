@@ -11,7 +11,7 @@
             // echo '<a  href="' . $my_page . '" class="costumbutton1">My Pages</a>';
 
              echo'<div class="dropdown" >
-                 <a class="costumbutton1" href="#">My Pages <span class="triangle"> &#x25BC; </span> </a>
+                 <a class="costumbutton1" href="#">My Pages<span class="triangle">&#x25BC; </span> </a>
                  <div class="dropdown-content" >
                      <a href="' . $my_page . '" >My Doses and Refills</a>
                      <a  href="' . $savedvaccine_link . '"  class="costumbutton1">Saved Vaccines</a>

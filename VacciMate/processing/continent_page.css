@@ -10,14 +10,21 @@
   font-size: 16px;
 }
 
-.search-form input[type="submit"] {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
+.btnform {
+  border: 1px solid rgb(198, 25, 51);
+  background-color: #fff;
+  color: rgb(198, 25, 51);
   padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  margin-top: 25px;
+  text-decoration: none;
+  margin-bottom: 20px; /* Adjust the margin-bottom value as needed */
+  height: auto;
+}
+.btnform:hover {
+  background-color: rgb(198, 25, 51);
+  color: #fff;
 }
 
 
